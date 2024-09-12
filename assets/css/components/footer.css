@@ -1,0 +1,43 @@
+footer {
+    background-color: var(--navy);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+
+    address {        
+        h2 {
+            color: var(--cerulean);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        ul {
+            li {
+                font-weight: 300;
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    a {
+        color: var(--cerulean);
+        font-weight: 600;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    nav {
+        a {
+            text-transform: uppercase;
+        }
+    }
+
+    article {
+        svg {
+            path {
+                fill: var(--cerulean);
+            }
+        }
+    }
+}
