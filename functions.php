@@ -16,8 +16,10 @@ function zappecas_nav_menus(){
 	 * @link http://codex.wordpress.org/Function_Reference/register_nav_menu
 	 */
 	register_nav_menu( 'main_menu', 'Menu do cabeçalho.' );
-	register_nav_menu( 'footer', 'Menu do cabeçalho' );
+	register_nav_menu( 'footer', 'Menu do rodape' );
 }
+
+
 
 // Show menu panel in admin
 add_action('init', 'zappecas_nav_menus');

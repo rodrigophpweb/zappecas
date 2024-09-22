@@ -1,0 +1,21 @@
+.frontPageProducts {
+    h2 {}
+    .subtitle {}
+    figure {}
+    article {
+        .subtitle_article {}
+        h3 {
+            span {
+
+            }
+        }
+        p {
+
+        }
+        .buttons {
+            a {
+
+            }
+        }
+    }
+}
