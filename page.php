@@ -8,4 +8,15 @@
         'contato',
         'trabalhe-conosco'
     ];
-    get_footer();
+    ?>
+
+    <main>
+        <?php
+            if (is_page('contato')) {
+                get_template_part('partials/page','contact-header');
+                get_template_part('partials/page','contact-info');
+            }
+        ?>
+    </main>
+
+    <?php get_footer();
