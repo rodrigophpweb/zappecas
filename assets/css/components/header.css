@@ -1,7 +1,8 @@
 header {
     display: flex;
     flex-direction: column;
-    border-bottom: solid 5px var(--navy);
+    border-bottom: solid .3rem var(--navy);
+    padding: 2.5rem 10% !important;
 
     nav {
         width: 100%;

@@ -15,7 +15,19 @@
             }
         }
         p {}
-        a {}
+        a {
+            background-color: var(--cerulean);
+            color: var(--navy);
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 1rem 3rem;
+            border-radius: 2rem;
+
+            &:hover {
+                background-color: var(--navy);
+                color: var(--cerulean);
+            }
+        }
     }
     figure {
         width: 50%;
