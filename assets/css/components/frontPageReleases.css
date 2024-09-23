@@ -1,33 +1,17 @@
-.frontPageProducts {
-    padding: 5rem 5%;
-    
+.frontPageReleases {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     h2 {
         font-size: 5rem;
         text-transform: uppercase;
     }
-    .subtitle {
+
+    .subtitles {
         text-transform: uppercase;
         font-weight: 400;
         font-size: 1.6rem;
         color: var(--navy);
         border-bottom:solid .1rem var(--cerulean);
         padding: .5rem 0;
-    }
-    figure {}
-    article {
-        .subtitle_article {}
-        h3 {
-            span {
-
-            }
-        }
-        p {
-
-        }
-        .buttons {
-            a {
-
-            }
-        }
     }
 }

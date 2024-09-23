@@ -1,0 +1,37 @@
+.frontPageBlog {
+    padding: 5rem 5%;
+    h2 {
+        font-size: 5rem;
+        text-transform: uppercase;
+    }
+
+    .subtitle {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: var(--navy);
+        border-bottom:solid .1rem var(--cerulean);
+        padding: .5rem 0;
+    }
+
+    .posts {
+        padding-top: 5rem;
+        display: flex;
+        justify-content: space-between;
+
+        article {            
+            width: 30%;
+            figure {
+                text-align: center;
+                img {}
+            }
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                font-size: 1.4rem;
+            }
+            a {}
+        }
+    }
+}

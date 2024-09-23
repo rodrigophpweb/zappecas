@@ -3,4 +3,15 @@
 @import "../components/frontPageHero.css";
 @import "../components/frontPageAbout.css";
 @import "../components/frontPageProducts.css";
+@import "../components/frontPageReleases.css";
+@import "../components/frontPageBlog.css";
 @import "../components/footer.css";
+
+/* recursos.humanos@zappecas.com.br 
+
+wp-includes/css/dist/block-library/style.min.css
+wp-includes/css/dashicons.min.css
+http://zappecas.com/wp-includes/js/hoverintent-js.min.js?ver=2.2.1
+
+
+/*

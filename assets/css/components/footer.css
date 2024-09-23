@@ -92,3 +92,14 @@ footer {
         }
     }
 } 
+
+#whatsApp {
+    position:fixed;
+    right: 2rem;
+    bottom: 2rem;
+
+    svg {
+        width: 6.4rem;
+        height: 6.4rem;
+    }
+}
