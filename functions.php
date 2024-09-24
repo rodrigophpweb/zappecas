@@ -19,8 +19,6 @@ function zappecas_nav_menus(){
 	register_nav_menu( 'footer', 'Menu do rodape' );
 }
 
-
-
 // Show menu panel in admin
 add_action('init', 'zappecas_nav_menus');
 

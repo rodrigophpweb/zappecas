@@ -28,5 +28,5 @@
             <h1>Não existe Posts Cadastrados cadastrados</h1>
         <?php endif; ?>
     </div>
-    <a href="<?=site_url()?>/blog" title="Veja todos os Posts" itemprop="url">Veja todos os Posts</a>
+    <a href="<?=site_url()?>/blog" title="Veja todos os Posts" itemprop="url" class="allPosts">Veja todos os Posts</a>
 </section>

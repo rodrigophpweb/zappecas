@@ -40,6 +40,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Inicializa o slider
     updateSlider();
+
+
+    const section = document.querySelector('.frontPageCatalogProducts');
+    const figure = section.querySelector('.figure-animate');
+    const article = section.querySelector('.article-animate');
+
+    const options = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // 10% do elemento visível
+    };
+
+    const callback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                figure.classList.add('show'); // Adiciona classe de animação
+                article.classList.add('show'); // Adiciona classe de animação
+                observer.unobserve(entry.target); // Para observar a seção novamente
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(section);
 });
 
 

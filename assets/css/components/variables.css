@@ -12,7 +12,7 @@
     --cerulean: #00A0DF;
     --fireflay: #00242F;
     --navy: #011e41;
-    --grayDark: #1E1E1E;
+    --darkGray: #2b2b2b;
     --black: #000;
     --white: #fff;    
 }
@@ -44,5 +44,4 @@ strong {
 p,
 li {
     font-weight: 400;
-    font-family: "Montserrat Alternates", sans-serif;
 }
