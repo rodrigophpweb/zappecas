@@ -16,6 +16,9 @@
                 get_template_part('partials/page','contact-header');
                 get_template_part('partials/page','contact-info');
             }
+            if (is_page('representantes')) {
+                get_template_part('partials/page','representant-map-brazil');
+            }
         ?>
     </main>
 
