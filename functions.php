@@ -101,3 +101,99 @@ function orderby_city_column($query) {
         $query->set('orderby', 'meta_value');
     }
 }
+
+/* Custom Breadcrumb*/
+function custom_breadcrumb() {
+    if (!is_home()) {
+        echo '<nav aria-label="breadcrumb" class="breadcrumb">';
+        echo '<ul itemscope itemtype="https://schema.org/BreadcrumbList">';
+        echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+        echo '<a href="' . home_url() . '" itemprop="item">';
+        echo '<span itemprop="name">Home</span></a>';
+        echo '<meta itemprop="position" content="1" />';
+        echo '</li>';
+
+        $position = 2;
+
+        if (is_category() || is_single()) {
+            $category = get_the_category();
+            if ($category) {
+                echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+                echo '<a href="' . get_category_link($category[0]->term_id) . '" itemprop="item">';
+                echo '<span itemprop="name">' . $category[0]->name . '</span></a>';
+                echo '<meta itemprop="position" content="' . $position++ . '" />';
+                echo '</li>';
+            }
+
+            if (is_single()) {
+                echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+                echo '<span itemprop="name">' . get_the_title() . '</span>';
+                echo '<meta itemprop="position" content="' . $position++ . '" />';
+                echo '</li>';
+            }
+        } elseif (is_page()) {
+            if ($post->post_parent) {
+                $ancestors = get_post_ancestors($post->ID);
+                foreach ($ancestors as $ancestor) {
+                    echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+                    echo '<a href="' . get_permalink($ancestor) . '" itemprop="item">';
+                    echo '<span itemprop="name">' . get_the_title($ancestor) . '</span></a>';
+                    echo '<meta itemprop="position" content="' . $position++ . '" />';
+                    echo '</li>';
+                }
+            }
+            echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+            echo '<span itemprop="name">' . get_the_title() . '</span>';
+            echo '<meta itemprop="position" content="' . $position++ . '" />';
+            echo '</li>';
+        }
+
+        echo '</ul>';
+        echo '</nav>';
+    }
+}
+
+add_action('rest_api_init', function () {
+    register_rest_route('wp/v2', '/representante', array(
+        'methods' => 'GET',
+        'callback' => 'get_representantes',
+    ));
+});
+
+function get_representantes($data) {
+    $state = $data['state'];
+    
+    $args = array(
+        'post_type' => 'representante',
+        'meta_query' => array(
+            array(
+                'key' => 'stateRepresentant',
+                'value' => $state,
+                'compare' => '='
+            )
+        )
+    );
+    
+    $representantes = new WP_Query($args);
+    
+    $result = array();
+    
+    if($representantes->have_posts()) {
+        while ($representantes->have_posts()) {
+            $representantes->the_post();
+            $result[] = array(
+                'title' => get_the_title(), // Certifique-se de que isso está aqui
+                'acf' => array(
+                    'nameRepresentant' => get_field('nameRepresentant'),
+                    'contactRepresentant' => get_field('contactRepresentant'),
+                    'mailRepresentant' => get_field('mailRepresentant'),
+                ),
+            );
+        }
+    }
+    return $result;
+}
+
+
+
+

@@ -66,6 +66,55 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(section);
 });
 
+document.querySelectorAll('.state').forEach(state => {
+    state.addEventListener('click', function() {
+        const stateId = this.id; // Obtém o ID do estado clicado
+
+        fetch(`/wp-json/wp/v2/representante?state=${stateId}`)
+        .then(response => response.json())
+        .then(data => {
+            const listRepresentants = document.getElementById('listRepresentants');
+            listRepresentants.innerHTML = ''; // Limpa a lista anterior
+
+            if (data.length > 0) {
+                data.forEach(representant => {
+                    const titleLi = document.createElement('li');
+                    titleLi.innerHTML = `<strong>${representant.title}</strong>`; // Acesse 'title' diretamente
+                    
+                    const nameLi = document.createElement('li');
+                    nameLi.innerHTML = `<strong>Nome do Representante: </strong>${representant.acf.nameRepresentant}`;
+                    
+                    const contactLi = document.createElement('li');
+                    contactLi.innerHTML = `<strong>Contato do Representante: </strong>${representant.acf.contactRepresentant}`;
+                    
+                    const emailLi = document.createElement('li');
+                    emailLi.innerHTML = `<strong>E-mail do Representante: </strong>${representant.acf.mailRepresentant}`;
+
+                    const separatorHr = document.createElement('hr');
+                    separatorHr.innerHTML = `<hr>`;
+
+                    // Adiciona os <li> à lista
+                    listRepresentants.appendChild(titleLi);
+                    listRepresentants.appendChild(nameLi);
+                    listRepresentants.appendChild(contactLi);
+                    listRepresentants.appendChild(emailLi);
+                    listRepresentants.appendChild(separatorHr);
+
+                    const phraseRepresentant = document.querySelector('#phraseRepresentant');
+                    phraseRepresentant.style.display = 'none';
+
+                    const titleRepresentant = document.querySelector('.titleRepresentant');
+                    titleRepresentant.style.display = "block";
+
+                });
+            } else {
+                listRepresentants.innerHTML = '<p>Nenhum representante encontrado para este estado.</p>';
+            }
+        })
+        .catch(error => console.error('Erro ao buscar representantes:', error));
+        
+    });
+});
 
 
 // Tab Panel
