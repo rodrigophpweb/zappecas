@@ -1,8 +1,8 @@
-<section class="contactInfo" itemscope itemtype="http://schema.org/ContactPage">
+<section class="contactInfo gridMargin" itemscope itemtype="http://schema.org/ContactPage">
     <div class="colLeft">
         <div class="content">
             <h2 itemprop="headline">Fale Conosco</h2>
-            <p itemprop="description">Prezamos pela comunicação eficaz e a capacidade de ouvir, por isso, disponibilizamos diferentes canais de contato. Dúvidas sobre algum produto da Mobensani? Solicitações ou sugestões? Fale conosco, estamos prontos para te atender.</p>
+            <p itemprop="description">Valorizamos a comunicação eficaz e a escuta atenta, por isso, oferecemos diversos canais de contato. Tem dúvidas sobre algum produto da Zap Peças? Solicitações ou sugestões? Fale conosco, estamos prontos para atendê-lo.</p>
         </div>
 
         <article class="relationshipCenter" itemscope itemtype="http://schema.org/Organization">

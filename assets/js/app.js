@@ -79,7 +79,7 @@ document.querySelectorAll('.state').forEach(state => {
             if (data.length > 0) {
                 data.forEach(representant => {
                     const titleLi = document.createElement('li');
-                    titleLi.innerHTML = `<strong>${representant.title}</strong>`; // Acesse 'title' diretamente
+                    titleLi.innerHTML = `<span class="titleRepresentantName">${representant.title}</span>`; // Acesse 'title' diretamente
                     
                     const nameLi = document.createElement('li');
                     nameLi.innerHTML = `<strong>Nome do Representante: </strong>${representant.acf.nameRepresentant}`;
@@ -90,8 +90,8 @@ document.querySelectorAll('.state').forEach(state => {
                     const emailLi = document.createElement('li');
                     emailLi.innerHTML = `<strong>E-mail do Representante: </strong>${representant.acf.mailRepresentant}`;
 
-                    const separatorHr = document.createElement('hr');
-                    separatorHr.innerHTML = `<hr>`;
+                    const separatorHr = document.createElement('li');
+                    separatorHr.innerHTML = `<span class="separatorHr"></span>`;
 
                     // Adiciona os <li> à lista
                     listRepresentants.appendChild(titleLi);

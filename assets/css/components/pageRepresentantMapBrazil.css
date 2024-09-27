@@ -26,7 +26,6 @@
         p {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #4f4f4f;
         }
 
         .titleRepresentant {
@@ -36,12 +35,25 @@
         
         #listRepresentants {
             li {
-                font-size: 1.4rem;
-                strong {
+
+                .titleRepresentantName {
                     font-weight: 600;
                     font-size: 1.8rem;
                 }
+
+                font-size: 1.4rem;
+                strong {
+                    
+                }
             }
+
+        }
+        .separatorHr {
+            margin: 1rem 0;
+            width: 100%;
+            height: .1rem;
+            display: block;
+            border-bottom: solid .1rem var(--cerulean);
         }
     }
 }

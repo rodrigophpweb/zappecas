@@ -29,6 +29,7 @@
         </figure>
         <menu class="bullets">
             <li></li>
+            <li></li>
         </menu>
     </div>
 </section>
