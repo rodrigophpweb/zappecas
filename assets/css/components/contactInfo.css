@@ -1,0 +1,46 @@
+.contactInfo {
+    
+    .colLeft {
+        .content {
+            h2 {
+
+            }
+            p {
+
+            }
+        }
+        .relationshipCenter {
+            h3 {}
+            ul {
+                li {
+                    strong {}
+                    a {}
+                }
+            }
+        }
+    }
+
+    .colRight {
+        .socialMedia {
+            h3 {}
+            ul {
+                li {
+                    a {
+                        svg {
+
+                        }
+                    }
+                }
+            }
+        }
+
+        address {
+            h3 {
+
+            }
+            p {
+                
+            }
+        }
+    }
+}

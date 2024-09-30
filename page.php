@@ -21,6 +21,10 @@
             if (is_page('representantes')) {
                 get_template_part('partials/page','representant-map-brazil');
             }
+
+            if (is_page('trabalhe-conosco')){
+                get_template_part('partials/page','work-with-us');
+            }
         ?>
     </main>
 
