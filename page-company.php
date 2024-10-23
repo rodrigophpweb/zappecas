@@ -60,10 +60,7 @@
 <section class="companyCollaborators">
     <h2>Colaboradores</h2>
     <span class="subtitle">Pessoas que acreditam no Progresso</span>
-    <p>A ZAP Peças apresenta um impressionante histórico de expansão e está hoje entre as mais importantes empresas
-do setor automotivo brasileiro.  Um dos segredos para esse <strong>sucesso é acreditar e investir no capital humano</strong>.
-Hoje nossa equipe é composta por pessoas que são treinadas sistematicamente, a Mobensani se mantêm atenta as
-necessidades de cada um deles, <strong>focando na capacitação, motivação e qualificação do nosso time</strong>.</p>
+    <p>A ZAP Peças apresenta um impressionante histórico de expansão e está hoje entre as mais importantes empresas do setor automotivo brasileiro.  Um dos segredos para esse <strong>sucesso é acreditar e investir no capital humano</strong>. Hoje nossa equipe é composta por pessoas que são treinadas sistematicamente, a Mobensani se mantêm atenta as necessidades de cada um deles, <strong>focando na capacitação, motivação e qualificação do nosso time</strong>.</p>
 </section>
 
 <section class="companyManifest">

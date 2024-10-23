@@ -18,7 +18,7 @@
                     if( have_rows('buttonActions') ): 
                         while( have_rows('buttonActions') ): the_row();                 
                 ?>
-                        <a href="<?=esc_url(the_sub_field('urlButton'))?>" title="<?php the_sub_field('nameButton')?>" target="_blank" itemprop="url"><?php the_sub_field('nameButton')?></a>
+                        <a href="<?php the_sub_field('urlButton')?>" title="<?php the_sub_field('nameButton')?>" target="_blank" itemprop="url"><?php the_sub_field('nameButton')?></a>
                 <?php endwhile; endif;?>
             </div>
         </article>
