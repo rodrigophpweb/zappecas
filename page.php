@@ -8,7 +8,6 @@
             'company-principles',
             'company-collaborators',
             'company-your-numbers',
-            'company-social-responsability',
             'company-market-served',
             'company-policy-of-quality',
             'company-quality-certification',
