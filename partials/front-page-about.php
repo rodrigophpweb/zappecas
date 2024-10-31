@@ -5,12 +5,13 @@
         <p>Impulsionamos o sucesso no mercado automotivo com soluções abrangentes e inovadoras, reconhecidas por nossa excelência, compromisso inabalável com o cliente e liderança no setor.</p>
         <a href="<?=site_url()?>/a-empresa/" itemprop="url">Saiba mais</a>
     </article>
-    <!-- <figure>
+
+    <figure>
         <?php
             $photoDirector = get_field('photoDirector');                    
             if( !empty( $photoDirector ) ): 
         ?>
             <img src="<?php echo esc_url($photoDirector['url']); ?>" alt="<?php echo esc_attr($photoDirector['alt']); ?>" itemprop="image">
         <?php endif; ?>
-    </figure> -->
+    </figure>
 </section>
