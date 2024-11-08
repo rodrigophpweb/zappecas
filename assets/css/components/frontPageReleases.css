@@ -1,0 +1,19 @@
+.frontPageReleases {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    h2 {
+        font-size: 5rem;
+        text-transform: uppercase;
+    }
+
+    .subtitles {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: var(--navy);
+        border-bottom:solid .1rem var(--cerulean);
+        padding: .5rem 0;
+    }
+
+    
+}

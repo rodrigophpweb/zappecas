@@ -1,0 +1,72 @@
+.subHeaderPages {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    @media only screen and (max-width: 1024px) {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        width: 50%;
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 5rem;
+        @media only screen and (max-width: 1024px) {
+            width: 100%;
+            font-size: 3rem;
+        }
+    }
+
+    .breadcrumb {
+        display: flex;
+        width: 50%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @media only screen and (max-width: 1024px) {
+            width: 100%
+        }
+        ul {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            @media only screen and (max-width: 1024px) {
+                justify-content: center;
+            }
+
+            li {
+                text-transform: uppercase;
+                margin-right: 10px;
+                color: var(--navy);
+            
+                &:after {
+                    content: ">";
+                    margin-left: 10px;
+                }
+        
+                &:last-child:after {
+                    content: "";
+                }
+                span {
+                    border-bottom: solid .1rem var(--cerulean);
+                }
+
+                a {
+                    color: var(--navy);
+                    span {
+                        border: none;
+                        &:hover {
+                            color: var(--cerulean);
+                            border-bottom: solid .1rem var(--navy);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,54 @@
+.companyAboutPage {
+    display: flex;
+    flex-direction: row;
+    @media only screen and (max-width: 1024px) {
+        flex-direction:column
+    }
+
+    .line {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @media only screen and (max-width: 1024px) {
+            width: 100%;
+        }
+    }
+
+    article {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @media only screen and (max-width: 1024px) {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .contentCols {
+            column-count: 2;
+            @media only screen and (max-width: 1024px) {
+                column-count: 1;
+            }
+            p {      
+                margin-bottom: 2rem;      
+                
+                strong {
+                    font-weight: 700;
+                    color: var(--navy);
+                }
+            }
+        }
+        
+    }
+}
+
+.fade-in-section {
+    opacity: 0;                /* Começa invisível */
+    transition: opacity 1s ease-in; /* Define a transição */
+  }
+  
+  .fade-in-section.fade-in {
+    opacity: 1;                /* Define visível */
+  }
+  

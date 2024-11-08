@@ -1,0 +1,75 @@
+.companyMarketServed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    p {
+        margin: 2rem 0;
+    }
+
+    article {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 3rem;
+        @media only screen and (max-width: 1024px) {
+            flex-direction: column;
+        }
+        
+        figure {
+            width: 48%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            @media only screen and (max-width: 1024px) {
+                
+                width: 100%;position: unset;
+                
+            }
+            
+            /* Se quiser que a imagem ocupe toda a largura e tenha uma altura proporcional */
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 1rem;
+            }
+        
+            figcaption {
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Para centralizar horizontalmente */
+                justify-content: center; /* Para centralizar verticalmente */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%); /* Para ajustar o figcaption exatamente no centro */
+                text-align: center; /* Para garantir que o texto dentro de figcaption esteja centralizado */
+                width: 70%;
+                @media only screen and (max-width: 1024px) {
+                    width: 100%;
+                    transform: unset;
+                    position: unset;
+                }
+            }
+        
+            h3 {
+                color: var(--white);
+                font-size: 3.25rem;
+                @media only screen and (max-width: 1024px) {
+                    margin-top: -15rem;
+                    margin-bottom: 10rem
+                }
+            }
+
+            p {
+                color: var(--cerulean);
+                width: 100%;
+                @media only screen and (max-width: 1024px) {
+                    width: 90%
+                }
+            }
+        }
+    }
+}

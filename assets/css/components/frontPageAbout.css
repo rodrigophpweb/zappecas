@@ -1,0 +1,81 @@
+.frontPageAbout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media only screen and (max-width: 1024px) {
+        flex-direction: column-reverse;
+    }
+
+    article {
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        @media only screen and (max-width: 1024px) {
+            width: 100%;
+            align-items: center;
+        }
+        
+        .subtitle {
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: var(--navy);
+            border-bottom:solid .1rem var(--cerulean);
+            padding: .5rem 0;
+        }
+        h2 {
+            font-size: 6rem;
+            text-align: right;
+            margin-bottom: 3rem;
+            @media only screen and (max-width: 1024px) {
+                font-size: 5rem;
+                text-align: center;
+            }
+            span {
+                background-color: var(--cerulean);
+                padding: 1rem 3rem;
+                border-radius: .8rem;
+            }
+        }
+        p {
+            text-align: right;
+            font-weight: 400;
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            color: var(--navy);
+            @media only screen and (max-width: 1024px) {
+                text-align: center
+            }
+        }
+        a {
+            background-color: var(--cerulean);
+            color: var(--navy);
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 1rem 3rem;
+            border-radius: .8rem;
+
+            &:hover {
+                background-color: var(--navy);
+                color: var(--cerulean);
+            }
+        }
+    }
+    figure {
+        width: 48%;
+        @media only screen and (max-width: 1024px) {
+            width: 100%;
+        }
+        img {
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+            height: 50rem;
+            @media only screen and (max-width: 1024px) {
+                width: 100%;
+                height: auto;
+                margin-top: 3rem;
+            }
+        }
+    }
+}

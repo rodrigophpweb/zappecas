@@ -1,0 +1,42 @@
+.companyPolicyOfQuality {
+    display: flex;
+    background-color: var(--cerulean);
+    border-top: solid 2px var(--navy);
+    border-bottom: solid 2px var(--navy);
+    @media only screen and (max-width: 1024px) {
+        flex-direction: column
+    }
+    
+    header {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        border: none;
+        align-items: center;
+        justify-content: center;
+        @media only screen and (max-width: 1024px) {
+            width: 100%;
+            text-align: center;    
+        }
+
+        .subtitle {
+            color: var(--white);
+        }
+    }
+
+    article {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @media only screen and (max-width: 1024px) {
+            width: 100%
+        }
+        p {
+            width: 70%;
+            text-align: center;
+            color:  var(--navy);
+        }
+    }
+}

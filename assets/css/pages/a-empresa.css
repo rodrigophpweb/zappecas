@@ -1,0 +1,13 @@
+@import "../components/variables.css";
+@import "../components/header.css";
+@import "../components/pageSubHeader.css";
+@import "../components/companyAboutPage.css";
+@import "../components/companyPrinciples.css";
+@import "../components/companyCollaborators.css";
+@import "../components/companyYourNumbers.css";
+@import "../components/companyMarketServed.css";
+@import "../components/companyPolicyOfQuality.css";
+@import "../components/companyQualityCertification.css";
+@import "../components/companyTechnology.css";
+@import "../components/pageCatalogProducts.css";
+@import "../components/footer.css"

@@ -1,0 +1,76 @@
+.pageRepresentantMapBrasil {
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width: 1024px) {
+        flex-direction: column
+    }
+
+    .map-brazil {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        @media only screen and (max-width: 1024px) {
+            width: 100%;
+        }
+
+        svg {
+            @media only screen and (max-width: 1024px) {
+                width: 100%;
+                height: auto;    
+            }
+            path {
+                fill: var(--navy);
+                cursor: pointer;
+
+                &:hover {
+                    fill: var(--cerulean);
+                }
+            }
+        }
+    }
+
+    .allRepresentants {
+        width: 45%;
+        padding-left: 20px;
+        @media only screen and (max-width: 1024px) {
+            width: 90%;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .titleRepresentant {
+            display: none;
+            margin-bottom: 1rem;
+        }
+        
+        #listRepresentants {
+            li {
+
+                .titleRepresentantName {
+                    font-weight: 600;
+                    font-size: 1.8rem;
+                }
+
+                font-size: 1.4rem;
+                strong {
+                    
+                }
+            }
+
+        }
+        .separatorHr {
+            margin: 1rem 0;
+            width: 100%;
+            height: .1rem;
+            display: block;
+            border-bottom: solid .1rem var(--cerulean);
+        }
+    }
+}
+
+
+
+

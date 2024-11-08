@@ -1,0 +1,81 @@
+.workWithUs {
+    p {
+        margin-bottom: 2.5rem;
+    }
+
+
+    form {
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        p {
+            margin-bottom: 2rem 
+        }
+
+        p:nth-child(2),
+        p:nth-child(3),
+        p:nth-child(4){
+            width: 30%;
+            @media only screen and (max-width: 1024px) {
+                width: 95%;
+            }
+        }
+
+        p:nth-child(5) {
+            width:100%;
+            @media only screen and (max-width: 1024px) {
+                width: 95%;
+            }
+        }       
+        
+        input {
+            text-transform: uppercase;
+        }
+
+        input[type="email"] {
+            text-transform: lowercase;
+        }
+        
+        input,
+        textarea {
+            padding: 1rem;
+            width: 100%;
+            border: solid .1rem var(--cerulean);
+            border-radius: .8rem;
+            color: var(--navy);
+            
+            &:focus {
+                background-color: #1AAAE1;
+            }
+        }
+
+        textarea {
+            width: 100%;
+            font-family: "Poppins", sans-serif;
+        }
+
+        label {
+            color: var(--navy);
+            text-transform: uppercase;
+        }
+        input[type="submit"] {
+            text-transform: uppercase;
+            background-color: #00a0df;
+            padding: 1rem 2rem;
+            border-radius: .8rem;
+            font-weight: 700;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.6rem;
+            cursor: pointer;
+            border: none;
+            
+            &:hover,
+            &:active {
+                background-color: var(--navy);
+                color: var(--cerulean);
+            }
+        }
+    }
+}

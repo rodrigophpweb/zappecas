@@ -1,0 +1,101 @@
+.frontPageBlog {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 5%;
+    h2 {
+        font-size: 5rem;
+        text-transform: uppercase;
+        @media only screen and (max-width: 1024px) {
+            font-size: 3rem;
+            text-align: center;
+        }
+    }
+
+    .subtitle {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: var(--navy);
+        border-bottom:solid .1rem var(--cerulean);
+        padding: .5rem 0;
+        width: max-content;
+        @media only screen and (max-width: 1024px) {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .posts {
+        padding-top: 5rem;
+        display: flex;
+        justify-content: space-between;
+        @media only screen and (max-width: 1024px) {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        article {            
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            @media only screen and (max-width: 1024px) {
+                
+                
+                
+                width: 100%;
+                margin-bottom: 5rem;
+                
+                
+            }
+
+            figure {
+                text-align: center;
+                img {}
+            }
+            
+            h3 {
+                text-transform: uppercase;
+                font-size: 2.2rem;
+            }
+            
+            p {
+                font-size: 1.4rem;
+            }
+
+            a {
+                background-color: var(--cerulean);
+                color: var(--navy);
+                font-weight: 800;
+                padding: 1rem 2rem;
+                border-radius: .8em;
+                width: max-content;
+                margin-top: 1.6rem;
+                text-transform: uppercase;
+                @media only screen and (max-width: 1024px) {
+                    margin: 1.6rem auto
+                }
+                                
+                &:hover {
+                    background-color: var(--navy);
+                    color: var(--cerulean);
+                }
+            }
+        }
+    }
+    .allPosts {
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 5rem;
+        background-color: var(--navy);
+        color: var(--cerulean);
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 1rem 3rem;
+        border-radius: .8rem;
+
+        &:hover {
+            background-color: var(--cerulean);
+            color: var(--navy);
+        }
+    }
+}
