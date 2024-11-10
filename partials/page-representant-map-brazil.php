@@ -36,8 +36,51 @@
         <h2>A Importância dos Representantes da Zap Peças no Brasil</h2>
         <p>Os representantes da Zap Peças são essenciais para garantir que nossos clientes em todo o Brasil tenham acesso rápido e eficiente a peças automotivas de alta qualidade, como coxins, kits, buchas e bieletas. Graças à expertise local de nossos representantes, conseguimos fornecer soluções sob medida para veículos de marcas nacionais e importadas, assegurando que as peças certas cheguem aos lugares certos, com o melhor custo-benefício.</p>
         <p>Além de viabilizar uma logística eficiente, nossos representantes desempenham um papel crucial no fortalecimento da confiança dos nossos clientes em cada região do país. Eles são a face da Zap Peças, comprometidos em oferecer atendimento personalizado e entender as necessidades específicas de cada mercado. Com a ajuda desses profissionais, continuamos a expandir nossa presença e assegurar que oficinas, revendedores e clientes finais recebam peças automotivas de confiança para seus veículos.</p>
-
         <strong id="phraseRepresentant">Clique em um estado do Brasil ao mapa ao lado para ter informações dos nossos representantes</strong>
+
+        <select id="stateSelect">
+            <option value="">Selecione o estado</option>
+            <?php 
+            // Lista de todos os estados brasileiros em ordem alfabética
+            $estados = [
+                'AC' => 'Acre',
+                'AL' => 'Alagoas',
+                'AM' => 'Amazonas',
+                'AP' => 'Amapá',
+                'BA' => 'Bahia',
+                'CE' => 'Ceará',
+                'DF' => 'Distrito Federal',
+                'ES' => 'Espírito Santo',
+                'GO' => 'Goiás',
+                'MA' => 'Maranhão',
+                'MT' => 'Mato Grosso',
+                'MS' => 'Mato Grosso do Sul',
+                'MG' => 'Minas Gerais',
+                'PA' => 'Pará',
+                'PB' => 'Paraíba',
+                'PR' => 'Paraná',
+                'PE' => 'Pernambuco',
+                'PI' => 'Piauí',
+                'RJ' => 'Rio de Janeiro',
+                'RN' => 'Rio Grande do Norte',
+                'RS' => 'Rio Grande do Sul',
+                'RO' => 'Rondônia',
+                'RR' => 'Roraima',
+                'SC' => 'Santa Catarina',
+                'SP' => 'São Paulo',
+                'SE' => 'Sergipe',
+                'TO' => 'Tocantins'
+            ];
+
+            // Ordena os estados em ordem alfabética
+            asort($estados);
+
+            // Exibe os estados no select
+            foreach ($estados as $sigla => $nome) {
+                echo "<option value='br{$sigla}'>{$nome}</option>";
+            }
+            ?>
+        </select>
 
         <h2 class="titleRepresentant">Informações dos Representantes</h2>
         <ul id="listRepresentants">

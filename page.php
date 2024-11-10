@@ -13,6 +13,7 @@
             'company-quality-certification',
             'company-technology',            
         ],
+        'blog'              => ['blog'],
         'representantes'    => ['representant-map-brazil'],
         'contato'           => ['contact-info'],
         'trabalhe-conosco'  => ['work-with-us']

@@ -4,7 +4,7 @@
         <h2>Localização</h2>
         <ul>
             <li><strong>Endereço:</strong>  <span itemprop="streetAddress">R. Sagrado Coração de Jesus, 63<br>Jardim Iracema, São Paulo - SP, 05847-570</span></li>
-            <li><strong>Telefone:</strong> <a href="tel:+5511999999999" itemprop="telephone">+55 (11) 5513-1355</a></li>
+            <li><strong>Telefone:</strong> <a href="tel:+551155131355" itemprop="telephone">+55 (11) 5513-1355</a></li>
             <li><strong>E-mail:</strong> <a href="mailto:comercial@zappecas.com.br" itemprop="email">comercial@zappecas.com.br</a></li>
         </ul>
     </address>

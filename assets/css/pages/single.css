@@ -1,4 +1,6 @@
 @import "../components/variables.css";
 @import "../components/header.css";
 @import "../components/pageSubHeader.css";
+@import "../components/singleContent.css";
+@import "../components/pageCatalogProducts.css";
 @import "../components/footer.css"

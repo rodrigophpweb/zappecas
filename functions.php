@@ -30,7 +30,7 @@ function load_styles_and_scripts() {
     
     // Load Google Fonts
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', [], null);
-    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', [], null);
+    wp_enqueue_style('google-fonts-alt', 'https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', [], null);
 
     // Conditionally load styles for specific pages
     $pages = [
@@ -39,7 +39,7 @@ function load_styles_and_scripts() {
         'blog'              => 'blog.css',
         'representantes'    => 'representantes.css',
         'contato'           => 'contato.css',
-        'trabalhe-conosco'  => 'trabalhe-conosco.css'
+        'trabalhe-conosco'  => 'trabalhe-conosco.css',
     ];
 
     foreach ($pages as $page => $css) {
@@ -47,8 +47,14 @@ function load_styles_and_scripts() {
             wp_enqueue_style($page, get_template_directory_uri() . '/assets/css/pages/' . $css);
         }
     }
+
+    // Load styles for single post
+    if (is_single()) {
+        wp_enqueue_style('single-post', get_template_directory_uri() . '/assets/css/pages/single.css');
+    }
 }
 add_action('wp_enqueue_scripts', 'load_styles_and_scripts');
+
 
 function enqueue_custom_scripts() {
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/app.js', array(), null, true);
@@ -153,6 +159,47 @@ function custom_breadcrumb() {
     }
 }
 
+// add_action('rest_api_init', function () {
+//     register_rest_route('wp/v2', '/representante', array(
+//         'methods' => 'GET',
+//         'callback' => 'get_representantes',
+//     ));
+// });
+
+// function get_representantes($data) {
+//     $state = $data['state'];
+    
+//     $args = array(
+//         'post_type' => 'representante',
+//         'meta_query' => array(
+//             array(
+//                 'key' => 'stateRepresentant',
+//                 'value' => $state,
+//                 'compare' => '='
+//             )
+//         )
+//     );
+    
+//     $representantes = new WP_Query($args);
+    
+//     $result = array();
+    
+//     if($representantes->have_posts()) {
+//         while ($representantes->have_posts()) {
+//             $representantes->the_post();
+//             $result[] = array(
+//                 'title' => get_the_title(), // Certifique-se de que isso está aqui
+//                 'acf' => array(
+//                     'nameRepresentant' => get_field('nameRepresentant'),
+//                     'contactRepresentant' => get_field('contactRepresentant'),
+//                     'mailRepresentant' => get_field('mailRepresentant'),
+//                 ),
+//             );
+//         }
+//     }
+//     return $result;
+// }
+
 add_action('rest_api_init', function () {
     register_rest_route('wp/v2', '/representante', array(
         'methods' => 'GET',
@@ -161,39 +208,59 @@ add_action('rest_api_init', function () {
 });
 
 function get_representantes($data) {
+    // Recebendo o estado enviado
     $state = $data['state'];
     
+    // Ajuste do meta_query para usar LIKE se for necessário corresponder parcialmente
     $args = array(
         'post_type' => 'representante',
         'meta_query' => array(
             array(
-                'key' => 'stateRepresentant',
+                'key' => 'stateRepresentant', // A chave do campo ACF que armazena o estado
                 'value' => $state,
-                'compare' => '='
+                'compare' => 'LIKE'  // Usando LIKE para buscar parcialmente
             )
         )
     );
     
+    // Realizando a consulta no banco
     $representantes = new WP_Query($args);
     
+    // Preparando o array de resultados
     $result = array();
     
+    // Verificando se há resultados e os adicionando ao array
     if($representantes->have_posts()) {
         while ($representantes->have_posts()) {
             $representantes->the_post();
             $result[] = array(
-                'title' => get_the_title(), // Certifique-se de que isso está aqui
+                'title' => get_the_title(), // Título da postagem
                 'acf' => array(
-                    'nameRepresentant' => get_field('nameRepresentant'),
-                    'contactRepresentant' => get_field('contactRepresentant'),
-                    'mailRepresentant' => get_field('mailRepresentant'),
+                    'nameRepresentant' => get_field('nameRepresentant'), // Campo ACF
+                    'contactRepresentant' => get_field('contactRepresentant'), // Campo ACF
+                    'mailRepresentant' => get_field('mailRepresentant'), // Campo ACF
                 ),
             );
         }
     }
+    
+    // Retornando os resultados
     return $result;
 }
 
+
+
+function estimated_reading_time() {
+    $content = get_the_content();
+    $word_count = str_word_count(strip_tags($content));
+    $words_per_minute = 200;
+    $reading_time = ceil($word_count / $words_per_minute);
+    return $reading_time . ' minutos de leitura';
+}
+
+
+
+add_filter('rest_representante_query', 'filter_representants_by_state', 10, 2);
 
 
 
