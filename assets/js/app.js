@@ -1,5 +1,10 @@
 // Component Banner
 document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('.mnumobile').addEventListener('click', function() {
+        const menu = document.querySelector('menu');
+        menu.classList.toggle('open');
+    });
+
     if (document.body.classList.contains('home')) {
 
         const images = document.querySelectorAll(".hero .images figure");
@@ -42,8 +47,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Inicializa o slider
         updateSlider();
+    }
 
-        const section = document.querySelector('.frontPageCatalogProducts');
+    // Seleciona o elemento com um dos dois seletores, dependendo da página atual
+    const section = document.querySelector('.frontPageCatalogProducts, .pageCatalogProducts');
+
+    if (section) { // Verifica se a `section` foi encontrada antes de prosseguir
         const figure = section.querySelector('.figure-animate');
         const article = section.querySelector('.article-animate');
 
@@ -58,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (entry.isIntersecting) {
                     figure.classList.add('show'); // Adiciona classe de animação
                     article.classList.add('show'); // Adiciona classe de animação
-                    observer.unobserve(entry.target); // Para observar a seção novamente
+                    observer.unobserve(entry.target); // Para de observar a seção
                 }
             });
         };

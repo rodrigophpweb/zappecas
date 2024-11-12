@@ -38,26 +38,32 @@
             width: 30%;
             display: flex;
             flex-direction: column;
+            border-radius: .8rem;
+            border: solid .1rem #eee;
+            padding: 2rem;
             @media only screen and (max-width: 1024px) {
-                
-                
-                
                 width: 100%;
                 margin-bottom: 5rem;
-                
-                
             }
 
             figure {
                 text-align: center;
+                height: 200px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 3rem;
                 img {
-    border-radius: 1rem;
-}
+                    width: 100%
+                    height: auto;
+                }
             }
             
             h3 {
                 text-transform: uppercase;
-                font-size: 2.2rem;
+                font-size: 2rem;
+                margin-bottom: 2rem;
             }
             
             p {

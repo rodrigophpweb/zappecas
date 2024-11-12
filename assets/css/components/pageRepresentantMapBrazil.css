@@ -2,7 +2,12 @@
     display: flex;
     justify-content: space-between;
     @media only screen and (max-width: 1024px) {
-        flex-direction: column
+        
+    
+    
+    flex-direction: column;
+    
+    
     }
 
     .map-brazil {
@@ -10,7 +15,7 @@
         display: flex;
         justify-content: center;
         @media only screen and (max-width: 1024px) {
-            width: 100%;
+            width: 100%;display: none;
         }
 
         svg {
@@ -40,10 +45,32 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
+        .phraseDesktop {
+            display: block;
+            @media only screen and (max-width: 1024px){
+                display: none;
+            }
+        }
 
+        .phraseMobile {
+            display: none;
+            @media only screen and (max-width: 1024px){
+                display: block;
+            }
+        }
         .titleRepresentant {
             display: none;
             margin-bottom: 1rem;
+        }
+
+        .selectStatesBrasil{
+            display: none;
+            @media only screen and (max-width: 1024px){
+                display: block;
+                width: 100%;
+                padding: 2rem .5rem;
+                margin: 1rem 0 5rem;
+            }
         }
         
         #listRepresentants {

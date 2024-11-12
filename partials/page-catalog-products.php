@@ -1,30 +1,36 @@
 <section class="pageCatalogProducts" itemscope="" itemtype="https://schema.org/CreativeWork">
-    <h2 itemprop="headline">Linha de Produtos</h2>
-    <span itemprop="about" class="subtitle">A maior e melhor linha em peças automotiva do mercado de Reposição</span>
+    <h2 itemprop="headline"><?php the_field('titleProducts', 'option'); ?></h2>
+    <span itemprop="about" class="subtitle"><?php the_field('subTitleProduct', 'option'); ?></span>
     <div class="content">
-        <figure id="frameCatalog" class="figure-animate show" itemprop="associatedMedia" itemscope="" itemtype="https://schema.org/ImageObject">
-                <img src="<?=site_url()?>/wp-content/uploads/2024/11/catalogo-de-produtos-mobile-web-impresso.png" alt="" itemprop="contentUrl">
+        <figure id="frameCatalog" class="figure-animate" itemprop="associatedMedia" itemscope itemtype="https://schema.org/ImageObject">
+            <?php 
+                $image = get_field('imageCatalog', 'option');
+                if( !empty( $image ) ): 
+            ?>
+                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" itemprop="contentUrl" />
+            <?php endif; ?>
         </figure>
-        <article id="contentCatalog" class="article-animate show" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/CreativeWork">
+        <article id="contentCatalog" class="article-animate" itemprop="mainEntity" itemscope itemtype="https://schema.org/CreativeWork">
             <h3 itemprop="name">Cátalogo <span>de produtos</span></h3>
-            <p itemprop="description">Consulte os nossos produtos a qualquer momento de forma rápida e simples. Você visualiza as aplicações detalhadas da linha Mobensani, os lançamentos e as conversões. Escolha a melhor versão para você</p>
-            <div class="buttons" itemprop="offers" itemscope="" itemtype="https://schema.org/OfferCatalog">
-                <a href="<?=site_url()?>/wp-content/uploads/2024/11/catalogo-de-produtos-zappecas-2024-para-web.pdf" title="Baixar PDF" target="_blank" itemprop="url">
-                    <img src="<?=site_url()?>/wp-content/uploads/2024/11/icon-pdf-paper.svg" alt="Icone representando documento PDF">
-                    Baixar PDF
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=br.com.catalogointeligente.zappecas&amp;hl=pt_BR&amp;pli=1" title="Baixar APP Google Play" target="_blank" itemprop="url">
-                    <img src="<?=site_url()?>/wp-content/uploads/2024/11/icon-android.svg" alt="">
-                    Baixar APP Google Play
-                </a>
-                <a href="https://apps.apple.com/br/app/zap-pe%C3%A7as/id6469057576" title="Baixar APP Store" target="_blank" itemprop="url">
-                    <img src="<?=site_url()?>/wp-content/uploads/2024/11/icon-apple.svg" alt="">
-                    Baixar APP Store
-                </a>
-                <a href="https://zappecas.com.br/solicitar-catalogo-impresso/" title="Solicitar Catálogo Impresso" target="_blank" itemprop="url">
-                    <img src="<?=site_url()?>/wp-content/uploads/2024/11/icon-mail.svg" alt="">
-                        Solicitar Catálogo Impresso
-                </a>
+            <p itemprop="description"><?php the_field('descriptionCatalogProducts', 'option'); ?></p>
+            <div class="buttons" itemprop="offers" itemscope itemtype="https://schema.org/OfferCatalog">
+                <?php 
+                    if( have_rows('buttonActions', 'option') ): 
+                        while( have_rows('buttonActions', 'option') ): the_row(); // Verifique se 'buttonActions' é o nome correto do campo no ACF.
+                ?>
+                        <a href="<?php the_sub_field('urlButton'); ?>" title="<?php the_sub_field('nameButton'); ?>" target="_blank" itemprop="url">
+                        <?php 
+                            $image = get_sub_field('iconbutton');
+                            if( !empty( $image ) ): 
+                        ?>
+                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                        <?php endif; ?> 
+                            <?php the_sub_field('nameButton'); ?>
+                        </a>
+                <?php endwhile; else: ?>
+                    <!-- Exibir uma mensagem se não houver botões -->
+                    <p>Nenhum botão disponível.</p>
+                <?php endif; ?>
             </div>
         </article>
     </div>
