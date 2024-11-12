@@ -7,7 +7,7 @@
                 $image = get_field('imageCatalog', 'option');
                 if( !empty( $image ) ): 
             ?>
-                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" itemprop="contentUrl" />
+                <img width="547" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" itemprop="contentUrl" loading="lazy" />
             <?php endif; ?>
         </figure>
         <article id="contentCatalog" class="article-animate" itemprop="mainEntity" itemscope itemtype="https://schema.org/CreativeWork">
@@ -23,7 +23,7 @@
                             $image = get_sub_field('iconbutton');
                             if( !empty( $image ) ): 
                         ?>
-                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy" />
                         <?php endif; ?> 
                             <?php the_sub_field('nameButton'); ?>
                         </a>

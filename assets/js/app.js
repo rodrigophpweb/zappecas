@@ -45,29 +45,45 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-        // Inicializa o slider
         updateSlider();
+
+        const sectionPost = document.querySelector('.frontPageBlog');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            const articles = document.querySelectorAll('.posts article');
+            articles.forEach((article, index) => {
+                article.style.animation = `slideIn 0.5s forwards ${index * 0.1}s`; // Define o atraso para cada artigo
+            });
+            observer.disconnect();
+            }
+        });
+        }, {
+        threshold: 0.5
+        });
+        
+        observer.observe(sectionPost);
     }
 
-    // Seleciona o elemento com um dos dois seletores, dependendo da página atual
     const section = document.querySelector('.frontPageCatalogProducts, .pageCatalogProducts');
 
-    if (section) { // Verifica se a `section` foi encontrada antes de prosseguir
+    if (section) {
         const figure = section.querySelector('.figure-animate');
         const article = section.querySelector('.article-animate');
 
         const options = {
-            root: null, // viewport
+            root: null,
             rootMargin: '0px',
-            threshold: 0.1 // 10% do elemento visível
+            threshold: 0.1
         };
 
         const callback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    figure.classList.add('show'); // Adiciona classe de animação
-                    article.classList.add('show'); // Adiciona classe de animação
-                    observer.unobserve(entry.target); // Para de observar a seção
+                    figure.classList.add('show');
+                    article.classList.add('show');
+                    observer.unobserve(entry.target);
                 }
             });
         };
@@ -80,10 +96,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 if (window.location.pathname.endsWith('representantes/') || window.location.pathname.endsWith('representantes')) {
 
-    // Função para exibir os representantes
     function exibirRepresentantes(data) {
         const listRepresentants = document.getElementById('listRepresentants');
-        listRepresentants.innerHTML = ''; // Limpa a lista anterior
+        listRepresentants.innerHTML = '';
     
         if (data.length > 0) {
             data.forEach(representant => {
@@ -102,7 +117,6 @@ if (window.location.pathname.endsWith('representantes/') || window.location.path
                 const separatorHr = document.createElement('li');
                 separatorHr.innerHTML = `<span class="separatorHr"></span>`;
     
-                // Adiciona os <li> à lista
                 listRepresentants.appendChild(titleLi);
                 listRepresentants.appendChild(nameLi);
                 listRepresentants.appendChild(contactLi);
@@ -151,9 +165,7 @@ if (window.location.pathname.endsWith('representantes/') || window.location.path
 }
 
 
-// Verifica se a URL termina com 'a-empresa/' ou 'a-empresa' (com ou sem a barra)
 if (window.location.pathname.endsWith('a-empresa/') || window.location.pathname.endsWith('a-empresa')) {
-    // Fade-in Animation
     const fadeSection = document.querySelector('.fade-in-section');
 
     if (fadeSection) {
@@ -168,7 +180,6 @@ if (window.location.pathname.endsWith('a-empresa/') || window.location.pathname.
         observer.observe(fadeSection);
     }
 
-    // Scale-up Animation para Mission, Vision, Values
     const scaleSection = document.querySelector('.scale-up-section');
     if (scaleSection) {
         const mvv = new IntersectionObserver(entries => {
@@ -223,15 +234,12 @@ if (window.location.pathname.endsWith('a-empresa/') || window.location.pathname.
 // Tab Panel
 document.querySelectorAll('[role="tab"]').forEach(tab => {
     tab.addEventListener('click', () => {
-        // Deselect all tabs and hide all tab panels
         document.querySelectorAll('[role="tab"]').forEach(t => {
             t.setAttribute('aria-selected', 'false');
             document.getElementById(t.getAttribute('aria-controls')).setAttribute('aria-hidden', 'true');
         });
 
-        // Select the clicked tab and show the corresponding tab panel
         tab.setAttribute('aria-selected', 'true');
         document.getElementById(tab.getAttribute('aria-controls')).setAttribute('aria-hidden', 'false');
     });
 });
-

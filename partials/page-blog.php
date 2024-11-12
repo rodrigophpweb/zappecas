@@ -2,27 +2,23 @@
     <h2>Nosso Blog</h2>
     <div class="posts">
     <?php
-        $args = [
-            'post_type' => 'post',
-        ];
-        // the query.
-        $the_query = new WP_Query( $args ); ?>
+        $args = ['post_type' => 'post'];
+        $the_query = new WP_Query( $args );
 
-        <?php if ( $the_query->have_posts() ) : ?>
-            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                <article>
-                    <figure>
-                        <?php the_post_thumbnail('medium')?>
+        if ( $the_query->have_posts() ) :
+            while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                <article itemscope itemtype="https://schema.org/BlogPosting">
+                    <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                        <img width="300" src="<?php the_post_thumbnail_url('medium')?>" alt="<?php the_title()?>" itemprop="url">
                     </figure>
-                    <?php the_title( '<h3>', '</h3>' ); ?>
-                    <?php the_excerpt()?>
-                    <a href="<?php the_permalink()?>" title="<?php the_title()?>">Saiba mais</a>
+                    <?php the_title( '<h3 itemprop="headline">', '</h3>' ); ?>
+                    <div itemprop="articleBody"><?php the_excerpt()?></div>
+                    <a href="<?php the_permalink()?>" title="<?php the_title()?>" itemprop="url">Saiba mais</a>
                 </article>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
         <?php else : ?>
-            <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+            <h1>Não existe Posts Cadastrados cadastrados</h1>
         <?php endif; ?>
-
     </div>
 </section>

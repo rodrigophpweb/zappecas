@@ -4,9 +4,7 @@
     <div class="posts">
 
         <?php
-            $args = [
-                'post_type' => 'post',
-            ];
+            $args = ['post_type' => 'post'];
             $the_query = new WP_Query( $args ); 
             if ( $the_query->have_posts() ) : 
                 while ( $the_query->have_posts() ) :
@@ -14,7 +12,7 @@
         ?>
             <article itemscope itemtype="https://schema.org/BlogPosting">
                 <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                    <img src="<?php the_post_thumbnail_url('medium')?>" alt="<?php the_title()?>" itemprop="url">
+                    <img width="300" src="<?php the_post_thumbnail_url('medium')?>" alt="<?php the_title()?>" itemprop="url">
                 </figure>
                 <?php the_title('<h3 itemprop="headline">','</h3>')?>
                 <div itemprop="articleBody"><?php the_excerpt();?></div>

@@ -217,8 +217,6 @@ function get_representantes($data) {
     return $result;
 }
 
-
-
 function estimated_reading_time() {
     $content = get_the_content();
     $word_count = str_word_count(strip_tags($content));
@@ -227,9 +225,13 @@ function estimated_reading_time() {
     return $reading_time . ' minutos de leitura';
 }
 
-
-
 add_filter('rest_representante_query', 'filter_representants_by_state', 10, 2);
+
+function linkPhone(){
+    $phone = esc_html(get_field('phoneWebsite', 'option'));
+    $phonelink = preg_replace('/[^0-9+]/', '', $phone);
+    echo $phonelink;
+}
 
 
 

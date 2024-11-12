@@ -42,50 +42,21 @@
         <select id="stateSelect" class="selectStatesBrasil">
             <option value="">Selecione o estado</option>
             <?php 
-            // Lista de todos os estados brasileiros em ordem alfabética
-            $estados = [
-                'AC' => 'Acre',
-                'AL' => 'Alagoas',
-                'AM' => 'Amazonas',
-                'AP' => 'Amapá',
-                'BA' => 'Bahia',
-                'CE' => 'Ceará',
-                'DF' => 'Distrito Federal',
-                'ES' => 'Espírito Santo',
-                'GO' => 'Goiás',
-                'MA' => 'Maranhão',
-                'MT' => 'Mato Grosso',
-                'MS' => 'Mato Grosso do Sul',
-                'MG' => 'Minas Gerais',
-                'PA' => 'Pará',
-                'PB' => 'Paraíba',
-                'PR' => 'Paraná',
-                'PE' => 'Pernambuco',
-                'PI' => 'Piauí',
-                'RJ' => 'Rio de Janeiro',
-                'RN' => 'Rio Grande do Norte',
-                'RS' => 'Rio Grande do Sul',
-                'RO' => 'Rondônia',
-                'RR' => 'Roraima',
-                'SC' => 'Santa Catarina',
-                'SP' => 'São Paulo',
-                'SE' => 'Sergipe',
-                'TO' => 'Tocantins'
-            ];
-
-            // Ordena os estados em ordem alfabética
-            asort($estados);
-
-            // Exibe os estados no select
-            foreach ($estados as $sigla => $nome) {
-                echo "<option value='br{$sigla}'>{$nome}</option>";
-            }
+                $estados = [
+                    'AC' => 'Acre', 'AL' => 'Alagoas', 'AM' => 'Amazonas', 'AP' => 'Amapá',
+                    'BA' => 'Bahia', 'CE' => 'Ceará', 'DF' => 'Distrito Federal', 'ES' => 'Espírito Santo',
+                    'GO' => 'Goiás', 'MA' => 'Maranhão', 'MT' => 'Mato Grosso', 'MS' => 'Mato Grosso do Sul',
+                    'MG' => 'Minas Gerais', 'PA' => 'Pará', 'PB' => 'Paraíba', 'PR' => 'Paraná',
+                    'PE' => 'Pernambuco', 'PI' => 'Piauí', 'RJ' => 'Rio de Janeiro', 'RN' => 'Rio Grande do Norte',
+                    'RS' => 'Rio Grande do Sul', 'RO' => 'Rondônia', 'RR' => 'Roraima', 'SC' => 'Santa Catarina',
+                    'SP' => 'São Paulo', 'SE' => 'Sergipe', 'TO' => 'Tocantins'
+                ];
+                asort($estados);
+                echo implode('', array_map(fn($sigla, $nome) => "<option value='br{$sigla}'>{$nome}</option>", array_keys($estados), $estados));
             ?>
         </select>
 
         <h2 class="titleRepresentant">Informações dos Representantes</h2>
-        <ul id="listRepresentants">
-                        
-        </ul>
+        <ul id="listRepresentants"></ul>
     </article>
 </section>

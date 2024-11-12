@@ -41,6 +41,10 @@
             border-radius: .8rem;
             border: solid .1rem #eee;
             padding: 2rem;
+            opacity: 0;
+            transform: translateY(-50px); /* Começa fora da tela */
+            animation: slideIn 0.5s forwards; /* Aplica a animação de descer */
+            animation-delay: 0s; /* Atraso inicial */
             @media only screen and (max-width: 1024px) {
                 width: 100%;
                 margin-bottom: 5rem;
@@ -107,3 +111,27 @@
         }
     }
 }
+
+@keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Desce até a posição original */
+    }
+  }
+  
+  /* Definindo o delay para cada artigo aparecer um por vez */
+  .posts article:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .posts article:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .posts article:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .posts article:nth-child(4) {
+    animation-delay: 0.4s;
+  }

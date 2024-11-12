@@ -1,8 +1,10 @@
 .pageCatalogProducts {
     padding: 5rem 5% 2rem;
-    border-bottom: solid .1rem var(--cerulean);
     background: linear-gradient(to right, var(--cerulean), var(--darkGray));
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
     overflow: hidden;
+    
     @media only screen and (max-width: 1024px) {
         background: linear-gradient(to bottom, var(--cerulean), var(--darkGray));
     }
@@ -90,20 +92,27 @@
                     img {
                         margin-right: 2rem
                     }
-                    @media only screen and (max-width: 1024px) {
-                    
-                    &:hover {
-                        background-color: var(--navy);
-                        color: var(--cerulean);
-                    }
+                        @media only screen and (max-width: 1024px) {
+                        
+                        &:hover {
+                            background-color: var(--navy);
+                            color: var(--cerulean);
+                        }
 
-                    img {
-                        margin-right: 2rem
+                        img {
+                            margin-right: 2rem
+                        }
                     }
                 }
-            }
-        }        
+            }        
+        }
     }
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
 }
 
 .figure-animate {
@@ -122,4 +131,3 @@
     transform: translateX(0); /* Volta para a posição original */
     opacity: 1;
 }
-

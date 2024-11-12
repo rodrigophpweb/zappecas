@@ -44,15 +44,14 @@
         <article class="relationshipCenter" itemscope itemtype="http://schema.org/Organization">
             <h3 itemprop="department">Central de Relacionamento Zap Peças</h3>
             <ul>
-                <li><strong itemprop="email">E-mail:</strong> <?php the_field('contactMail')?></li>
-                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:+5511999999999">+<?php the_field('contactPhone')?></a></li>
-                <!-- <li><strong>Fones:</strong> <a href="tel:+5511999999999" itemprop="telephone">+55 11 9999-9999</a> | <a href="tel:+5511999999999" itemprop="telephone">+55 11 99999-9999</a></li> -->
+                <li><strong itemprop="email">E-mail:</strong> <?=esc_html(get_field('mailWebsite', 'option'))?></li>
+                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php linkPhone()?>"><?=esc_html(get_field('phoneWebsite', 'option'))?></a></li>
             </ul>
         </article>
 
         <address itemscope itemtype="http://schema.org/PostalAddress">
             <h3>Endereço</h3>
-            <p itemprop="streetAddress"><?php esc_html(the_field('addressOffice'))?></p>
+            <p itemprop="streetAddress"><?=get_field('addressWebsite', 'option')?></p>
         </address>
     </div>
 </section>
@@ -61,7 +60,7 @@
 <section class="googleMaps gridMargin">
     <h2>Venha nos visitar</h2>
     <div class="map-container">
-        <iframe src="<?=get_field('url_maps')?>" allowfullscreen="" loading="lazy">
+        <iframe src="<?=get_field('url_maps')?>" allowfullscreen="" loading="lazy" title="Google Maps">
     </iframe>
     </div>
 </section>

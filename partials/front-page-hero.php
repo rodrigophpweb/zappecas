@@ -11,13 +11,9 @@
                 $the_query->the_post();
         ?>
                 <figure>
-                    <img src="<?php the_post_thumbnail_url('full')?>" alt="<?php the_title()?>">
+                    <img width="1920" src="<?php the_post_thumbnail_url('full')?>" alt="<?php the_title()?>" loading="lazy">
                 </figure>
-        <?php 
-                    $count++; // Incrementa o contador
-                endwhile;
-                wp_reset_postdata();
-        ?>
+        <?php $count++; endwhile; wp_reset_postdata();?>
         <?php else : ?>
             <h1>Não existe banners cadastrados</h1>
         <?php endif; ?>

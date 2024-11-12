@@ -24,9 +24,7 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-.gridMargin {
-    padding: 5rem 5%;
-}
+.gridMargin {padding: 5rem 5%}
 
 h1,
 h2,
@@ -38,9 +36,7 @@ h6{
     color: var(--navy);
 }
 
-strong {
-    font-weight: 500;
-}
+strong {font-weight: 500}
 
 p,
 li {

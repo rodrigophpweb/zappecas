@@ -2,6 +2,8 @@
     padding: 5rem 5%;
     border-bottom: solid .1rem var(--navy);
     background: linear-gradient(to right, var(--navy), var(--darkGray));
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
     overflow: hidden;
     @media only screen and (max-width: 1024px) {
         background: linear-gradient(to bottom, var(--navy), var(--darkGray));
@@ -104,6 +106,12 @@
             }
         }        
     }
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
 }
 
 .figure-animate {

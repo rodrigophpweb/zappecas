@@ -2,7 +2,6 @@
     <h2><?=esc_html(get_field('titleCompanyTechnology'))?></h2>
     <span class="subtitle"><?=esc_html(get_field('subtitleCompanyTechnology'))?></span>
     <?=get_field('contentCompanyTechnology')?>
-
     <?php if( have_rows('techsUsed') ): ?>
         <div class="additionalInformation">
         <?php while( have_rows('techsUsed') ): the_row(); 

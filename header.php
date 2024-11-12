@@ -16,13 +16,13 @@
         </figure>
         <span class="mnumobile">☰</span>
         <?php
-            // Exibe o menu com a tag <menu> em vez de <ul>
-            wp_nav_menu( array(
-                'theme_location' => 'main_menu',
-                'container'      => false, // Remove a div de container padrão
-                'items_wrap'     => '<menu>%3$s</menu>', // Personaliza a marcação do menu
-            ) );
+            wp_nav_menu(
+                [
+                    'theme_location' => 'main_menu',
+                    'container'      => false,
+                    'items_wrap'     => '<menu>%3$s</menu>',
+                ],
+            );
         ?>
-
     </nav>
 </header>
