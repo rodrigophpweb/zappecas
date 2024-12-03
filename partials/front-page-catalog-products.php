@@ -28,7 +28,6 @@
                             <?php the_sub_field('nameButton'); ?>
                         </a>
                 <?php endwhile; else: ?>
-                    <!-- Exibir uma mensagem se não houver botões -->
                     <p>Nenhum botão disponível.</p>
                 <?php endif; ?>
             </div>

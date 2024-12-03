@@ -39,14 +39,14 @@
 
         h3 {
             margin: 5rem 0 2rem;
-            color: var(--cerulean);
-            background-color: var(--navy);
+            color: var(--primary);
+            background-color: var(--secondary);
             border-radius: 0.8rem;
             padding: 1rem;
         }
 
         strong {
-            color: var(--navy);
+            color: var(--secondary);
         }
 
         ul {
@@ -55,7 +55,7 @@
             li {
                 list-style: disc;
                 &::marker {
-                    color: var(--navy);
+                    color: var(--secondary);
                 }
             }
         }

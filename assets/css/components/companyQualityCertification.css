@@ -18,22 +18,22 @@
         text-align: center;
         strong {
             font-weight: 600;
-            color: var(--navy);
+            color: var(--secondary);
             text-transform: uppercase;
         }
     }
     a {
         text-transform: uppercase;
         font-weight: 500;
-        color: var(--cerulean);
-        background-color: var(--navy);
+        color: var(--primary);
+        background-color: var(--secondary);
         padding: 1rem 2rem;
         border-radius: .8rem;
         font-weight: 700;
 
         &:hover {
-            background-color: var(--cerulean);
-            color: var(--navy);
+            background-color: var(--primary);
+            color: var(--secondary);
         }
     }
 }

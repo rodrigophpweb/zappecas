@@ -15,8 +15,8 @@
         text-transform: uppercase;
         font-weight: 400;
         font-size: 1.6rem;
-        color: var(--navy);
-        border-bottom:solid .1rem var(--cerulean);
+        color: var(--secondary);
+        border-bottom:solid .1rem var(--primary);
         padding: .5rem 0;
         width: max-content;
         @media only screen and (max-width: 1024px) {
@@ -75,8 +75,8 @@
             }
 
             a {
-                background-color: var(--cerulean);
-                color: var(--navy);
+                background-color: var(--primary);
+                color: var(--secondary);
                 font-weight: 800;
                 padding: 1rem 2rem;
                 border-radius: .8em;
@@ -88,8 +88,8 @@
                 }
                                 
                 &:hover {
-                    background-color: var(--navy);
-                    color: var(--cerulean);
+                    background-color: var(--secondary);
+                    color: var(--primary);
                 }
             }
         }
@@ -98,16 +98,16 @@
         margin: 0 auto;
         text-align: center;
         margin-top: 5rem;
-        background-color: var(--navy);
-        color: var(--cerulean);
+        background-color: var(--secondary);
+        color: var(--primary);
         text-transform: uppercase;
         font-weight: 700;
         padding: 1rem 3rem;
         border-radius: .8rem;
 
         &:hover {
-            background-color: var(--cerulean);
-            color: var(--navy);
+            background-color: var(--primary);
+            color: var(--secondary);
         }
     }
 }

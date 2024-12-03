@@ -55,7 +55,7 @@
             }
         
             h3 {
-                color: var(--white);
+                color: var(--light);
                 font-size: 3.25rem;
                 @media only screen and (max-width: 1024px) {
                     margin-top: -15rem;
@@ -64,7 +64,7 @@
             }
 
             p {
-                color: var(--cerulean);
+                color: var(--primary);
                 width: 100%;
                 @media only screen and (max-width: 1024px) {
                     width: 90%

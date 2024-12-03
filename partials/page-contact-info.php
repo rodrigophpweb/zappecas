@@ -60,7 +60,7 @@
 <section class="googleMaps gridMargin">
     <h2>Venha nos visitar</h2>
     <div class="map-container">
-        <iframe src="<?=get_field('url_maps')?>" allowfullscreen="" loading="lazy" title="Google Maps">
+        <iframe src="<?=get_field('url_maps', 'option')?>" allowfullscreen="" loading="lazy" title="Google Maps">
     </iframe>
     </div>
 </section>

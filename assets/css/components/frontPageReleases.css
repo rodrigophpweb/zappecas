@@ -1,19 +1,89 @@
 .frontPageReleases {
     padding-top: 5rem;
     padding-bottom: 5rem;
+    border-bottom: solid .2rem var(--primary);
     h2 {
         font-size: 5rem;
         text-transform: uppercase;
     }
 
-    .subtitles {
+    .subtitle {
         text-transform: uppercase;
         font-weight: 400;
         font-size: 1.6rem;
-        color: var(--navy);
-        border-bottom:solid .1rem var(--cerulean);
+        color: var(--secondary);
+        border-bottom:solid .1rem var(--primary);
         padding: .5rem 0;
     }
 
-    
+    .sliderCarousel{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+
+        figure {
+            width: 42.5%;
+            padding: 2rem;
+            margin: 5rem 1.5rem 0;
+            text-align: center;
+            border: solid .1rem var(--primary);
+            border-radius: .8rem;
+
+            img {
+                margin-bottom: 3rem;
+            }
+
+            figcaption {
+                text-align: left;
+                color: var(--text-color);
+
+                ul {
+                    li {
+                        strong {
+                            color: var(--secondary);
+                            text-transform: uppercase;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+
+        .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+
+            .prev {
+                position: relative;
+                left: 1rem; /* Distância da borda esquerda */
+            }
+            
+            .next {
+                position: relative;
+                right: 1rem; /* Distância da borda direita */
+            }
+        
+            button {
+                background-color: var(--primary);
+                border: none;
+                border-radius: 50%;
+                width: 4rem;
+                height: 4rem;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+                font-size: 1.6rem; /* Tamanho da seta */
+                color: var(--secondary);
+                &:hover {
+                    background-color: var(--secondary);
+                    color: var(--primary);
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
 }

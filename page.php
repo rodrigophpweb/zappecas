@@ -39,5 +39,4 @@
         get_template_part('partials/page', 'catalog-products');
     ?>
 </main>
-
 <?php get_footer(); ?>

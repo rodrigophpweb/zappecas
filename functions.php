@@ -233,5 +233,60 @@ function linkPhone(){
     echo $phonelink;
 }
 
+// Cores para o sistema
+function dynamic_colors_css() {
+    $primary_color = get_field('primary', 'option'); // Usa o ACF para obter a cor primaria
+    $secondary_color = get_field('secondary', 'option'); // Usa o ACF para obter a cor secundaria
+    $light_color = get_field('light', 'option'); // Usa o ACF para obter a cor secundaria
+    $dark_color = get_field('dark', 'option'); // Usa o ACF para obter a cor secundaria
+    $text_color = get_field('textColor', 'option'); // Usa o ACF para obter a cor secundaria
+
+    if ($primary_color && $secondary_color) {
+        echo "<style>
+            :root {
+                --primary: $primary_color;
+                --secondary: $secondary_color;
+                --light: $light_color;
+                --dark: $dark_color;
+                --text-color: $text_color;
+
+            }
+        </style>";
+    }
+}
+add_action('wp_head', 'dynamic_colors_css');
+
+function display_post_blog($post) {
+    // Extrai atributos para legibilidade
+    $thumbnail_url = get_the_post_thumbnail_url($post->ID, 'medium');
+    $title = get_the_title($post);
+    $permalink = get_permalink($post->ID);
+    $excerpt = get_the_excerpt($post->ID);
+?>
+    <article itemscope itemtype="https://schema.org/BlogPosting">
+        <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+            <img width="300" src="<?=esc_url($thumbnail_url)?>" alt="<?=esc_attr($title)?>" itemprop="url" />
+        </figure>
+        <h3 itemprop="headline"><?=esc_html($title)?></h3>
+        <div itemprop="articleBody"><p><?=esc_html($excerpt)?></p></div>
+        <a href="<?=esc_url($permalink)?>" title="<?=esc_attr($title)?>" itemprop="url">Saiba mais</a>
+    </article>
+<?php
+}
+
+function display_banner($banner, $index) {
+    // Extrai atributos para legibilidade
+    $thumbnail_url = get_the_post_thumbnail_url($banner->ID, 'full');
+    $title = get_the_title($banner);
+?>
+    <figure data-index="<?= esc_attr($index) ?>">
+        <img width="1920" src="<?= esc_url($thumbnail_url) ?>" alt="<?= esc_attr($title) ?>" loading="lazy">
+    </figure>
+<?php
+}
+
+
+
+
 
 

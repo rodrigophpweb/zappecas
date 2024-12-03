@@ -1,32 +1,23 @@
-<div class="hero">
-    <div class="images">
-        <?php
-            $args = [
-                'post_type' => 'banner',
-            ];
-            $the_query = new WP_Query( $args ); 
-            if ( $the_query->have_posts() ) : 
-                $count = 0; // Contador para os bullets
-                while ( $the_query->have_posts() ) :
-                $the_query->the_post();
-        ?>
-                <figure>
-                    <img width="1920" src="<?php the_post_thumbnail_url('full')?>" alt="<?php the_title()?>" loading="lazy">
-                </figure>
-        <?php $count++; endwhile; wp_reset_postdata();?>
-        <?php else : ?>
-            <h1>Não existe banners cadastrados</h1>
-        <?php endif; ?>
-    </div>
+<?php
+$args = ['post_type' => 'banner'];
+$the_query = new WP_Query($args);
 
-    <div class="buttons">
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
+if ($the_query->have_posts()): ?>
+    <div class="hero">
+        <div class="images">
+            <?php while ($the_query->have_posts()): $the_query->the_post(); display_banner($post, $the_query->current_post); endwhile; ?>
+        </div>
+        <div class="buttons">
+            <button class="prev" title="Anterior">&#10094;</button>
+            <button class="next" title="Próximo">&#10095;</button>
+        </div>
+        <ul class="bullets">
+            <?php for ($i = 0; $i < $the_query->found_posts; $i++): ?>
+                <li data-index="<?= esc_attr($i) ?>"></li>
+            <?php endfor; ?>
+        </ul>
     </div>
-
-    <ul class="bullets">
-        <?php for ($i = 0; $i < $count; $i++): ?>
-            <li></li>
-        <?php endfor; ?>
-    </ul>
-</div>
+    <?php wp_reset_postdata(); ?>
+<?php else: ?>
+    <h1>Não existem banners cadastrados</h1>
+<?php endif?>

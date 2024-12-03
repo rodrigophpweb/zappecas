@@ -1,17 +1,17 @@
 .pageCatalogProducts {
     padding: 5rem 5% 2rem;
-    background: linear-gradient(to right, var(--cerulean), var(--darkGray));
+    background: linear-gradient(to right, var(--primary), var(--darkGray));
     background-size: 400% 400%;
     animation: gradientMove 10s ease infinite;
     overflow: hidden;
     
     @media only screen and (max-width: 1024px) {
-        background: linear-gradient(to bottom, var(--cerulean), var(--darkGray));
+        background: linear-gradient(to bottom, var(--primary), var(--darkGray));
     }
         h2 {
         font-size: 5rem;
         text-transform: uppercase;
-        color: var(--navy);
+        color: var(--secondary);
         @media only screen and (max-width: 1024px) {
             font-size: 3rem;
             text-align: center;
@@ -22,7 +22,7 @@
         font-weight: 400;
         font-size: 1.6rem !important;
         color: white !important;
-        border-bottom:solid .1rem var(--navy);
+        border-bottom:solid .1rem var(--secondary);
         padding: .5rem 0;
         @media only screen and (max-width: 1024px) {
             border: none;
@@ -58,13 +58,13 @@
             h3 {
                 font-size: 2.6rem;
                 text-transform: uppercase;
-                color: var(--white);
+                color: var(--light);
                 span {
-                    color: var(--navy);
+                    color: var(--secondary);
                 }
             }
             p {
-                color: var(--white);
+                color: var(--light);
                 margin-bottom: 1rem;
             }
             .buttons {
@@ -77,8 +77,8 @@
                 a {
                     display: flex;
                     justify-content: center;
-                    background-color: var(--cerulean);
-                    color: var(--navy);
+                    background-color: var(--secondary);
+                    color: var(--primary);
                     border-radius: .8rem;
                     width: max-content;
                     padding: 1rem 3rem;
@@ -89,14 +89,18 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
+                    &:hover {
+                        background-color: var(--primary);
+                        color: var(--light);
+                    }
                     img {
                         margin-right: 2rem
                     }
                         @media only screen and (max-width: 1024px) {
                         
                         &:hover {
-                            background-color: var(--navy);
-                            color: var(--cerulean);
+                            background-color: var(--secondary);
+                            color: var(--primary);
                         }
 
                         img {

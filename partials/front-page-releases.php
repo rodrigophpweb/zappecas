@@ -1,32 +1,51 @@
 <section class="frontPageReleases gridMargin">
     <h2>Lançamentos</h2>
-    <span class="subtitles">Compromisso de oferecer a maior linha de produtos do Brasil</span>
-    <div class="carousel">
-        <figure>
-            <img src="https://mobensani.com.br/wp-content/uploads/2024/08/MB4538-300x300.webp" alt="">
-            <figcaption>
-                <h3>MB2002</h3>
-                <ul>
-                    <li><strong>Montadora:</strong> Ford</li>
-                    <li><strong>N. Original:</strong> E1245678A</li>
-                    <li><strong>Descrição:</strong> Suporte Hidraúlico do Motor - Lado Direito</li>
-                    <li><strong>Aplicação:</strong> KA 1.5 18/21</li>
-                </ul>
-            </figcaption>
-        </figure>
+    <span class="subtitle">Compromisso de oferecer a maior linha de produtos do Brasil</span>
+    <div class="sliderCarousel">
+        
+        <?php
+            $args = [
+                'post_type'      => 'produto',      // Seu post_type
+                'posts_per_page' => -1,             // Para trazer todos os produtos
+                'meta_query'     => [
+                    [
+                        'key'     => 'lancamento',  // Nome do campo ACF
+                        'value'   => '1',           // Valor para marcado como "verdadeiro"
+                        'compare' => '=',           // Compara se o valor é igual a 1 (verdadeiro)
+                    ],
+                ],
+                'orderby'         => 'date',         // Ordena pela data (data de publicação)
+                'order'           => 'DESC',         // Ordem decrescente
+            ];
+            $the_query = new WP_Query( $args ); 
 
-        <figure>
-            <img src="https://mobensani.com.br/wp-content/uploads/2024/08/MB4538-300x300.webp" alt="">
-            <figcaption>
-                <h3>MB2002</h3>
-                <ul>
-                    <li><strong>Montadora:</strong> Ford</li>
-                    <li><strong>N. Original:</strong> E1245678A</li>
-                    <li><strong>Descrição:</strong> Suporte Hidraúlico do Motor - Lado Direito</li>
-                    <li><strong>Aplicação:</strong> KA 1.5 18/21</li>
-                </ul>
-            </figcaption>
-        </figure>
+            if ( $the_query->have_posts() ) :
+            while ( $the_query->have_posts() ) :
+                $the_query->the_post();
+        ?>
+                <figure>
+                    <?php the_post_thumbnail('medium')?>
+                <figcaption>
+                    <?=get_the_title('<h3>','</h3>')?>
+                    <ul>
+                        <li><strong>Montadora:</strong> <?=get_field('automakers')?></li>
+                    </ul>
+                    <?=get_the_content();?>
+                </figcaption>
+            </figure>    
+        <?php 
+            endwhile;
+            wp_reset_postdata();
+            else : 
+        ?>
+        <p><?php esc_html_e( 'Desculpe, nenhum produto corresponde aos seus critérios.' ); ?></p>
+        <?php endif?>
+        
+        <div class="buttons">
+            <button class="prev" title="Anterior">&#10094;</button>
+            <button class="next" title="Próximo">&#10095;</button>
+        </div>
+
         <menu class="bullets">
             <li></li>
             <li></li>

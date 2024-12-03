@@ -29,7 +29,7 @@
                 justify-content: center;
                 margin-bottom: 3rem;
                 img {
-                    width: 100%
+                    width: 100%;
                     height: auto;
                 }
             }
@@ -45,8 +45,8 @@
             }
     
             a {
-                background-color: var(--cerulean);
-                color: var(--navy);
+                background-color: var(--primary);
+                color: var(--secondary);
                 font-weight: 800;
                 padding: 1rem 2rem;
                 border-radius: .8em;
@@ -58,8 +58,8 @@
                 }
                                 
                 &:hover {
-                    background-color: var(--navy);
-                    color: var(--cerulean);
+                    background-color: var(--secondary);
+                    color: var(--primary);
                 }
             }
         }

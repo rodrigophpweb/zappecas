@@ -10,13 +10,10 @@
                 $image = get_sub_field('imageMvv');
                 $titleContent = get_sub_field('titleContent');
                 $contentMVV = get_sub_field('contentMVV');
+                $svg_file = get_sub_field('iconMVV'); // Substitua 'svg_field' pelo nome do campo no ACF
             ?>
-            <article class="<?=esc_html($cssClass)?>">
-                <figure>
-                    <?php if(!empty($image)):?>
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-                    <?php endif; ?>
-                </figure>
+            <article class="<?=esc_html($cssClass)?>">                                   
+                    <?php echo ($svg_file && pathinfo($svg_file['url'], PATHINFO_EXTENSION) === 'svg' && $svg_content = file_get_contents($svg_file['url'])) ? $svg_content : '<!-- Erro ao carregar o SVG -->'?>
                 <div class="contentInternal">
                     <h3><?=esc_html($titleContent)?></h3> 
                     <p><?=esc_html($contentMVV)?></p>

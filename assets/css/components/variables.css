@@ -9,13 +9,13 @@
 }
 :root {
     font-size: 62.5%;
-    --cerulean: #00A0DF;
+    /* --primary: #00A0DF;
+    --secondary: #011e41;
+    --text-color: #4f4f4f;
+    --dark: #000000; 
+    --light: #ffffff;*/    
     --fireflay: #00242F;
-    --navy: #011e41;
     --darkGray: #2b2b2b;
-    --darkLiver: #4f4f4f;
-    --black: #000;
-    --white: #fff;    
 }
 
 body {
@@ -33,7 +33,7 @@ h4,
 h5,
 h6{
     font-weight: 700;
-    color: var(--navy);
+    color: var(--secondary);
 }
 
 strong {font-weight: 500}
@@ -41,7 +41,7 @@ strong {font-weight: 500}
 p,
 li {
     font-weight: 400;
-    color: var(--darkLiver);
+    color: var(--text-color);
 }
 
 .page-id-12 section {
@@ -52,6 +52,6 @@ li {
         font-size: 2.6rem;
         font-weight: 300;
         text-transform: uppercase;
-        color: var(--cerulean);
+        color: var(--primary);
     }
 }

@@ -1,7 +1,7 @@
 header {
     display: flex;
     flex-direction: column;
-    border-bottom: solid .3rem var(--navy);
+    border-bottom: solid .3rem var(--secondary);
     padding-top: 2.5rem !important;
     padding-bottom: 2.5rem !important;
 
@@ -32,7 +32,7 @@ header {
                 cursor: pointer;
                 display: block;
                 font-size: 4rem;
-                color: var(--navy);
+                color: var(--secondary);
                 width: 65%;
                 text-align: right;
             }
@@ -54,12 +54,12 @@ header {
                 a {
                     text-transform: uppercase;
                     font-weight: 500;
-                    color: var(--navy);
+                    color: var(--secondary);
                 }
             }
             .current-menu-item {
                 a {
-                    background-color: var(--cerulean);
+                    background-color: var(--primary);
                     padding: 1rem 2rem;
                     border-radius: .8rem;
                     font-weight: 700;
@@ -67,7 +67,7 @@ header {
             }
 
             li:hover a {
-                background-color: var(--cerulean);
+                background-color: var(--primary);
                 padding: 1rem 2rem;
                 border-radius: .8rem;
                 font-weight: 700;

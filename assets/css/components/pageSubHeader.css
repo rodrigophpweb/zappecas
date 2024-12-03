@@ -41,7 +41,7 @@
             li {
                 text-transform: uppercase;
                 margin-right: 10px;
-                color: var(--navy);
+                color: var(--secondary);
             
                 &:after {
                     content: ">";
@@ -52,16 +52,16 @@
                     content: "";
                 }
                 span {
-                    border-bottom: solid .1rem var(--cerulean);
+                    border-bottom: solid .1rem var(--primary);
                 }
 
                 a {
-                    color: var(--navy);
+                    color: var(--secondary);
                     span {
                         border: none;
                         &:hover {
-                            color: var(--cerulean);
-                            border-bottom: solid .1rem var(--navy);
+                            color: var(--primary);
+                            border-bottom: solid .1rem var(--secondary);
                         }
                     }
                 }

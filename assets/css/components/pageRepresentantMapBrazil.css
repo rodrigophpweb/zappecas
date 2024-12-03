@@ -24,11 +24,11 @@
                 height: auto;    
             }
             path {
-                fill: var(--navy);
+                fill: var(--secondary);
                 cursor: pointer;
 
                 &:hover {
-                    fill: var(--cerulean);
+                    fill: var(--primary);
                 }
             }
         }
@@ -93,7 +93,7 @@
             width: 100%;
             height: .1rem;
             display: block;
-            border-bottom: solid .1rem var(--cerulean);
+            border-bottom: solid .1rem var(--primary);
         }
     }
 }

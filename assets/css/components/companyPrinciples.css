@@ -18,18 +18,28 @@
         article {
             width: 33%;
             @media only screen and (max-width: 1024px){
-                width: 100%;margin-bottom: 3rem; 
-                img {
+                width: 100%;
+            }
+            svg {
+                circle {
+                    fill: var(--primary) !important;
+                }
+                g {
+                    fill: var(--secondary) !important;
+                }
+                @media only screen and (max-width: 1024px) {
                     width: 50%;
+                    height: 50%;
                 }
             }
+            
             .contentInternal {
                 h3 {
                     text-transform: uppercase;
                     margin-top: 2rem;
                 }
                 p {
-                    color: var(--navy);
+                    color: var(--secondary);
                 }
             }
         }

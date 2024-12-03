@@ -1,8 +1,8 @@
 .companyPolicyOfQuality {
     display: flex;
-    background-color: var(--cerulean);
-    border-top: solid 2px var(--navy);
-    border-bottom: solid 2px var(--navy);
+    background-color: var(--primary);
+    border-top: solid 2px var(--secondary);
+    border-bottom: solid 2px var(--secondary);
     @media only screen and (max-width: 1024px) {
         flex-direction: column
     }
@@ -20,7 +20,7 @@
         }
 
         .subtitle {
-            color: var(--white);
+            color: var(--light);
         }
     }
 
@@ -36,7 +36,7 @@
         p {
             width: 70%;
             text-align: center;
-            color:  var(--navy);
+            color:  var(--secondary);
         }
     }
 }
