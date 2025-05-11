@@ -7,7 +7,7 @@
                 $image = get_field('imageCatalog', 'option');
                 if( !empty( $image ) ): 
             ?>
-                <img width="547" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" itemprop="contentUrl" loading="lazy" />
+                <img width="547" src="<?=esc_url($image['url'])?>" alt="<?=esc_attr($image['alt'])?>" itemprop="contentUrl" loading="lazy" />
             <?php endif; ?>
         </figure>
         <article id="contentCatalog" class="article-animate" itemprop="mainEntity" itemscope itemtype="https://schema.org/CreativeWork">
@@ -16,14 +16,14 @@
             <div class="buttons" itemprop="offers" itemscope itemtype="https://schema.org/OfferCatalog">
                 <?php 
                     if( have_rows('buttonActions', 'option') ): 
-                        while( have_rows('buttonActions', 'option') ): the_row(); // Verifique se 'buttonActions' é o nome correto do campo no ACF.
+                        while( have_rows('buttonActions', 'option') ): the_row();
                 ?>
-                        <a href="<?php the_sub_field('urlButton'); ?>" title="<?php the_sub_field('nameButton'); ?>" target="_blank" itemprop="url">
+                        <a href="<?php the_sub_field('urlButton'); ?>" title="<?php the_sub_field('nameButton'); ?>" target="_blank" itemprop="url" rel="noopener noreferrer">
                         <?php 
                             $image = get_sub_field('iconbutton');
                             if( !empty( $image ) ): 
                         ?>
-                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy" />
+                            <img src="<?=esc_url($image['url'])?>" alt="<?=esc_attr($image['alt'])?>" loading="lazy" />
                         <?php endif; ?> 
                             <?php the_sub_field('nameButton'); ?>
                         </a>

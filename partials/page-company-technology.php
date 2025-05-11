@@ -12,7 +12,7 @@
             <article>
                 <figure>
                     <?php if( !empty( $image ) ): ?>
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                        <img src="<?=esc_url($image['url'])?>" alt="<?=esc_attr($image['alt'])?>" />
                     <?php endif; ?>
                     <figcaption>
                         <h3><?=esc_html($title)?></h3>

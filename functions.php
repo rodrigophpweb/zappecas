@@ -233,6 +233,12 @@ function linkPhone(){
     echo $phonelink;
 }
 
+function cellPhone(){
+    $phone = esc_html(get_field('cellPhoneWebsite', 'option'));
+    $phonelink = preg_replace('/[^0-9+]/', '', $phone);
+    echo $phonelink;
+}
+
 // Cores para o sistema
 function dynamic_colors_css() {
     $primary_color = get_field('primary', 'option'); // Usa o ACF para obter a cor primaria

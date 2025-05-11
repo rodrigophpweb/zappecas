@@ -9,7 +9,7 @@
                 <p>
                     <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('j M, Y'); ?></time>
                     <span class="separador">|</span>
-                    <span property="articleSection" typeof="Duration">Tempo estimado de leitura: <?php echo estimated_reading_time()?></span>
+                    <span property="articleSection" typeof="Duration">Tempo estimado de leitura: <?=estimated_reading_time()?></span>
                 </p>
             </header>
             <article>

@@ -9,7 +9,7 @@
             $photoDirector = get_field('photoDirector');                    
             if( !empty( $photoDirector ) ): 
         ?>
-            <img width="509" height="500" src="<?php echo esc_url($photoDirector['url']); ?>" alt="<?php echo esc_attr($photoDirector['alt']); ?>" loading="lazy" itemprop="image">
+            <img width="509" height="500" src="<?=esc_url($photoDirector['url'])?>" alt="<?=esc_attr($photoDirector['alt'])?>" loading="lazy" itemprop="image">
         <?php endif; ?>
     </figure>
 </section>
