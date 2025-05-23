@@ -227,11 +227,22 @@ function estimated_reading_time() {
 
 add_filter('rest_representante_query', 'filter_representants_by_state', 10, 2);
 
+/*
+    * Função para filtrar os representantes por estado
+    * @param array $args Argumentos da consulta
+    * @param WP_REST_Request $request Requisição REST
+    * @return array Argumentos filtrados
+*/
 function linkPhone(){
     $phone = esc_html(get_field('phoneWebsite', 'option'));
     $phonelink = preg_replace('/[^0-9+]/', '', $phone);
     echo $phonelink;
 }
+
+/*
+    * Função para retornar o telefone celular formatado
+    * @return string Telefone celular formatado
+*/
 
 function cellPhone(){
     $phone = esc_html(get_field('cellPhoneWebsite', 'option'));
@@ -239,7 +250,12 @@ function cellPhone(){
     echo $phonelink;
 }
 
-// Cores para o sistema
+/*
+    * Função para filtrar os representantes por estado
+    * @param array $args Argumentos da consulta
+    * @param WP_REST_Request $request Requisição REST
+    * @return array Argumentos filtrados
+*/
 function dynamic_colors_css() {
     $primary_color = get_field('primary', 'option'); // Usa o ACF para obter a cor primaria
     $secondary_color = get_field('secondary', 'option'); // Usa o ACF para obter a cor secundaria
@@ -262,6 +278,12 @@ function dynamic_colors_css() {
 }
 add_action('wp_head', 'dynamic_colors_css');
 
+/*
+    * Função para filtrar os representantes por estado
+    * @param array $args Argumentos da consulta
+    * @param WP_REST_Request $request Requisição REST
+    * @return array Argumentos filtrados
+*/
 function display_post_blog($post) {
     // Extrai atributos para legibilidade
     $thumbnail_url = get_the_post_thumbnail_url($post->ID, 'medium');
@@ -280,8 +302,13 @@ function display_post_blog($post) {
 <?php
 }
 
+/*
+    * Função para filtrar os representantes por estado
+    * @param array $args Argumentos da consulta
+    * @param WP_REST_Request $request Requisição REST
+    * @return array Argumentos filtrados
+*/
 function display_banner($banner, $index) {
-    // Extrai atributos para legibilidade
     $thumbnail_url = get_the_post_thumbnail_url($banner->ID, 'full');
     $title = get_the_title($banner);
 ?>
@@ -292,7 +319,59 @@ function display_banner($banner, $index) {
 }
 
 
+function zappecas_get_detalhes_do_conteudo($post_id = null) {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
 
+    $content = get_post_field('post_content', $post_id);
 
+    if (empty($content)) {
+        return [
+            'descricao' => 'Conteúdo vazio',
+            'aplicacao' => 'Conteúdo vazio'
+        ];
+    }
 
+    $dom = new DOMDocument();
+    libxml_use_internal_errors(true);
+    $dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+    libxml_clear_errors();
 
+    $lis = $dom->getElementsByTagName('li');
+
+    $descricao = '';
+    $aplicacao = '';
+
+    foreach ($lis as $li) {
+        $strong = $li->getElementsByTagName('strong')->item(0);
+
+        if ($strong) {
+            $label = trim($strong->textContent);
+            $li->removeChild($strong); // remove <strong> do conteúdo
+            $liText = trim($li->textContent);
+
+            if (stripos($label, 'Descrição') !== false) {
+                $descricao = ltrim($liText, ': ');
+            }
+
+            if (stripos($label, 'Aplicação') !== false) {
+                $innerUl = $li->getElementsByTagName('ul')->item(0);
+                if ($innerUl) {
+                    $models = [];
+                    foreach ($innerUl->getElementsByTagName('li') as $modelLi) {
+                        $models[] = trim($modelLi->textContent);
+                    }
+                    $aplicacao = implode(', ', $models);
+                } else {
+                    $aplicacao = ltrim($liText, ': ');
+                }
+            }
+        }
+    }
+
+    return [
+        'descricao' => $descricao ?: 'Não encontrada',
+        'aplicacao' => $aplicacao ?: 'Não encontrada'
+    ];
+}

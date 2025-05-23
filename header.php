@@ -13,7 +13,7 @@
             <a href="<?php site_url()?>/home" title="Logotipo Zap Peças Automotivas">
                 <img src="<?=get_template_directory_uri()?>/assets/images/logotipo-zap-pecas.svg" alt="Logotipo Zap Peças Automotivas">
             </a>
-        </figure>
+	</figure>
         <span class="mnumobile">☰</span>
         <?php
             wp_nav_menu(

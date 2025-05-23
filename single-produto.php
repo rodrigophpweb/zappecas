@@ -1,5 +1,15 @@
+<?php
+/**
+ * Template Name: Produto
+ * Template Post Type: produto
+ *
+ * @package WordPress
+ * @subpackage seu_tema
+ * @since seu_tema 1.0
+ */
+get_header(); ?>
 <section class="singleProduct" itemscope itemtype="http://schema.org/Product">
-    <h1 itemprop="name"><?php the_title()?></h1>
+    <h1 itemprop="name">Nossos produtos</h1>
     <nav aria-label="breadcrumb">
         <ol>
             <li><a href="/" itemprop="breadcrumb">Home</a></li>
@@ -9,18 +19,21 @@
 </section>
 
 <section class="product" itemscope itemtype="http://schema.org/Product">
-    <h2 itemprop="name"><?php the_title()?></h2>
+    <?php the_title('<h2 itemprop="name">', '</h2>')?>
     <article>
-        <figure>
-            <img src="caminho/da/sua/foto.jpg" alt="Foto do Produto" itemprop="image">
+        <figure>            
+            <!-- get post thumbnail full  with lazy-->
+            <?php the_post_thumbnail('full')?>
+
         </figure>
         <header class="productData">
+            <?php $detalhes = zappecas_get_detalhes_do_conteudo(); ?>
             <ul>
-                <li><strong>Montadora: </strong><span itemprop="brand">GM</span></li>
-                <li><strong>N. Original: </strong><span itemprop="productID">95032352</span></li>
-                <li><strong>Descrição: </strong><span itemprop="description">Suporte Dianteiro do Motor Lado Esquerdo - Transm. Manual</span></li>
-                <li><strong>Aplicação: </strong><span itemprop="model">COBALT 11/…, SONIC 13/14, ONIX/PRISMA/SPIN 13/…</span></li>
-                <li><strong>Categorias: </strong><span itemprop="category">BIELETA, SUPORTE DO MOTOR</span></li>
+                <li><strong>Montadora: </strong><span itemprop="brand"><?= ($terms = get_the_terms(get_the_ID(), 'fabricante')) && !is_wp_error($terms) ? implode(', ', wp_list_pluck($terms, 'name')) : '' ?></span></li>
+                <li><strong>N. Original: </strong><span itemprop="productID"><?php the_field('codeProduct')?></span></li>
+                <li><strong>Descrição: </strong><span itemprop="description"><?=esc_html($detalhes['descricao'])?></span></li>
+                <li><strong>Aplicação: </strong><span itemprop="model"><?=esc_html($detalhes['aplicacao'])?></span></li>
+                <li><strong>Categoria: </strong><span itemprop="category"><?= ($terms = get_the_terms(get_the_ID(), 'fabricante')) && !is_wp_error($terms) ? implode(', ', wp_list_pluck($terms, 'name')) : '' ?></span></li>
             </ul>
         </header>
     </article>
@@ -54,3 +67,5 @@
         <p><strong>Mês de lançamento: </strong><span itemprop="releaseDate">12/2002</span></p>
     </article>
 </section>
+
+<?php get_footer(); ?>
