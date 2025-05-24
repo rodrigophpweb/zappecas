@@ -93,7 +93,103 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+if (window.location.pathname.match(/\/produtos\/?$/)) {
+  const figures = document.querySelectorAll('.productDetail');
+  const links = document.querySelectorAll('.productList a');
 
+  function showProductById(id) {
+    // Mostrar/ocultar produtos
+    figures.forEach(fig => {
+      fig.style.display = (fig.id === id) ? 'flex' : 'none';
+    });
+
+    // Ativar o link correto
+    links.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+    });
+  }
+
+  // Inicializar com Bieleta ativada
+  showProductById('Bieleta');
+
+  // Listener nos cliques
+  links.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      showProductById(targetId);
+    });
+  });
+
+    //   Carousel página de produtos
+    const carousel = document.querySelector(".carouselNextProducts");
+    if (carousel) {
+    const track = carousel.querySelector(".carouselContent");
+    const items = carousel.querySelectorAll(".carouselItem");
+    const prevButton = carousel.querySelector(".btnPrevious");
+    const nextButton = carousel.querySelector(".btnNext");
+    const bulletsContainer = carousel.querySelector(".carouselNavigation .bullets");
+
+    let currentPage = 0;
+    let itemsPerPage = getItemsPerPage();
+
+    function getItemsPerPage() {
+        const width = window.innerWidth;
+        if (width <= 768) return 1;
+        if (width <= 1024) return 2;
+        return 3;
+    }
+
+    function updateCarousel() {
+        const itemWidth = items[0].offsetWidth + 32; // largura + gap
+        const offset = itemWidth * itemsPerPage * currentPage;
+        track.style.transform = `translateX(-${offset}px)`;
+        updateBullets();
+    }
+
+    function createBullets() {
+        const pages = Math.ceil(items.length / itemsPerPage);
+        bulletsContainer.innerHTML = "";
+        for (let i = 0; i < pages; i++) {
+        const bullet = document.createElement("li");
+        if (i === 0) bullet.classList.add("active");
+        bullet.addEventListener("click", () => {
+            currentPage = i;
+            updateCarousel();
+        });
+        bulletsContainer.appendChild(bullet);
+        }
+    }
+
+    function updateBullets() {
+        bulletsContainer.querySelectorAll("li").forEach((bullet, index) => {
+        bullet.classList.toggle("active", index === currentPage);
+        });
+    }
+
+    prevButton.addEventListener("click", () => {
+        currentPage = Math.max(currentPage - 1, 0);
+        updateCarousel();
+    });
+
+    nextButton.addEventListener("click", () => {
+        const totalPages = Math.ceil(items.length / itemsPerPage);
+        currentPage = Math.min(currentPage + 1, totalPages - 1);
+        updateCarousel();
+    });
+
+    window.addEventListener("resize", () => {
+        itemsPerPage = getItemsPerPage();
+        currentPage = 0;
+        createBullets();
+        updateCarousel();
+    });
+
+    // Inicializar
+    createBullets();
+    updateCarousel();
+    }
+}
 if (window.location.pathname.endsWith('representantes/') || window.location.pathname.endsWith('representantes')) {
 
     function exibirRepresentantes(data) {
@@ -164,7 +260,6 @@ if (window.location.pathname.endsWith('representantes/') || window.location.path
     });
 }
 
-
 if (window.location.pathname.endsWith('a-empresa/') || window.location.pathname.endsWith('a-empresa')) {
     const fadeSection = document.querySelector('.fade-in-section');
 
@@ -230,6 +325,81 @@ if (window.location.pathname.endsWith('a-empresa/') || window.location.pathname.
     }
     checkVisibility();
 }
+
+// Condições para Taxonomias
+if (window.location.pathname.match(/\/produtos\/(linha|fabricante)(\/.*)?$/)) {
+
+    const lineSelect = document.getElementById("filter-line");
+    const fabricanteSelect = document.getElementById("filter-fabricante");
+    const searchInput = document.getElementById("search-term");
+    const productGrid = document.getElementById("product-grid");
+    const pagination = document.getElementById("pagination");
+
+    let currentPage = 1;
+
+    function fetchProducts() {
+      const line = lineSelect?.value || '';
+      const fabricante = fabricanteSelect?.value || '';
+      const search = searchInput?.value || '';
+
+      const params = new URLSearchParams({
+        line,
+        fabricante,
+        search,
+        page: currentPage
+      });
+
+      fetch(`/wp-json/custom/v1/produtos?${params.toString()}`)
+        .then((res) => res.json())
+        .then((data) => {
+          renderProducts(data.products);
+          renderPagination(data.total_pages);
+        })
+        .catch((err) => {
+          console.error("Erro ao buscar produtos:", err);
+        });
+    }
+
+    function renderProducts(products) {
+      productGrid.innerHTML = products.map((prod) => `
+        <article class="product-card" itemscope itemtype="https://schema.org/Product">
+          <h3 itemprop="name">${prod.title}</h3>
+          <p itemprop="description">${prod.excerpt}</p>
+        </article>
+      `).join('');
+    }
+
+    function renderPagination(totalPages) {
+      pagination.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement("button");
+        button.textContent = i;
+        button.className = "page-btn";
+        button.dataset.page = i;
+        if (i === currentPage) {
+          button.classList.add("active");
+        }
+        button.addEventListener("click", () => {
+          currentPage = parseInt(button.dataset.page);
+          fetchProducts();
+        });
+        pagination.appendChild(button);
+      }
+    }
+
+    // Eventos
+    lineSelect?.addEventListener("change", () => { currentPage = 1; fetchProducts(); });
+    fabricanteSelect?.addEventListener("change", () => { currentPage = 1; fetchProducts(); });
+    searchInput?.addEventListener("input", () => {
+      currentPage = 1;
+      // Delay no search (opcional)
+      clearTimeout(searchInput._timeout);
+      searchInput._timeout = setTimeout(fetchProducts, 400);
+    });
+
+    // Carrega produtos inicialmente
+    fetchProducts();
+  }
 
 // Tab Panel
 document.querySelectorAll('[role="tab"]').forEach(tab => {

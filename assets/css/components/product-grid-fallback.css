@@ -1,0 +1,109 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+
+  select,
+  input[type="text"] {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    &:focus {
+      border-color: #333;
+      outline: none;
+    }
+  }
+}
+
+.product-grid-fallback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+
+  .product-card {
+    flex: 1 1 calc(25% - 2rem); // 4 colunas com gap
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      [itemprop="image"] {
+        width: 50%;
+
+        img {
+          width: 50%;
+          height: auto;
+          display: block;
+          object-fit: cover;
+        }
+      }
+
+      figcaption {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        h3[itemprop="name"] {
+          font-size: 1.2rem;
+          margin: 0 0 0.25rem;
+          color: #222;
+        }
+
+        span {
+          font-size: 0.95rem;
+          color: #555;
+        }
+
+        p[itemprop="description"] {
+          font-size: 0.9rem;
+          color: #666;
+          margin: 0.5rem 0 0;
+        }
+      }
+    }
+  }
+}
+
+
+.pagination {
+  margin: 3rem 0 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+
+  button {
+    background: #eee;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &:hover {
+      background: #ccc;
+    }
+
+    &.active {
+      background: #333;
+      color: #fff;
+    }
+  }
+}

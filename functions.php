@@ -36,8 +36,9 @@ function load_styles_and_scripts() {
     $pages = [
         'home'              => 'front-page.css',
         'a-empresa'         => 'a-empresa.css',
-        'blog'              => 'blog.css',
+        'produtos'          => 'produtos.css',
         'representantes'    => 'representantes.css',
+        'blog'              => 'blog.css',
         'contato'           => 'contato.css',
         'trabalhe-conosco'  => 'trabalhe-conosco.css',
     ];
@@ -51,6 +52,11 @@ function load_styles_and_scripts() {
     // Load styles for single post
     if (is_single()) {
         wp_enqueue_style('single-post', get_template_directory_uri() . '/assets/css/pages/single.css');
+    }
+
+    // Load style for taxonomy 'linhas'
+    if (is_tax('linha')) {
+        wp_enqueue_style('taxonomy-linhas', get_template_directory_uri() . '/assets/css/pages/taxonomy-lines.css');
     }
 }
 add_action('wp_enqueue_scripts', 'load_styles_and_scripts');
@@ -113,15 +119,32 @@ function custom_breadcrumb() {
     if (!is_home()) {
         echo '<nav aria-label="breadcrumb" class="breadcrumb">';
         echo '<ul itemscope itemtype="https://schema.org/BreadcrumbList">';
+        $position = 1;
+
+        // Home
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
         echo '<a href="' . home_url() . '" itemprop="item">';
         echo '<span itemprop="name">Home</span></a>';
-        echo '<meta itemprop="position" content="1" />';
+        echo '<meta itemprop="position" content="' . $position++ . '" />';
         echo '</li>';
 
-        $position = 2;
+        // Taxonomia 'linha'
+        if (is_tax('linha')) {
+            echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+            echo '<a href="' . home_url('/produtos') . '" itemprop="item">';
+            echo '<span itemprop="name">Produtos</span></a>';
+            echo '<meta itemprop="position" content="' . $position++ . '" />';
+            echo '</li>';
 
-        if (is_category() || is_single()) {
+            $term = get_queried_object();
+            echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+            echo '<span itemprop="name">' . esc_html($term->name) . '</span>';
+            echo '<meta itemprop="position" content="' . $position++ . '" />';
+            echo '</li>';
+        }
+
+        // Posts e categorias
+        elseif (is_category() || is_single()) {
             $category = get_the_category();
             if ($category) {
                 echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
@@ -137,10 +160,14 @@ function custom_breadcrumb() {
                 echo '<meta itemprop="position" content="' . $position++ . '" />';
                 echo '</li>';
             }
-        } elseif (is_page()) {
+        }
+
+        // Páginas comuns
+        elseif (is_page()) {
+            global $post;
             if ($post->post_parent) {
                 $ancestors = get_post_ancestors($post->ID);
-                foreach ($ancestors as $ancestor) {
+                foreach (array_reverse($ancestors) as $ancestor) {
                     echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
                     echo '<a href="' . get_permalink($ancestor) . '" itemprop="item">';
                     echo '<span itemprop="name">' . get_the_title($ancestor) . '</span></a>';
@@ -158,6 +185,7 @@ function custom_breadcrumb() {
         echo '</nav>';
     }
 }
+
 
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page(array(
@@ -373,5 +401,61 @@ function zappecas_get_detalhes_do_conteudo($post_id = null) {
     return [
         'descricao' => $descricao ?: 'Não encontrada',
         'aplicacao' => $aplicacao ?: 'Não encontrada'
+    ];
+}
+
+
+add_action('rest_api_init', function () {
+  register_rest_route('custom/v1', '/produtos', [
+    'methods' => 'GET',
+    'callback' => 'get_filtered_products',
+    'permission_callback' => '__return_true',
+  ]);
+});
+
+function get_filtered_products($request) {
+    $paged = $request->get_param('page') ?: 1;
+    $search = sanitize_text_field($request->get_param('search'));
+    $line = sanitize_text_field($request->get_param('line'));
+    $fabricante = sanitize_text_field($request->get_param('fabricante'));
+
+    $args = [
+    'post_type' => 'product',
+    'posts_per_page' => 9,
+    'paged' => $paged,
+    's' => $search,
+    'tax_query' => [],
+    ];
+
+    if ($line) {
+    $args['tax_query'][] = [
+        'taxonomy' => 'line',
+        'field'    => 'slug',
+        'terms'    => $line,
+    ];
+    }
+
+    if ($fabricante) {
+    $args['tax_query'][] = [
+        'taxonomy' => 'fabricante',
+        'field'    => 'slug',
+        'terms'    => $fabricante,
+    ];
+    }
+
+    $query = new WP_Query($args);
+
+    $products = [];
+    foreach ($query->posts as $post) {
+    $products[] = [
+        'id' => $post->ID,
+        'title' => get_the_title($post),
+        'excerpt' => get_the_excerpt($post),
+    ];
+    }
+
+    return [
+    'products' => $products,
+    'total_pages' => $query->max_num_pages,
     ];
 }
