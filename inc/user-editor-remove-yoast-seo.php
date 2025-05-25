@@ -8,7 +8,7 @@
 function remover_yoast_para_editores() {
     if (current_user_can('editor')) {
         // Remove o menu do Yoast do admin
-        remove_menu_page('wpseo_dashboard');
+        remove_menu_page('toplevel_page_wpseo_workouts');
 
         // Remove a barra do Yoast da tela de edição de posts/páginas
         add_filter('wpseo_accessible_post_types', function ($post_types) {
@@ -24,3 +24,5 @@ function remover_yoast_para_editores() {
     }
 }
 add_action('admin_menu', 'remover_yoast_para_editores', 999);
+
+

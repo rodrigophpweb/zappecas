@@ -20,6 +20,7 @@
         if (!empty($fabricante)) {
             $args['tax_query'][] = [
                 'taxonomy' => 'fabricante',
+                'post_status' => 'publish',
                 'field' => 'slug',
                 'terms' => $fabricante,
             ];
