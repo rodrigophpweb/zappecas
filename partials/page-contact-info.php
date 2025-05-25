@@ -72,3 +72,4 @@
     <?=do_shortcode('[contact-form-7 id="ec12b6a" title="Formulário de contato"]')?>
 </section>
 
+<?php get_template_part('partials/catalogFull');?>

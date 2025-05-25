@@ -2,46 +2,48 @@
 
 <main>
     <?php get_template_part('partials/page', 'sub-header'); ?>
-
-    <search class="filters gridMargin">
-        <select id="filter-line">
-            <option value="">Todos os Tipos</option>
+    
+    <section class="infoFilter gridMargin">
+        <h2 id="totalProdutosLinha">
             <?php
-            $terms = get_terms(['taxonomy' => 'line', 'hide_empty' => false]);
-            foreach ($terms as $term) {
-                echo "<option value='{$term->slug}'>{$term->name}</option>";
-            }
+                $term = get_queried_object();
+                global $wp_query;
+                echo 'O total de "' . esc_html($term->name) . '" é: ' . $wp_query->found_posts;
             ?>
-        </select>
+        </h2>
 
-        <select id="filter-fabricante">
-            <option value="">Todos os Fabricantes</option>
+        <search class="filtro-fabricante">
             <?php
-            $fabricantes = get_terms(['taxonomy' => 'fabricante', 'hide_empty' => false]);
-            foreach ($fabricantes as $term) {
-                echo "<option value='{$term->slug}'>{$term->name}</option>";
-            }
+                $fabricantes = get_terms([
+                    'taxonomy' => 'fabricante',
+                    'hide_empty' => false,
+                ]);
             ?>
-        </select>
-
-        <input type="text" id="search-term" placeholder="Buscar produto...">
-    </search>
+            <label for="filtroFabricante">Filtrar por fabricante:</label>
+            <select id="filtroFabricante">
+                <option value="">Todos</option>
+                <?php foreach ($fabricantes as $fabricante) : ?>
+                    <option value="<?= esc_attr($fabricante->slug); ?>">
+                        <?= esc_html($fabricante->name); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </search>
+    </section>
 
     <?php if (have_posts()) : ?>
-        <section class="product-grid-fallback gridMargin">
+        <section id="resultadoProdutos" class="product-grid-fallback gridMargin">
             <?php while (have_posts()) : the_post(); ?>
                 <article class="product-card" itemscope itemtype="https://schema.org/Product">
-                    <figure>
+                    <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                         <?php if (has_post_thumbnail()) : ?>
-                            <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                                <?php the_post_thumbnail('medium', ['alt' => get_the_title(), 'itemprop' => 'url']); ?>
-                            </div>
+                            <?php the_post_thumbnail('medium', ['alt' => get_the_title(), 'loading' => 'lazy', 'itemprop' => 'url']); ?>                            
                         <?php endif; ?>
                         <figcaption>
                             <meta itemprop="url" content="<?php the_permalink(); ?>">
-                            <span><strong>Nome do produto: </strong><?php the_title('<h3 itemprop="name">','</h3>'); ?></span><br>
-                            <span itemprop="sku"><strong>Código do produto: </strong><?php the_field('codeProduct'); ?></span>
-                            <div itemprop="description"><?=get_the_content()?></div>
+                            <h3 itemprop="name"><?php the_field('codeProduct'); ?></h3>
+                            <div class="descriptionProducts" itemprop="description"><?=get_the_content()?></div>
+                            <a href="<?=esc_url(get_the_permalink())?>" title="Mais informações sobre <?=esc_html(get_field('codeProduct'))?>">Mais informações</a>
                         </figcaption>
                     </figure>
                 </article>
@@ -51,9 +53,20 @@
         <p>Nenhum produto encontrado para essa linha.</p>
     <?php endif; ?>
 
-    <nav id="pagination" class="pagination"></nav>
+    <nav id="pagination" class="pagination">
+        <?php
+            echo paginate_links([
+                'total' => $wp_query->max_num_pages,
+                'prev_text' => '&laquo;',
+                'next_text' => '&raquo;',
+            ]);
+        ?>
+    </nav>
 
-    <?php get_template_part('partials/page', 'catalog-products'); ?>
+    <?php 
+        get_template_part('partials/catalogFull');
+        get_template_part('partials/page', 'catalog-products'); 
+    ?>
 </main>
 
 <?php get_footer(); ?>

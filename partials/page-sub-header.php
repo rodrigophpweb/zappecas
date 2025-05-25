@@ -1,17 +1,30 @@
 <section class="subHeaderPages gridMargin">
-    <?php if (is_tax('linha')): ?>
-        <?php
-            $term = get_queried_object();
-            $term_name = $term->name;
-        ?>
-        <h1 itemprop="name">Produtos (<?php echo esc_html($term_name); ?>)</h1>
-    
-    <?php elseif (!is_page()): ?>
-        <h1 itemprop="name">Blog</h1>
+    <?php
+        function get_contextual_title() {
+            $conditions = [
+                'Produtos (%s)' => function () {
+                    return is_tax('linha') ? get_queried_object()->name : false;
+                },
+                'Produto' => fn() => is_singular('produto'),
+                'Produtos' => fn() => is_post_type_archive('produto'),
+                'Blog' => fn() => is_single() && get_post_type() === 'post',
+                '%s' => function () {
+                    return is_category() ? single_cat_title('', false) : false;
+                },
+                get_the_title() => fn() => is_page() || is_singular(),
+            ];
 
-    <?php else: ?>
-        <?php the_title('<h1 itemprop="name">', '</h1>'); ?>
-    <?php endif; ?>
+            foreach ($conditions as $format => $condition) {
+                $result = $condition();
+                if ($result !== false) {
+                    return sprintf($format, $result);
+                }
+            }
 
+            return get_the_title(); // fallback
+        }
+    ?>
+
+    <h1 itemprop="name"><?= esc_html(get_contextual_title()); ?></h1>
     <?php custom_breadcrumb(); ?>
 </section>

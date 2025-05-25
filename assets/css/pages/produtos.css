@@ -3,5 +3,7 @@
 @import "../components/pageSubHeader.css";
 @import "../components/pageProduct.css";
 @import "../components/nextLaunches.css";
+@import "../components/sectionCatalogFull.css";
 @import "../components/pageCatalogProducts.css";
-@import "../components/footer.css"
+@import "../components/footer.css";
+@import "../components/cookies.css";

@@ -14,10 +14,12 @@
             'company-technology',            
         ],
         'produtos'          => ['product'],
+        'catalogo'          => ['catalog-full'],
         'blog'              => ['blog'],
         'representantes'    => ['representant-map-brazil'],
         'contato'           => ['contact-info'],
-        'trabalhe-conosco'  => ['work-with-us']
+        'trabalhe-conosco'  => ['work-with-us'],
+        'solicitar-catalogo-impresso' => ['printed-catalog'],
     ];
 ?>
 

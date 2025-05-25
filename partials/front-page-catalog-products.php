@@ -1,3 +1,4 @@
+<div class="loading-bar-container"><div class="loading-bar"></div></div>
 <section class="frontPageCatalogProducts" itemscope itemtype="https://schema.org/CreativeWork">
     <h2 itemprop="headline"><?php the_field('titleProducts', 'option'); ?></h2>
     <span itemprop="about" class="subtitle"><?php the_field('subTitleProduct', 'option'); ?></span>

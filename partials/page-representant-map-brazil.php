@@ -85,3 +85,4 @@
         <ul id="listRepresentants"></ul>
     </article>
 </section>
+<?php get_template_part('partials/catalogFull');?>

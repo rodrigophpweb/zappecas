@@ -2,7 +2,7 @@
 
     <main>
     <?php
-        foreach (['page-hero', 'page-about', 'page-catalog-products', /*'page-releases',*/ 'page-blog'] as $part) {
+        foreach (['page-hero', 'page-about', 'page-carouselNextProducts' ,'page-catalog-products', 'page-blog'] as $part) {
             get_template_part('partials/front', $part);
         }
     ?>
