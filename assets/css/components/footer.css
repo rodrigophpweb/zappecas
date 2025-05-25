@@ -65,43 +65,28 @@ footer {
         font-weight: 600;
         &:hover{
             text-decoration: underline;
+            color: var(--light);
         }
     }
     
     nav {        
+        .current_page_item {
+            a {
+                color: var(--light);
+            }            
+        }
+        
         a {
             text-transform: uppercase;
+
+            &:hover {
+                color: var(--light);
+            }
         }
 
         ul {
             li{
-    margin-bottom: .5rem;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
+                margin-bottom: .5rem;
                 @media screen and (min-width: 320px) and (max-width: 767px) {
                     font-size: 1.8rem;
                     margin-bottom: 1rem
@@ -168,4 +153,11 @@ footer {
         width: 6.4rem;
         height: 6.4rem;
     }
+}
+
+
+.archive footer nav .menu-item-2578 a,
+.page-id-2594 footer nav .menu-item-23 a,
+.single-produto footer nav .menu-item-2578 a {
+    color: var(--light);
 }

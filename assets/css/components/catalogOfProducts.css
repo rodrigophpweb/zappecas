@@ -1,0 +1,61 @@
+.catalogOfProducts {
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+
+  .catalogfilters {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--secondary);
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+
+      label {
+        flex: 1 1 100%;
+        font-weight: 600;
+        color: var(--secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      select,
+      input[type="text"] {
+        flex: 1 1 calc(33.333% - 1rem);
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--primary);
+        border-radius: 0.5rem;
+        font-size: 1.5rem;
+        transition: border-color 0.3s ease;
+        color: var(--secondary);
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+          border-color: var(--primary)
+          box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.2);
+        }
+      }
+
+      // Responsivo: empilhar abaixo de 768px
+      @media (max-width: 768px) {
+        select,
+        input[type="text"] {
+          flex: 1 1 100%;
+        }
+      }
+    }
+  }
+}

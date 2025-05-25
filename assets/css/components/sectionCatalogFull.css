@@ -1,0 +1,70 @@
+.ctaCatalog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--secondary);
+    overflow: hidden;
+    @media only screen and (max-width: 1024px) {
+        background: linear-gradient(to bottom, var(--darkGray), var(--secondary));
+    }
+
+    h2 {    
+        font-size: 5rem;
+        text-transform: uppercase;
+        color: var(--primary);
+
+        @media screen and (max-width: 1024px) {
+            font-size: 3.6rem;
+            text-align: center;
+            margin: 0 1rem;
+            
+        }
+    }
+
+    .subtitle {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: var(--light);
+        border-bottom:solid .1rem var(--primary);
+        padding: .5rem 0;
+        @media only screen and (max-width: 1024px) {
+            border: none;
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .catalogFull {
+        padding: 1.875rem 0;
+
+        a {
+            display: flex;
+            justify-content: center;
+            background-color: var(--primary);
+            border: solid .1rem var(--primary);
+            color: var(--light);
+            border-radius: .8rem;
+            width: max-content;
+            padding: 1rem 3rem;
+            margin: 1.25rem 0;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            
+            &:hover {
+                background-color: var(--light);
+                color: var(--secondary);
+                border: solid .1rem var(--secondary);
+            }
+
+            img {
+                margin-right: 1rem
+            }
+        }
+    }
+}

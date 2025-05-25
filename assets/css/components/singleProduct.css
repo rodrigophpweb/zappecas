@@ -1,0 +1,90 @@
+.singleProduct {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+
+    h2 {
+        width: 100%;
+        margin-bottom: 6.25rem;
+        display: block;
+        @media screen and (max-width: 768px) {
+            margin-bottom: 3.125rem;
+            
+        }
+    }
+
+    article {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-bottom: solid 1px var(--secondary);
+        padding-bottom: 1.25rem;
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;            
+        }
+
+
+        header {
+            border: none;
+        }
+
+        li {
+
+            strong {
+                color: var(--primary);
+                font-weight: 600;
+            }
+
+            color: var(--secondary);
+            font-size: 2rem;
+        }
+
+        figure,
+        header {
+            width: 30%;
+            max-width: 50rem;
+            margin: 0 auto;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                
+            }
+        }
+
+        figure {
+            img {
+                @media screen and (max-width: 768px) {
+                    width: 100%;   
+                }
+            }
+        }
+    }
+}
+
+.detailedProductInformation {
+    h3 {
+        margin-bottom: 1.25rem;
+        text-transform: uppercase;
+    }
+
+    p {
+        margin-bottom: .625rem;
+        color: var(--secondary);
+
+        a {
+            color: var(--primary);
+            padding: .625rem;
+            border-radius: .3125rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all .3s ease-in-out;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+}
