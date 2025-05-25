@@ -1,0 +1,23 @@
+name: Deploy to HostGator via FTP
+
+on:
+  push:
+    branches:
+      - main  # Altere se sua branch for outra
+
+jobs:
+  ftp-deploy:
+    name: FTP Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositório
+        uses: actions/checkout@v2
+
+      - name: Deploy via FTP para HostGator
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.zappecas.com.br
+          username: dev@zappecas.com.br
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: public_html/wp-content/themes/zappecas
+          local-dir: ./
