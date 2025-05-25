@@ -1,6 +1,6 @@
 .hero {
     position: relative;
-    overflow: hidden; /* Evita que as imagens saiam do contêiner */
+    overflow: hidden; 
 }
 
 .hero .images {
@@ -8,12 +8,12 @@
 }
 
 .hero .images figure {
-    display: none; /* Esconde todas as imagens inicialmente */
-    transition: opacity 0.5s ease; /* Transição suave */
+    display: none;
+    transition: opacity 0.5s ease;
 }
 
 .hero .images figure img {
-    width: 100%; /* Ajusta a largura das imagens */
+    width: 100%;
 }
 
 .hero .buttons {
@@ -28,12 +28,12 @@
         background-color: rgba(255, 255, 255, 0.8);
         border: none;
         border-radius: 50%;
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 4rem;
+        height: 4rem;
         cursor: pointer;
         transition: background-color 0.3s, transform 0.3s;
-        font-size: 1.6rem; /* Tamanho da seta */
-        color: #333; /* Cor da seta */
+        font-size: 1.6rem;
+        color: #333;
     }
 }
 
@@ -63,8 +63,8 @@
 
 .hero .bullets li {
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
     background: #ccc;
     margin: 0 .5rem;
     border-radius: 50%;

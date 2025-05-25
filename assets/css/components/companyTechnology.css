@@ -4,6 +4,10 @@
     align-items: center;
     text-align: center;
 
+    strong {
+        color: var(--secondary);
+    }
+
     .additionalInformation {
         display: flex;
         justify-content: space-around;

@@ -69,6 +69,18 @@
             font-size: 1.6rem;
           }
 
+          .productDescription {
+            ul {
+              li {
+                color: var(--secondary);
+
+                strong {
+                  color: var(--primary);
+                }
+              }
+            }
+          }
+
           .saiba-mais-btn {
                 display: inline-block;
                 background-color: var(--primary);

@@ -79,9 +79,9 @@
                 .titleRepresentantName {
                     font-weight: 600;
                     font-size: 1.8rem;
+                    color: var(--secondary)
                 }
-
-                font-size: 1.4rem;
+                
                 strong {
                     
                 }
