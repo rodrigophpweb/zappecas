@@ -28,8 +28,8 @@
         background-color: rgba(255, 255, 255, 0.8);
         border: none;
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 2.5rem;
+        height: 2.5rem;
         cursor: pointer;
         transition: background-color 0.3s, transform 0.3s;
         font-size: 1.6rem; /* Tamanho da seta */
@@ -44,12 +44,12 @@
 
 .hero .buttons .prev {
     position: relative;
-    left: 10px; /* Distância da borda esquerda */
+    left: 1rem; /* Distância da borda esquerda */
 }
 
 .hero .buttons .next {
     position: relative;
-    right: 10px; /* Distância da borda direita */
+    right: 1rem; /* Distância da borda direita */
 }
 
 .hero .bullets {
@@ -63,10 +63,10 @@
 
 .hero .bullets li {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 1rem;
+    height: 1rem;
     background: #ccc;
-    margin: 0 5px;
+    margin: 0 .5rem;
     border-radius: 50%;
     cursor: pointer;
 }

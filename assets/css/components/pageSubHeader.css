@@ -40,12 +40,12 @@
 
             li {
                 text-transform: uppercase;
-                margin-right: 10px;
+                margin-right: 1rem;
                 color: var(--secondary);
             
                 &:after {
                     content: ">";
-                    margin-left: 10px;
+                    margin-left: 1rem;
                 }
         
                 &:last-child:after {

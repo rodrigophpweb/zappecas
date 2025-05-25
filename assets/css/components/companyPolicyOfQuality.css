@@ -1,8 +1,8 @@
 .companyPolicyOfQuality {
     display: flex;
     background-color: var(--primary);
-    border-top: solid 2px var(--secondary);
-    border-bottom: solid 2px var(--secondary);
+    border-top: solid .125rem var(--secondary);
+    border-bottom: solid .125rem var(--secondary);
     @media only screen and (max-width: 1024px) {
         flex-direction: column
     }

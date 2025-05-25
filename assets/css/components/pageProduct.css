@@ -13,7 +13,7 @@
 
   .productList {
     background-color: #f9f9f9;
-    border-right: 2px solid #ddd;
+    border-right: .2rem solid #ddd;
     padding: 1rem;
     height: 100%;
 
@@ -60,8 +60,8 @@
             height: 18.75rem;
             display: block;
             margin-bottom: 1rem;
-            border-radius: 6px;
-            align-self: center; // 👈 Isso resolve a imagem desalinhada
+            border-radius: .6rem;
+            align-self: center; 
         }
 
         figcaption {
@@ -91,7 +91,7 @@
                     font-weight: 600;
                     text-decoration: none;
                     padding: 0.75rem 1.5rem;
-                    border-radius: 6px;
+                    border-radius: .6rem;
                     transition: background-color 0.3s ease;
 
                     &:hover {

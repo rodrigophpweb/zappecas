@@ -18,8 +18,8 @@
       font-size: 1.5rem;
       color: var(--secondary);
       padding: 0.5rem;
-      border-radius: 4px;
-      border: solid 1px var(--secondary);
+      border-radius: .4rem;
+      border: solid .1rem var(--secondary);
       background-color: var(--light);
       margin-left: 1rem;
       cursor: pointer;
@@ -51,18 +51,18 @@
   .product-card {
     flex: 1 1 calc(25% - 2rem);
     background-color: #fff;
-    border: 1px solid var(--primary);
-    border-radius: 8px;
+    border: .1rem solid var(--primary);
+    border-radius: .8rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 .2rem .6rem rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease;
     padding: .9375rem;
 
     &:hover {
-      transform: translateY(-4px);
+      transform: translateY(-.4rem);
     }
 
     figure {
@@ -154,11 +154,11 @@
   .page-numbers {
     background: var(--light);
     color: var(--secondary);
-    border: solid 1px var(--secondary);
+    border: solid .1rem var(--secondary);
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: .4rem;
 
     &:hover {
       background: var(--primary);

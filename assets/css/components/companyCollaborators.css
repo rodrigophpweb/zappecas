@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--secondary);
-    border-top: solid 3px var(--primary);
-    border-bottom: solid 3px var(--primary);
+    border-top: solid .1875rem var(--primary);
+    border-bottom: solid .1875rem var(--primary);
     h2 {
         color: var(--light);
     }
