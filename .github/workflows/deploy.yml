@@ -19,5 +19,5 @@ jobs:
           server: ftp.zappecas.com.br
           username: dev@zappecas.com.br
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: public_html/wp-content/themes/zappecas
+          server-dir: public_html/wp-content/themes/zappecas/
           local-dir: ./
