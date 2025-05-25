@@ -13,13 +13,14 @@
             'company-quality-certification',
             'company-technology',            
         ],
-        'produtos'          => ['product'],
-        'catalogo'          => ['catalog-full'],
-        'blog'              => ['blog'],
-        'representantes'    => ['representant-map-brazil'],
-        'contato'           => ['contact-info'],
-        'trabalhe-conosco'  => ['work-with-us'],
-        'solicitar-catalogo-impresso' => ['printed-catalog'],
+        'produtos'                      => ['product'],
+        'catalogo'                      => ['catalog-full'],
+        'blog'                          => ['blog'],
+        'representantes'                => ['representant-map-brazil'],
+        'contato'                       => ['contact-info'],
+        'trabalhe-conosco'              => ['work-with-us'],
+        'solicitar-catalogo-impresso'   => ['printed-catalog'],
+        'politica-de-privacidade'       => ['privacy-policy'],
     ];
 ?>
 

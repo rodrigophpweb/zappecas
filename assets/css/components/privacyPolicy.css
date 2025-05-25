@@ -1,0 +1,35 @@
+.privacyPolicy {
+    h2 {
+        margin-top: 5rem;
+    }
+
+    p {
+        margin: 1rem 0;
+        line-height: 1.5;
+    }
+
+    ul  {
+        li {
+            margin-left: 2rem;
+            padding-left: 1.5rem;
+            list-style: disc;
+
+            &::marker {
+                color: var(--primary);
+                
+            }
+        }
+    }
+
+    a {
+        color: var(--primary);
+        text-decoration: none
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            color: var(--primary);
+            text-decoration: underline;
+            transform: scale(1.05);
+        }
+    }
+}

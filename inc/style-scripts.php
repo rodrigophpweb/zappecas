@@ -25,6 +25,7 @@ function load_styles_and_scripts() {
         'contato'                       => 'contato.css',
         'trabalhe-conosco'              => 'trabalhe-conosco.css',
         'solicitar-catalogo-impresso'   => 'catalogo-impresso.css',
+        'politica-de-privacidade'       => 'politica-privacidade.css',
     ];
 
     foreach ($pages as $page => $css) {
