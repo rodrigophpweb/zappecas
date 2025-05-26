@@ -1,4 +1,8 @@
 <section class="pageProduct" itemscope itemtype="http://schema.org/Product">
+    <header class="pageHeader">
+        <h2 itemprop="name">Produtos feito sob medida para você </h1>
+        <div itemprop="description"><?php the_content()?></div>
+    </header>
     <aside class="productList">
         <h2>Linha de Produtos</h2>
         <ul>
