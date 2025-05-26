@@ -9,9 +9,15 @@
   align-items: stretch;
   padding: 1rem 5%;
   margin-bottom: 1.875rem;
+  
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    padding: 0 2%;
+      grid-template-rows: auto auto auto;
+      grid-template-areas:
+        "header"
+        "list"
+        "details";
+      padding: 0 2%;
     
   }
 
