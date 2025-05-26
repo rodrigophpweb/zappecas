@@ -63,8 +63,8 @@ This theme includes a GitHub Actions workflow to automate deployment. You can cu
 ## 👨‍💻 Author
 
 **Rodrigo Vieira Eufrásio da Silva**  
-[GitHub @rodrigophpweb](https://github.com/rodrigophpweb)
-[LinkedIn: Rodrigo Vieira Eufrasio da Silva](https://www.linkedin.com/in/rodrigo-vieira-e-da-silva/)
+- [GitHub @rodrigophpweb](https://github.com/rodrigophpweb)
+- [LinkedIn: Rodrigo Vieira Eufrasio da Silva] (https://www.linkedin.com/in/rodrigo-vieira-e-da-silva/)
 
 ---
 
