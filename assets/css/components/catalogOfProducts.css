@@ -1,6 +1,37 @@
 .catalogOfProducts {
-  padding: 2rem 1rem;
   background-color: #f9f9f9;
+
+  .pageHeader {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      
+      strong {
+        color: var(--primary);
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--secondary);
+        }
+      }
+    }
+  }
 
   .catalogfilters {
     max-width: 75rem;

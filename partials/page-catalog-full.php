@@ -1,4 +1,8 @@
 <section class="catalogOfProducts gridMargin">
+    <header class="pageHeader">
+        <h2 itemprop="name">Confira agora todos os nossos produtos </h2>
+        <div itemprop="description"><?php the_content()?></div>
+    </header>
     <search class="catalogfilters">
         <h2>Bem vindo ao nosso catálogo de produtos</h2>
         <div class="filters">

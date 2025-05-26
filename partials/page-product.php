@@ -1,6 +1,6 @@
 <section class="pageProduct" itemscope itemtype="http://schema.org/Product">
     <header class="pageHeader">
-        <h2 itemprop="name">Produtos feito sob medida para você </h1>
+        <h2 itemprop="name">Produtos feito sob medida para você </h2>
         <div itemprop="description"><?php the_content()?></div>
     </header>
     <aside class="productList">
