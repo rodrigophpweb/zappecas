@@ -152,6 +152,8 @@ footer {
     svg {
         width: 6.4rem;
         height: 6.4rem;
+        pointer-events: none;
+
     }
 }
 
