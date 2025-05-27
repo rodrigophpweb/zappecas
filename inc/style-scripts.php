@@ -6,6 +6,9 @@
  */
 
 function load_styles_and_scripts() {
+    // Versão randômica para evitar cache durante testes (troque por `filemtime()` no ambiente de produção)
+    $version = rand(100000, 999999);
+
     // Preconnect to Google Fonts
     wp_enqueue_style('google-fonts-preconnect1', 'https://fonts.googleapis.com', [], null);
     wp_enqueue_style('google-fonts-preconnect2', 'https://fonts.gstatic.com', [], null, 'crossorigin');
@@ -30,23 +33,23 @@ function load_styles_and_scripts() {
 
     foreach ($pages as $page => $css) {
         if (is_page($page)) {
-            wp_enqueue_style($page, get_template_directory_uri() . '/assets/css/pages/' . $css);
+            wp_enqueue_style($page, get_template_directory_uri() . '/assets/css/pages/' . $css, [], $version);
         }
     }
 
     // Load styles for single post
     if (is_single()) {
-        wp_enqueue_style('single-post', get_template_directory_uri() . '/assets/css/pages/single.css');
+        wp_enqueue_style('single-post', get_template_directory_uri() . '/assets/css/pages/single.css', [], $version);
     }
 
     // Load styles for single custom post type 'produto'
     if (is_singular('produto')) {
-        wp_enqueue_style('single-produto', get_template_directory_uri() . '/assets/css/pages/single-produto.css');
+        wp_enqueue_style('single-produto', get_template_directory_uri() . '/assets/css/pages/single-produto.css', [], $version);
     }
 
     // Load style for taxonomy 'linhas'
     if (is_tax('linha')) {
-        wp_enqueue_style('taxonomy-linhas', get_template_directory_uri() . '/assets/css/pages/taxonomy-lines.css');
+        wp_enqueue_style('taxonomy-linhas', get_template_directory_uri() . '/assets/css/pages/taxonomy-lines.css', [], $version);
     }
 }
 add_action('wp_enqueue_scripts', 'load_styles_and_scripts');
