@@ -51,10 +51,10 @@ function ocultar_plugins_para_zapadmin($plugins) {
         // Lista dos diretórios dos plugins a esconder
         $ocultar = [
             'all-in-one-wp-migration/all-in-one-wp-migration.php',
-            'all-in-one-wp-migration-unlimited-extension/unlimited-extension.php',
+            'all-in-one-wp-migration-unlimited-extension/all-in-one-wp-migration-unlimited-extension.php',
             'google-site-kit/google-site-kit.php',
             'loginpress/loginpress.php',
-            'bing-webmaster-url-submission/bing-webmaster-url-submission.php',
+            'bing-webmaster-tools/bing-url-submission.php',
         ];
 
         foreach ($ocultar as $plugin) {
