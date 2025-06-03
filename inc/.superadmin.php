@@ -36,8 +36,34 @@ function ocultar_itens_para_zapadmin() {
         remove_menu_page('ai1wm_export');
 
         // Remove "Bing Webmaster Tools"
-        remove_menu_page('bing-webmaster-tools');
+        remove_menu_page('bing-url-submission');
+
+        // Remove Login Press
+        remove_menu_page('loginpress-settings');
     }
 }
 add_action('admin_menu', 'ocultar_itens_para_zapadmin', 110);
+
+function ocultar_plugins_para_zapadmin($plugins) {
+    $usuario = wp_get_current_user();
+
+    if ($usuario->user_login === 'Z@Padmin') {
+        // Lista dos diretórios dos plugins a esconder
+        $ocultar = [
+            'all-in-one-wp-migration/all-in-one-wp-migration.php',
+            'google-site-kit/google-site-kit.php',
+            'loginpress/loginpress.php',
+            'bing-webmaster-tools/bing-webmaster-tools.php'
+        ];
+
+        foreach ($ocultar as $plugin) {
+            if (isset($plugins[$plugin])) {
+                unset($plugins[$plugin]);
+            }
+        }
+    }
+
+    return $plugins;
+}
+add_filter('all_plugins', 'ocultar_plugins_para_zapadmin');
 
