@@ -1,6 +1,8 @@
 @import "../components/variables.css";
 @import "../components/header.css";
 @import "../components/frontPageHero.css";
+@import "../components/frontPageDifferences.css";
+@import "../components/frontPageDistributorAndSI.css";
 @import "../components/frontPageAbout.css";
 @import "../components/nextLaunches.css";
 @import "../components/sectionCatalogFull.css";
@@ -9,12 +11,3 @@
 @import "../components/frontPageBlog.css";
 @import "../components/footer.css";
 @import "../components/cookies.css";;
-
-/* recursos.humanos@zappecas.com.br 
-
-wp-includes/css/dist/block-library/style.min.css
-wp-includes/css/dashicons.min.css
-http://zappecas.com/wp-includes/js/hoverintent-js.min.js?ver=2.2.1
-
-
-/*
