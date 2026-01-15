@@ -1,19 +1,19 @@
-name: Deploy to HostGator via FTP
+name: Deploy to Production (HostGator)
 
 on:
   push:
     branches:
-      - main  # Altere se sua branch for outra
+      - main  # Deploy para produção apenas na branch main
 
 jobs:
   ftp-deploy:
-    name: FTP Deploy
+    name: Deploy to Production
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repositório
         uses: actions/checkout@v2
 
-      - name: Deploy via FTP para HostGator
+      - name: Deploy via FTP para Produção (zappecas.com.br)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.zappecas.com.br

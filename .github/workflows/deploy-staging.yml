@@ -1,0 +1,23 @@
+name: Deploy to Staging (Homologação)
+
+on:
+  push:
+    branches:
+      - staging  # Deploy para homologação apenas na branch staging
+
+jobs:
+  ftp-deploy:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositório
+        uses: actions/checkout@v2
+
+      - name: Deploy via FTP para Homologação (zp.programadorweb.com.br)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.zp.programadorweb.com.br
+          username: dev@zp.programadorweb.com.br
+          password: ${{ secrets.FTP_PASSWORD_STAGING }}
+          server-dir: zp.programadorweb.com.br/wp-content/themes/zappecas/
+          local-dir: ./
