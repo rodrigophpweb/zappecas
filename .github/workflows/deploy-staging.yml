@@ -16,7 +16,7 @@ jobs:
       - name: Deploy via FTP para Homologação (zp.programadorweb.com.br)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ftp.zp.programadorweb.com.br
+          server: ftp.programadorweb.com.br
           username: dev@zp.programadorweb.com.br
           password: ${{ secrets.FTP_PASSWORD_STAGING }}
           server-dir: zp.programadorweb.com.br/wp-content/themes/zappecas/
