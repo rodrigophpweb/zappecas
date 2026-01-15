@@ -19,5 +19,5 @@ jobs:
           server: ftp.programadorweb.com.br
           username: dev@zp.programadorweb.com.br
           password: ${{ secrets.FTP_PASSWORD_STAGING }}
-          server-dir: zp.programadorweb.com.br/wp-content/themes/zappecas/
+          server-dir: /home3/prog3796/zp.programadorweb.com.br/wp-content/themes/zappecas/
           local-dir: ./
