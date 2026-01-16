@@ -106,3 +106,6 @@ include_once 'inc/user-editor-remove-yoast-seo.php';
 // Include file page-custom
 include_once 'inc/page-custom.php';
 
+// Include ACF fields for front-page
+include_once 'inc/fields/page-front.php';
+

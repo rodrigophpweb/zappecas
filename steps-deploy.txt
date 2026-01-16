@@ -1,0 +1,1 @@
+1 - Remover no ACF os campos da home, agora vamos controlar via código.
