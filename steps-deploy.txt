@@ -1,1 +1,2 @@
 1 - Remover no ACF os campos da home, agora vamos controlar via código.
+2 - Na home cadastrar as informações
