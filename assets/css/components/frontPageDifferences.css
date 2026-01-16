@@ -23,9 +23,11 @@
             color: var(--secondary);
             border-bottom: solid .2rem var(--primary);
             padding: .5rem 1rem;
-            width: max-content;
+            width: fit-content;
+            max-width: 90%;
             margin: 0 auto;
             font-family: "Poppins", sans-serif;
+            word-wrap: break-word;
         }
     }
     
