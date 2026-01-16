@@ -18,9 +18,7 @@
         <div class="content">
             <p itemprop="description"><?php echo esc_html($descriptionDistributorAndSI); ?></p>
             <?php if( $ctaDistributorAndSI ): ?>
-                <a href="<?php echo esc_url($ctaDistributorAndSI['url']); ?>" 
-                   class="btn" 
-                   itemprop="url">
+                <a href="<?php echo esc_url($ctaDistributorAndSI['url']); ?>" class="btn" itemprop="url" target="_blank" rel="noopener noreferrer">
                     <?php echo esc_html($ctaDistributorAndSI['title']); ?>
                 </a>
             <?php endif; ?>
