@@ -5,7 +5,7 @@
     $ctaDistributorAndSI = get_field('ctaDistributorAndSI');   
 ?>
 
-<section class="frontPageDistributorAndSI" itemscope itemtype="https://schema.org/Service">
+<section class="frontPageDistributorAndSI gridMargin" itemscope itemtype="https://schema.org/Service">
     <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
         <?php if( $imageDistributorAndSI ): ?>
             <img src="<?php echo esc_url($imageDistributorAndSI['url']); ?>" 

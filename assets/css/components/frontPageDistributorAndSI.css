@@ -1,27 +1,182 @@
 .frontPageDistributorAndSI {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 6rem 5%;
+    position: relative;
+    overflow: hidden;
+    
+    /* Efeito decorativo de fundo */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 60rem;
+        height: 60rem;
+        background: radial-gradient(circle, rgba(0, 160, 223, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -30%;
+        left: -10%;
+        width: 50rem;
+        height: 50rem;
+        background: radial-gradient(circle, rgba(1, 30, 65, 0.05) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+    }
     
     figure {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 90rem;
+        margin: 0 auto;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+        animation: fadeInScale 1s ease-out;
         
         img {
-            
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        &:hover img {
+            transform: scale(1.05);
         }
     }
     
     header {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 3rem;
+        animation: fadeInUp 0.8s ease-out 0.3s;
+        animation-fill-mode: both;
         
         h2 {
+            font-size: clamp(3rem, 5vw, 5rem);
+            text-transform: uppercase;
+            color: var(--secondary);
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 80rem;
+            position: relative;
+            padding-bottom: 2rem;
             
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 8rem;
+                height: .4rem;
+                background: linear-gradient(90deg, transparent, var(--primary), transparent);
+                border-radius: 1rem;
+            }
         }
         
         .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+            max-width: 75rem;
             
             p {
-                
+                font-size: clamp(1.5rem, 2vw, 1.8rem);
+                color: var(--text-color);
+                line-height: 1.8;
+                font-weight: 400;
+                font-family: "Poppins", sans-serif;
+                text-align: center;
             }
             
             .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1.5rem 4rem;
+                background: linear-gradient(135deg, var(--primary), #0088c0);
+                color: #ffffff;
+                font-size: clamp(1.5rem, 2vw, 1.7rem);
+                font-weight: 600;
+                font-family: "Poppins", sans-serif;
+                text-transform: uppercase;
+                border-radius: 5rem;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 .4rem 1.5rem rgba(0, 160, 223, 0.3);
+                position: relative;
+                overflow: hidden;
                 
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translate(-50%, -50%);
+                    transition: width 0.6s ease, height 0.6s ease;
+                }
+                
+                &:hover {
+                    transform: translateY(-0.3rem);
+                    box-shadow: 0 .8rem 2.5rem rgba(0, 160, 223, 0.4);
+                }
+                
+                &:hover::before {
+                    width: 30rem;
+                    height: 30rem;
+                }
+                
+                &:active {
+                    transform: translateY(-0.1rem);
+                    box-shadow: 0 .4rem 1rem rgba(0, 160, 223, 0.3);
+                }
             }
         }
+    }
+}
+
+/* Animações */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(4rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
