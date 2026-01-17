@@ -31,7 +31,7 @@
     
     .itens {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 35rem), 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 39rem), 1fr));
         gap: 3rem;
         padding: 2rem 0;
         
