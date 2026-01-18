@@ -1,9 +1,9 @@
 <section class="companyPrinciples gridMargin scale-up-section" itemscope itemtype="https://schema.org/Organization">
-    <h2><?=esc_html(get_field('titlePrinciples'))?></h2>
-    <span class="subtitle"><?=esc_html(get_field('subTitlePrinciples'))?></span>
-    <p><?=get_field('contentPrinciples')?></p>
+    <h2 itemprop="name"><?=esc_html(get_field('titlePrinciples'))?></h2>
+    <span class="subtitle" itemprop="slogan"><?=esc_html(get_field('subTitlePrinciples'))?></span>
+    <p itemprop="description"><?=get_field('contentPrinciples')?></p>
 
-    <div class="MissionVisionValues">        
+    <div class="MissionVisionValues" itemprop="knowsAbout">        
         <?php if( have_rows('mvv') ): ?>
             <?php 
             $mvvIndex = 0;
@@ -28,9 +28,11 @@
             ?>
             <article class="<?=esc_html($cssClass)?>" <?=$schemaProp ? 'itemprop="'.esc_attr($schemaProp).'"' : ''?>>                                   
                     <?=($svg_file && pathinfo($svg_file['url'], PATHINFO_EXTENSION) === 'svg' && $svg_content = file_get_contents($svg_file['url'])) ? $svg_content : '<!-- Erro ao carregar o SVG -->'?>
-                <div class="contentInternal">
-                    <h3><?=esc_html($titleContent)?></h3> 
-                    <p><?=esc_html($contentMVV)?></p>
+                <div class="contentInternal" itemscope itemtype="https://schema.org/Thing">
+                    <h3 itemprop="name"><?=esc_html($titleContent)?></h3> 
+                    <div class="contentParagraf" itemprop="description">
+                        <p><?=esc_html($contentMVV)?></p>
+                    </div>
                 </div>
             </article>
             <?php endwhile; ?>
