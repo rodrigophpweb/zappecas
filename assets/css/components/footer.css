@@ -73,6 +73,7 @@ footer {
         .current_page_item {
             a {
                 color: var(--light);
+                text-decoration: underline;
             }            
         }
         
@@ -122,6 +123,14 @@ footer {
                     svg {
                         path {
                             fill: var(--primary);
+                        }
+                    }
+                
+                    &:hover {
+                        svg {
+                            path {
+                                fill: var(--light);
+                            }
                         }
                     }
                 }

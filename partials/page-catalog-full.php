@@ -35,7 +35,7 @@
 </section>
 
 <?php
-    $paged        = max(1, get_query_var('paged')); // Pega a página atual
+    $paged        = max(1, get_query_var('paged'));
     $per_page     = 20;
     $offset_total = ($paged - 1) * $per_page;
 
@@ -49,7 +49,6 @@
     $termo_index = 0;
     $passos      = 0;
 
-    // Avança o offset inicial para começar da página correta
     while ($passos < $offset_total) {
         $query = new WP_Query([
             'post_type'      => 'produto',
@@ -73,10 +72,9 @@
         $termo_index++;
         wp_reset_postdata();
 
-        if ($termo_index >= count($termos) * 5) break; // trava de segurança
+        if ($termo_index >= count($termos) * 5) break;
     }
 
-    // Agora busca os produtos da página atual
     $produtos = [];
     $passos   = 0;
     while (count($produtos) < $per_page) {
@@ -103,10 +101,9 @@
         $termo_index++;
         wp_reset_postdata();
 
-        if ($termo_index >= count($termos) * 10) break; // trava de segurança
+        if ($termo_index >= count($termos) * 10) break;
     }
 
-    // Total de produtos para a paginação
     $total_produtos = wp_count_posts('produto')->publish;
     $total_pages    = ceil($total_produtos / $per_page);
 ?>
