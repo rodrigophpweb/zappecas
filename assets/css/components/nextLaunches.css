@@ -216,3 +216,10 @@
     }
   }
 }
+
+.page-front-page {
+  .nextLaunches {
+    margin-top: 0;
+  }
+}
+
