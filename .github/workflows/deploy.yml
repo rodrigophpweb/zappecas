@@ -13,6 +13,17 @@ jobs:
       - name: Checkout repositório
         uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Minificar CSS
+        run: npm run minify:css
+
       - name: Deploy via FTP para Produção (zappecas.com.br)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
