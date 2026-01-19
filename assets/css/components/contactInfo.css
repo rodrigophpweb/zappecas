@@ -1,7 +1,7 @@
 .contactInfo {
     display: flex;
     flex-direction: column;
-    border-bottom: solid 2px var(--primary);    
+    border-bottom: solid .125rem var(--primary);    
     
     h2, h3 {
         font-size: 3.5rem;

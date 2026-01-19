@@ -163,14 +163,13 @@ footer {
         height: 6.4rem;
         pointer-events: none;
         @media screen and (min-width: 320px) and (max-width: 767px) {
-            width: 64px;
-            height: 64px;
+            width: 4rem;
+            height: 4rem;
             
         }
 
     }
 }
-
 
 .archive footer nav .menu-item-2578 a,
 .page-id-2594 footer nav .menu-item-23 a,

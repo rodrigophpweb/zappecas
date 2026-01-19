@@ -1,0 +1,26 @@
+# Arquivos CSS minificados (gerados no deploy)
+*.min.css
+
+# Node modules
+node_modules/
+
+# Package lock
+package-lock.json
+
+# MacOS
+.DS_Store
+
+# WordPress
+wp-config-local.php
+.htaccess
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*

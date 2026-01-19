@@ -78,8 +78,7 @@
           box-shadow: 0 0 0 .125rem rgba(0, 119, 204, 0.2);
         }
       }
-
-      // Responsivo: empilhar abaixo de 768px
+      
       @media (max-width: 768px) {
         select,
         input[type="text"] {

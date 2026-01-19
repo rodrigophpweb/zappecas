@@ -1,0 +1,16 @@
+{
+  "name": "zappecas-theme",
+  "version": "1.0.0",
+  "description": "Theme WordPress Zap Peças - Build tools for CSS minification",
+  "scripts": {
+    "minify:css": "node minify-css.js"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "cssnano": "^7.0.6"
+  },
+  "keywords": ["wordpress", "theme", "zappecas"],
+  "author": "Rodrigo Vieira Eufrasio da Silva",
+  "license": "GPL-2.0-or-later"
+}
