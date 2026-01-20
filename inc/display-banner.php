@@ -15,9 +15,18 @@
 function display_banner($banner, $index) {
     $thumbnail_url = get_the_post_thumbnail_url($banner->ID, 'full');
     $title = get_the_title($banner);
+    $link = get_field('link_para_o_banner', $banner->ID);
 ?>
     <figure data-index="<?= esc_attr($index) ?>">
-        <img width="1920" src="<?= esc_url($thumbnail_url) ?>" alt="<?= esc_attr($title) ?>" loading="lazy">
+        <?php if ($link && !empty($link['url'])): ?>
+            <a href="<?= esc_url($link['url']) ?>" 
+               title="<?= esc_attr($link['title'] ?: $title) ?>"
+               <?= $link['target'] ? 'target="' . esc_attr($link['target']) . '"' : '' ?>>
+                <img width="1920" src="<?= esc_url($thumbnail_url) ?>" alt="<?= esc_attr($title) ?>" loading="lazy">
+            </a>
+        <?php else: ?>
+            <img width="1920" src="<?= esc_url($thumbnail_url) ?>" alt="<?= esc_attr($title) ?>" loading="lazy">
+        <?php endif; ?>
     </figure>
 <?php
 }
