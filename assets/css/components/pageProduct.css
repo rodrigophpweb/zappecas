@@ -26,19 +26,41 @@
     display: flex;
     flex-direction: column;
 
-    h2 {
-      margin-bottom: 2rem;
+    figure {
+      margin: 1.25rem 0;
+      text-align: center;
+      width: 40%;
+      /* Media query mobile */
+      @media screen and (max-width: 1024px) {
+        width: 100%;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: .6rem;
+      }
     }
 
-    p {
-      font-size: 1.6rem;
-      line-height: 2.4rem;
-      color: var(--secondary);
-      margin-bottom: 1.5rem;
-      
-      strong {
-        color: var(--primary);
+    .content-description {
+      width: 60%;
+      @media screen and (max-width: 1024px) {
+        width: 100%;
       }
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        color: var(--secondary);
+        margin-bottom: 1.5rem;
+        
+        strong {
+          color: var(--primary);
+        }
 
       a {
         color: var(--primary);
@@ -52,6 +74,7 @@
       }
     }
   }
+}
 
   .productList {
     grid-area: list;

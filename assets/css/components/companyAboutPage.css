@@ -24,12 +24,18 @@
         @media only screen and (max-width: 1024px) {
             width: 90%;
             margin: 0 auto;
+            flex-direction: column;
         }
 
         figure {
             margin-bottom: 2rem;
             width: 50%;
             padding: 1rem;
+
+            @media only screen and (max-width: 1024px) {
+                width: 100%;
+            }
+
             img {
                 width: 100%;
                 height: auto;
@@ -43,7 +49,7 @@
             color: var(--text-color);
             
             @media only screen and (max-width: 1024px) {
-                column-count: 1;
+                width: 100%;
             }
             p {      
                 margin-bottom: 2rem;      
