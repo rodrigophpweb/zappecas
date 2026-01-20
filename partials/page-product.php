@@ -1,7 +1,7 @@
 <section class="pageProduct" itemscope itemtype="http://schema.org/Product">
     <header class="pageHeader">
         <h2 itemprop="name">Produtos feito sob medida para você </h2>
-        <div itemprop="description">
+        <div class="description" itemprop="description">
              <figure>
                 <?php if (has_post_thumbnail()): ?>
                     <?php the_post_thumbnail('full', ['itemprop' => 'image', 'alt' => get_the_title()]); ?>
