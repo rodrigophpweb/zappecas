@@ -1,5 +1,10 @@
 <?php
-$args = ['post_type' => 'banner'];
+$args = [
+        'post_type' => 'banner',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'order' => 'ASC',
+    ];
 $the_query = new WP_Query($args);
 
 if ($the_query->have_posts()): ?>
