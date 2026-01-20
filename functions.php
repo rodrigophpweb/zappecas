@@ -79,6 +79,7 @@ $inc_files = [
     'inc/user-editor-remove-yoast-seo.php',
     'inc/page-custom.php',
     'inc/fields/page-front.php',
+    'inc/fields/banners.php',
 ];
 
 foreach ($inc_files as $file) {
