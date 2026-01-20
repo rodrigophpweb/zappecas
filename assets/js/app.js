@@ -26,20 +26,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Lógica para o botão "next"
-        nextButton.addEventListener("click", () => {
+        nextButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             currentIndex = (currentIndex + 1) % images.length;
             updateSlider();
         });
 
         // Lógica para o botão "prev"
-        prevButton.addEventListener("click", () => {
+        prevButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             updateSlider();
         });
 
         // Lógica para os bullets
         bullets.forEach((bullet, index) => {
-            bullet.addEventListener("click", () => {
+            bullet.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 currentIndex = index;
                 updateSlider();
             });
