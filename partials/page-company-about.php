@@ -5,6 +5,9 @@
     </div>
 
     <article>
+        <figure>
+            <?=get_the_post_thumbnail(get_the_ID(), 'large', ['alt' => get_the_title()])?>
+        </figure>
         <div class="contentCols">
             <?=get_the_content()?>
         </div>
