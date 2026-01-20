@@ -1,7 +1,14 @@
 <section class="catalogOfProducts gridMargin">
     <header class="pageHeader">
-        <h2 itemprop="name">Confira agora todos os nossos produtos </h2>
-        <div itemprop="description"><?php the_content()?></div>
+        <div class="content">
+            <h2 itemprop="name">Confira agora todos os nossos produtos </h2>
+            <div itemprop="description"><?php the_content()?></div>
+        </div>
+        <figure>
+            <?php if (has_post_thumbnail()): ?>
+                <?php the_post_thumbnail('full', ['itemprop' => 'image', 'alt' => get_the_title()]); ?>
+            <?php endif; ?>
+        </figure>
     </header>
     <search class="catalogfilters">
         <h2>Bem vindo ao nosso catálogo de produtos</h2>
