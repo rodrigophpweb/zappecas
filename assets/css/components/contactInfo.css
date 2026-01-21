@@ -142,6 +142,10 @@
             margin-bottom: 0.5rem;
         }
 
+        br {
+            display: none;
+        }
+        
         /* Indicador visual de campos obrigatórios */
         .wpcf7-form-control-wrap::before {
             content: "";
