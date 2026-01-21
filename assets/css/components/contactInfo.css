@@ -103,7 +103,7 @@
     .map-container {
         position: relative;
         width: 100%;
-        padding-bottom: 56.25%; /* Proporção 16:9 */
+        padding-bottom: 56.25%;
         height: 0;
         overflow: hidden;
         
@@ -111,9 +111,9 @@
             position: absolute;
             top: 0;
             left: 0;
+            border: 0;
             width: 100%;
             height: 100%;
-            border: 0;
         }    
     }
 }
@@ -138,6 +138,19 @@
         label {
             font-weight: 700;
             color: var(--secondary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Indicador visual de campos obrigatórios */
+        .wpcf7-form-control-wrap::before {
+            content: "";
+        }
+
+        label:has(+ .wpcf7-form-control-wrap .wpcf7-validates-as-required)::after {
+            content: " *";
+            color: #d32f2f;
+            font-weight: 700;
         }
         
         input[type="text"],
@@ -148,6 +161,73 @@
             margin-bottom: 2rem;
             border: solid .0625rem var(--secondary);
             border-radius: .8rem;
+            font-size: 1.6rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Estados de foco para acessibilidade por teclado */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 160, 223, 0.2);
+        }
+
+        /* Estados de erro */
+        .wpcf7-not-valid {
+            border-color: #d32f2f !important;
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1) !important;
+        }
+
+        /* Mensagens de validação */
+        .wpcf7-not-valid-tip {
+            color: #d32f2f;
+            font-size: 1.4rem;
+            margin-top: -1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Mensagens de resposta do formulário */
+        .wpcf7-response-output {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: .8rem;
+            font-size: 1.6rem;
+            text-align: center;
+        }
+
+        .wpcf7-mail-sent-ok {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: solid .125rem #4caf50;
+        }
+
+        .wpcf7-validation-errors,
+        .wpcf7-acceptance-missing {
+            background-color: #ffebee;
+            color: #c62828;
+            border: solid .125rem #d32f2f;
+        }
+
+        .wpcf7-spam-blocked,
+        .wpcf7-mail-sent-ng {
+            background-color: #fff3e0;
+            color: #e65100;
+            border: solid .125rem #ff9800;
+        }
+
+        /* Melhorar área de toque em mobile */
+        @media only screen and (max-width: 768px) {
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                padding: 1.8rem;
+                font-size: 1.6rem;
+                min-height: 4.4rem; /* 44px mínimo recomendado */
+            }
         }
 
         .wpcf7-list-item {
@@ -161,9 +241,10 @@
 
 
         input[type="submit"] {
-                        text-transform: uppercase;
+            text-transform: uppercase;
             background-color: #00a0df;
-            padding: 1rem 2rem;
+            color: #ffffff;
+            padding: 1.5rem 3rem;
             border-radius: .8rem;
             font-weight: 700;
             font-family: "Poppins", sans-serif;
@@ -171,12 +252,39 @@
             cursor: pointer;
             border: none;
             margin-top: 2rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            min-height: 4.4rem; /* Tamanho mínimo de toque */
+            min-width: 4.4rem;
 
             &:hover {
                 background-color: var(--secondary);
                 color: var(--primary);
             }
+
+            /* Estado de foco para navegação por teclado */
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(0, 160, 223, 0.3);
+            }
+
+            /* Feedback visual ao clicar */
+            &:active {
+                transform: scale(0.98);
+            }
+
+            /* Estado desabilitado durante envio */
+            &:disabled,
+            &[disabled] {
+                background-color: #cccccc;
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
+        }
+
+        /* Spinner de carregamento durante envio */
+        .wpcf7 form.submitting input[type="submit"] {
+            opacity: 0.7;
+            cursor: wait;
         }
     }
-
 }
