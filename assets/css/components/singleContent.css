@@ -9,6 +9,9 @@
         h2 {
             font-size: 5rem;
             text-align: center;
+            @media only screen and (max-width: 1024px){
+                font-size: 3.5rem;
+            }
         }
         p {
             display: flex;
