@@ -306,6 +306,26 @@ add_action( 'acf/include_fields', function() {
 			'allow_in_bindings' => 0,
 			'preview_size' => 'medium',
 		),
+		array(
+			'key' => 'field_frontPageAboutSubtitle',
+			'label' => 'Subtítulo da Seção Sobre',
+			'name' => 'frontPageAboutSubtitle',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => 'Texto do subtítulo que aparece na seção "Somos a maior por que fazemos o melhor"',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 'Somos a maior por que fazemos o melhor',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
 	),
 	'location' => array(
 		array(

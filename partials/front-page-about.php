@@ -1,6 +1,15 @@
 <section class="frontPageAbout gridMargin" itemscope itemtype="https://schema.org/Organization">
     <article itemprop="description">
-        <span class="subtitle">Somos a maior por que fazemos o melhor</span>
+        <span class="subtitle">
+            <?php
+                // Front Page About Subtitle
+                $frontPageAboutSubtitle = get_field('frontPageAboutSubtitle');
+                if( !empty( $frontPageAboutSubtitle ) ): 
+                    echo esc_html( $frontPageAboutSubtitle );
+                endif;
+            //Somos a maior por que fazemos o melhor
+            ?>
+        </span>
         <?=get_the_content()?>
     </article>
 
