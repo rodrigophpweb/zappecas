@@ -1,0 +1,47 @@
+<?php
+add_action( 'init', function() {
+	register_post_type( 'representante', array(
+	'labels' => array(
+		'name' => 'Representantes',
+		'singular_name' => 'Representante',
+		'menu_name' => 'Representantes',
+		'all_items' => 'Todos os Representantes',
+		'edit_item' => 'Editar Representante',
+		'view_item' => 'Ver Representante',
+		'view_items' => 'Ver Representantes',
+		'add_new_item' => 'Adicionar novo Representante',
+		'add_new' => 'Adicionar novo Representante',
+		'new_item' => 'Novo Representante',
+		'parent_item_colon' => 'Representante ascendente:',
+		'search_items' => 'Pesquisar Representantes',
+		'not_found' => 'Não foi possível encontrar representantes',
+		'not_found_in_trash' => 'Não foi possível encontrar representantes na lixeira',
+		'archives' => 'Arquivos de Representante',
+		'attributes' => 'Atributos de Representante',
+		'insert_into_item' => 'Inserir no representante',
+		'uploaded_to_this_item' => 'Enviado para este representante',
+		'filter_items_list' => 'Filtrar lista de representantes',
+		'filter_by_date' => 'Filtrar representantes por data',
+		'items_list_navigation' => 'Navegação na lista de Representantes',
+		'items_list' => 'Lista de Representantes',
+		'item_published' => 'Representante publicado.',
+		'item_published_privately' => 'Representante publicado de forma privada.',
+		'item_reverted_to_draft' => 'Representante revertido para rascunho.',
+		'item_scheduled' => 'Representante agendado.',
+		'item_updated' => 'Representante atualizado.',
+		'item_link' => 'Link de Representante',
+		'item_link_description' => 'Um link para um representante.',
+	),
+	'public' => true,
+	'hierarchical' => true,
+	'show_in_rest' => true,
+	'menu_icon' => 'dashicons-store',
+	'supports' => array(
+		0 => 'title',
+		1 => 'thumbnail',
+		2 => 'custom-fields',
+	),
+	'delete_with_user' => false,
+) );
+} );
+

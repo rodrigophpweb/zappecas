@@ -78,10 +78,12 @@ $inc_files = [
     'inc/filter-order-from-ctp-representants.php',
     'inc/user-editor-remove-yoast-seo.php',
     'inc/page-custom.php',
+    'inc/ctp/representatives.php',
     'inc/fields/page-front.php',
     'inc/fields/banners.php',
     'inc/fields/page-products.php',
     'inc/fields/products.php',
+    'inc/fields/representatives.php',
 ];
 
 foreach ($inc_files as $file) {
