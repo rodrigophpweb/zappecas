@@ -1,9 +1,9 @@
 <?php
 $args = [
-        'post_type' => 'banner',
-        'posts_per_page' => -1,
-        'post_status' => 'publish',
-        'order' => 'ASC',
+        'post_type'         => 'banner',
+        'posts_per_page'    =>  12,
+        'post_status'       => 'publish',
+        'order'             => 'ASC',
     ];
 $the_query = new WP_Query($args);
 
@@ -13,8 +13,8 @@ if ($the_query->have_posts()): ?>
             <?php while ($the_query->have_posts()): $the_query->the_post(); display_banner($post, $the_query->current_post); endwhile; ?>
         </div>
         <div class="buttons">
-            <button class="prev" title="Anterior">&#10094;</button>
-            <button class="next" title="Próximo">&#10095;</button>
+            <button class="prev" title="Slide Anterior">&#10094;</button>
+            <button class="next" title="Próximo Slide">&#10095;</button>
         </div>
         <ul class="bullets">
             <?php for ($i = 0; $i < $the_query->found_posts; $i++): ?>
