@@ -159,9 +159,14 @@
     font-size: 1.5rem;
     cursor: pointer;
     border-radius: .4rem;
+    width: 2.188rem;
+    height: 2.188rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
-      background: var(--primary);
+      background-color: var(--primary);
     }
 
   }
