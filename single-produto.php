@@ -32,4 +32,7 @@ get_template_part('partials/page', 'sub-header');
     </article>
 </section>
 
-<?php get_footer(); ?>
+<?php 
+    get_template_part('partials/front', 'catalog-products');
+    get_footer(); 
+?>
