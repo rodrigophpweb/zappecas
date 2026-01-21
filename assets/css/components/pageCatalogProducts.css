@@ -1,3 +1,4 @@
+.single-product .pageCatalogProducts,
 .pageCatalogProducts {
     padding: 5rem 5% 2rem;
     background: linear-gradient(to right, var(--primary), var(--darkGray));
