@@ -44,9 +44,9 @@
         <article class="relationshipCenter" itemscope itemtype="http://schema.org/Organization">
             <h3 itemprop="department">Central de Relacionamento Zap Peças</h3>
             <ul>
-                <li><strong itemprop="email">E-mail:</strong> <?=esc_html(get_field('mailWebsite', 'option'))?></li>
-                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php linkPhone()?>"><?=esc_html(get_field('phoneWebsite', 'option'))?></a></li>
-                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php cellPhone()?>"><?=esc_html(get_field('cellPhoneWebsite', 'option'))?></a></li>
+                <li><strong itemprop="email">E-mail:</strong> <a href="mailto:<?=esc_html(get_field('mailWebsite', 'option'))?>" target="_blank" rel="noopener noreferrer"><?=esc_html(get_field('mailWebsite', 'option'))?></a></li>
+                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php linkPhone()?>" target="_blank" rel="noopener noreferrer"><?=esc_html(get_field('phoneWebsite', 'option'))?></a></li>
+                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php cellPhone()?>" target="_blank" rel="noopener noreferrer"><?=esc_html(get_field('cellPhoneWebsite', 'option'))?></a></li>
             </ul>
         </article>
 

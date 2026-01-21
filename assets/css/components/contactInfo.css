@@ -48,6 +48,14 @@
                                 fill: var(--secondary);
                             }
                         }
+
+                        &:hover {
+                            svg {
+                                path {
+                                    fill: var(--primary);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -62,6 +70,15 @@
                 li {
                     strong {
                         font-weight: 600;
+                    }
+
+                    a {
+                        color: var(--secondary);
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
