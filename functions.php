@@ -80,6 +80,7 @@ $inc_files = [
     'inc/page-custom.php',
     'inc/fields/page-front.php',
     'inc/fields/banners.php',
+    'inc/fields/page-products.php',
 ];
 
 foreach ($inc_files as $file) {
