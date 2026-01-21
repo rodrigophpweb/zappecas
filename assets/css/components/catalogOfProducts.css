@@ -7,7 +7,7 @@
     
     @media screen and (max-width: 1024px){
       flex-direction: column-reverse;
-      padding-top: 0;
+      padding-top: 0gst;
     }
 
     .content {
@@ -15,7 +15,7 @@
       padding: 0 3rem;
       @media screen and (max-width: 1024px) {
         width: 100%;
-        padding: 0;
+        padding: 0 !important;
       }
       
       h2 {
