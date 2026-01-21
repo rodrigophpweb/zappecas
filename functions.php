@@ -84,6 +84,7 @@ $inc_files = [
     'inc/fields/page-products.php',
     'inc/fields/products.php',
     'inc/fields/representatives.php',
+    'inc/fields/customize.php',
 ];
 
 foreach ($inc_files as $file) {
