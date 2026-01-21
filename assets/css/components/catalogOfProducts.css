@@ -7,7 +7,7 @@
     
     @media screen and (max-width: 1024px){
       flex-direction: column-reverse;
-      padding-top: 0gst;
+      padding-top: 0 !important;
     }
 
     .content {
