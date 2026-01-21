@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 4rem;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    padding: 6rem 5%;
+    padding: 5rem 5%;
     position: relative;
     overflow: hidden;
     
@@ -63,10 +63,12 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 3rem;
         animation: fadeInUp 0.8s ease-out 0.3s;
         animation-fill-mode: both;
         border-bottom: none;
+        @media only screen and (max-width: 1024px) {
+            padding: 0 !important;
+        }
         
         h2 {
             font-size: clamp(3rem, 5vw, 5rem);

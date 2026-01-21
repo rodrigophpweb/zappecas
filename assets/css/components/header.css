@@ -75,7 +75,6 @@ header {
             }
         }
         .open {
-            max-height: 31.25rem; /* Ajuste conforme o tamanho do seu menu */
             display: block;
         }
     }
