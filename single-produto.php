@@ -33,6 +33,6 @@ get_template_part('partials/page', 'sub-header');
 </section>
 
 <?php 
-    get_template_part('partials/front', 'page-catalog-products');
+    get_template_part('partials/page', 'catalog-products');
     get_footer(); 
 ?>
