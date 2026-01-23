@@ -12,7 +12,7 @@
             <?php endif; ?>
         </figure>
         <article id="contentCatalog" class="article-animate" itemprop="mainEntity" itemscope itemtype="https://schema.org/CreativeWork">
-            <h3 itemprop="name">Cátalogo <span>de produtos</span></h3>
+            <h3 itemprop="name"><?php the_field('titleCatalogProducts', 'option'); ?></h3>
             <p itemprop="description"><?php the_field('descriptionCatalogProducts', 'option'); ?></p>
             <div class="buttons" itemprop="offers" itemscope itemtype="https://schema.org/OfferCatalog">
                 <?php 
