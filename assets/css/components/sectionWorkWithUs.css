@@ -1,7 +1,12 @@
 .workWithUs {
 
-    h2, h3 {
+    h2 {
         font-size: 3.5rem;
+        color: var(--primary);
+    }
+
+    h3 {
+        font-size: 2.5rem;
         color: var(--primary);
     }
 
