@@ -2,7 +2,7 @@
 
     <div class="line">
         <article class="contentContact">
-            <h2 itemprop="headline"><?= esc_html(get_field('wwu_title')) ?: 'Trabalhe Conosco' ?></h2>
+            <h2 itemprop="headline"><?= esc_html(get_field('wwu_title')) ?: 'Faça parte da nossa equipe' ?></h2>
             <p itemprop="description"><?= get_field('wwu_description') ?: '' ?></p>
         </article>
 

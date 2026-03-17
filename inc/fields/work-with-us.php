@@ -237,7 +237,7 @@ add_action( 'acf/include_fields', function() {
 			array(
 				'param' => 'page',
 				'operator' => '==',
-				'value' => 'trabalhe-conosco',
+				'value' => get_page_by_path('trabalhe-conosco') ? get_page_by_path('trabalhe-conosco')->ID : 0,
 			),
 		),
 	),
