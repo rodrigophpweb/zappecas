@@ -1,4 +1,4 @@
-name: Deploy to Staging (Homologação)
+name: Deploy to Staging (Homologação - VPS)
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - staging  # Deploy para homologação apenas na branch staging
 
 jobs:
-  ftp-deploy:
-    name: Deploy to Staging
+  deploy-staging:
+    name: Deploy to Staging (VPS)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repositório
@@ -24,11 +24,13 @@ jobs:
       - name: Minificar CSS
         run: npm run minify:css
 
-      - name: Deploy via FTP para Homologação (zp.programadorweb.com.br)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Deploy via SSH/RSYNC para VPS (Staging)
+        uses: burnett01/rsync-deployments@7.0.1
         with:
-          server: ftp.programadorweb.com.br
-          username: dev@zp.programadorweb.com.br
-          password: ${{ secrets.FTP_PASSWORD_STAGING }}
-          server-dir: ./
-          local-dir: ./
+          switches: -avzr --delete --exclude='.git' --exclude='node_modules' --exclude='.github'
+          path: ./
+          remote_path: ${{ secrets.VPS_STAGING_REMOTE_PATH }}
+          remote_host: ${{ secrets.VPS_HOST }}
+          remote_port: ${{ secrets.VPS_PORT }}
+          remote_user: ${{ secrets.VPS_USER }}
+          remote_key: ${{ secrets.VPS_SSH_KEY }}
