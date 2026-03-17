@@ -1,4 +1,67 @@
 .workWithUs {
+
+    h2, h3 {
+        font-size: 3.5rem;
+        color: var(--primary);
+    }
+
+    .line {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 5rem;
+        @media only screen and (max-width: 1024px) {
+            flex-direction: column;
+        }
+
+        .contentContact {
+            width: 45%;
+            @media only screen and (max-width: 1024px) {
+                width: 100%;
+            }
+        }
+
+        .socialMedia {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            @media only screen and (max-width: 1024px) {
+                width: 100%;
+                margin: 2rem 0 0;
+            }
+
+            ul {
+                width: 50%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2rem;
+                @media only screen and (max-width: 1024px) {
+                    width: 100%;
+                }
+
+                li {
+                    a {
+                        svg {
+                            path {
+                                fill: var(--secondary);
+                            }
+                        }
+
+                        &:hover {
+                            svg {
+                                path {
+                                    fill: var(--primary);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     p {
         margin-bottom: 2.5rem;
     }
