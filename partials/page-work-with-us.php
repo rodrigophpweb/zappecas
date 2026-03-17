@@ -2,12 +2,12 @@
 
     <div class="line">
         <article class="contentContact">
-            <h2 itemprop="headline">Fale Conosco</h2>
-            <p itemprop="description"><?php the_content();?></p>
+            <h2 itemprop="headline"><?= esc_html(get_field('wwu_title')) ?: 'Trabalhe Conosco' ?></h2>
+            <p itemprop="description"><?= get_field('wwu_description') ?: '' ?></p>
         </article>
 
         <div class="socialMedia" itemscope itemtype="http://schema.org/Organization">
-            <h2 itemprop="name">Redes Sociais</h2>
+            <h2 itemprop="name"><?= esc_html(get_field('wwu_social_title')) ?: 'Redes Sociais' ?></h2>
             <ul>
                 <li>
                     <a href="https://www.facebook.com/zappecas" target="_blank" itemprop="sameAs" title="Facebook Zap Peças" rel="noopener noreferrer">
@@ -40,7 +40,26 @@
         </div>
     </div>
 
-    <?php the_content();?>
+    <div class="line">
+        <article class="relationshipCenter" itemscope itemtype="http://schema.org/Organization">
+            <h3 itemprop="department"><?= esc_html(get_field('wwu_hr_title')) ?: 'Recursos Humanos Zap Peças' ?></h3>
+            <ul>
+                <li><strong itemprop="email">E-mail:</strong> <a href="mailto:<?= esc_attr(get_field('wwu_hr_email')) ?>" target="_blank" rel="noopener noreferrer"><?= esc_html(get_field('wwu_hr_email')) ?></a></li>
+                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php linkPhone()?>" target="_blank" rel="noopener noreferrer"><?=esc_html(get_field('phoneWebsite', 'option'))?></a></li>
+                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php cellPhone()?>" target="_blank" rel="noopener noreferrer"><?=esc_html(get_field('cellPhoneWebsite', 'option'))?></a></li>
+            </ul>
+        </article>
+
+        <address itemscope itemtype="http://schema.org/PostalAddress">
+            <h3><?= esc_html(get_field('wwu_address_title')) ?: 'Endereço' ?></h3>
+            <p itemprop="streetAddress"><?=get_field('addressWebsite', 'option')?></p>
+        </address>
+    </div>
+
+    <?php 
+        $file_label = get_field('wwu_form_file_label') ?: 'Anexar Currículo';
+    ?>
+
     <?=do_shortcode('[contact-form-7 id="0b3ad8e" title="Trabalho Conosco"]')?>
 </section>
 <?php get_template_part('partials/catalogFull');?>

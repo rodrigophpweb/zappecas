@@ -60,6 +60,36 @@
                 }
             }
         }
+
+        .relationshipCenter {
+            width: 45%;
+            @media only screen and (max-width: 1024px){
+                width: 100%;
+            }
+            ul {
+                li {
+                    strong {
+                        font-weight: 600;
+                    }
+
+                    a {
+                        color: var(--secondary);
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        address {
+            width: 45%;
+            @media only screen and (max-width: 1024px){
+                width: 100%;
+            }
+        }
     }
 
     p {
