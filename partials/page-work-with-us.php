@@ -42,7 +42,7 @@
 
     <div class="line">
         <article class="relationshipCenter" itemscope itemtype="http://schema.org/Organization">
-            <h3 itemprop="department"><?= esc_html(get_field('wwu_hr_title')) ?: 'Recursos Humanos Zap Peças' ?></h3>
+            <h2 itemprop="department"><?= esc_html(get_field('wwu_hr_title')) ?: 'Recursos Humanos Zap Peças' ?></h2>
             <ul>
                 <li><strong itemprop="email">E-mail:</strong> <a href="mailto:<?= esc_attr(get_field('wwu_hr_email')) ?>" target="_blank" rel="noopener noreferrer"><?= esc_html(get_field('wwu_hr_email')) ?></a></li>
                 <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php linkPhone()?>" target="_blank" rel="noopener noreferrer"><?=esc_html(get_field('phoneWebsite', 'option'))?></a></li>
@@ -51,7 +51,7 @@
         </article>
 
         <address itemscope itemtype="http://schema.org/PostalAddress">
-            <h3><?= esc_html(get_field('wwu_address_title')) ?: 'Endereço' ?></h3>
+            <h2><?= esc_html(get_field('wwu_address_title')) ?: 'Endereço' ?></h2>
             <p itemprop="streetAddress"><?=get_field('addressWebsite', 'option')?></p>
         </address>
     </div>
