@@ -63,29 +63,30 @@ function display_post_blog($post) {
 
 // Include arquivos do tema
 $inc_files = [
-    'inc/display-banner.php',
-    'inc/breadcrumb.php',
-    'inc/format-phones.php',
-    'inc/details-content-product.php',
-    'inc/get-representants.php',
-    'inc/style-scripts.php',
-    'inc/custom-scripts.php',
-    'inc/custom-colors.php',
-    'inc/filter-product-page.php',
-    'inc/filter-product.php',
-    'inc/filter-catalog.php',
-    'inc/show-text-description-product.php',
-    'inc/filter-order-from-ctp-representants.php',
-    'inc/user-editor-remove-yoast-seo.php',
-    'inc/page-custom.php',
-    'inc/ctp/representatives.php',
-    'inc/fields/page-front.php',
-    'inc/fields/banners.php',
-    'inc/fields/page-products.php',
-    'inc/fields/products.php',
-    'inc/fields/representatives.php',
-    'inc/fields/customize.php',
-    'inc/fields/work-with-us.php',
+    '.inc/block-wp-performance-analytics.php',
+    '.inc/display-banner.php',
+    '.inc/breadcrumb.php',
+    '.inc/format-phones.php',
+    '.inc/details-content-product.php',
+    '.inc/get-representants.php',
+    '.inc/style-scripts.php',
+    '.inc/custom-scripts.php',
+    '.inc/custom-colors.php',
+    '.inc/filter-product-page.php',
+    '.inc/filter-product.php',
+    '.inc/filter-catalog.php',
+    '.inc/show-text-description-product.php',
+    '.inc/filter-order-from-ctp-representants.php',
+    '.inc/user-editor-remove-yoast-seo.php',
+    '.inc/page-custom.php',
+    '.inc/ctp/representatives.php',
+    '.inc/fields/page-front.php',
+    '.inc/fields/banners.php',
+    '.inc/fields/page-products.php',
+    '.inc/fields/products.php',
+    '.inc/fields/representatives.php',
+    '.inc/fields/customize.php',
+    '.inc/fields/work-with-us.php',
 ];
 
 foreach ($inc_files as $file) {
@@ -94,16 +95,4 @@ foreach ($inc_files as $file) {
         include_once $file_path;
     }
 }
-
-add_filter('upgrader_pre_install', function($response, $hook_extra) {
-    if (isset($hook_extra['plugin'])) {
-        $blocked = ['wp-performance-analytics'];
-        foreach ($blocked as $plugin_slug) {
-            if (strpos($hook_extra['plugin'], $plugin_slug) !== false) {
-                return new WP_Error('plugin_blocked', 'Instalação bloqueada por segurança.');
-            }
-        }
-    }
-    return $response;
-}, 10, 2);
 
