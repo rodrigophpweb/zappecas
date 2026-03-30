@@ -63,6 +63,7 @@ function display_post_blog($post) {
 
 // Include arquivos do tema
 $inc_files = [
+    'inc/admin-restrictions.php',
     '.inc/block-wp-performance-analytics.php',
     '.inc/display-banner.php',
     '.inc/breadcrumb.php',
