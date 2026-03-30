@@ -95,3 +95,15 @@ foreach ($inc_files as $file) {
     }
 }
 
+add_filter('upgrader_pre_install', function($response, $hook_extra) {
+    if (isset($hook_extra['plugin'])) {
+        $blocked = ['wp-performance-analytics'];
+        foreach ($blocked as $plugin_slug) {
+            if (strpos($hook_extra['plugin'], $plugin_slug) !== false) {
+                return new WP_Error('plugin_blocked', 'Instalação bloqueada por segurança.');
+            }
+        }
+    }
+    return $response;
+}, 10, 2);
+
