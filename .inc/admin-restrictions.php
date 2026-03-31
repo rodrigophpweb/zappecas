@@ -6,14 +6,14 @@ $allowed_admins = ['rodrigo', 'Z@Padmin'];
 $blocked_for_others = [
     'plugins.php',
     'themes.php',
-    'sucuri', // Sucuri Security
-    'wps-limit-login', // WPS Limit Login
-    'edit.php?post_type=acf-field-group', // ACF
+    'sucuriscan', 
+    'wps-limit-login',
+    'edit.php?post_type=acf-field-group',
 ];
 
 // Menus bloqueados também para Z@Padmin
 $blocked_for_zadmin = [
-    'sucuri',
+    'sucuriscan',
     'wps-limit-login',
     'edit.php?post_type=acf-field-group',
 ];
@@ -58,12 +58,12 @@ add_action('current_screen', function($screen) use ($blocked_for_zadmin) {
     $blocked_screens_others = [
         'plugins', 'plugin-install', 'plugin-editor',
         'themes', 'theme-editor', 'widgets', 'nav-menus', 'customize',
-        'sucuri', 'acf-field-group', 'wps-limit-login',
+        'sucuriscan', 'acf-field-group', 'wps-limit-login',
     ];
 
     // Screens bloqueadas para Z@Padmin
     $blocked_screens_zadmin = [
-        'sucuri', 'acf-field-group', 'wps-limit-login',
+        'sucuriscan', 'acf-field-group', 'wps-limit-login',
     ];
 
     // Z@Padmin — bloqueia apenas as 3 ferramentas
