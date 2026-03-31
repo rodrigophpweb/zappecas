@@ -48,11 +48,23 @@ function display_post_blog($post) {
 <?php
 }
 
-// Include arquivos do tema — carregados no momento certo
+// Arquivos de segurança — carregam cedo
+$security_files = [
+    '.inc/admin-restrictions.php',
+    '.inc/block-wp-performance-analytics.php',
+    '.inc/protect-htaccess.php',
+];
+
+foreach ($security_files as $file) {
+    $file_path = get_template_directory() . '/' . $file;
+    if (file_exists($file_path)) {
+        include_once $file_path;
+    }
+}
+
+// Arquivos do tema — carregam no momento certo
 add_action('after_setup_theme', function() {
     $inc_files = [
-        // '.inc/admin-restrictions.php',
-        '.inc/block-wp-performance-analytics.php',
         '.inc/display-banner.php',
         '.inc/breadcrumb.php',
         '.inc/format-phones.php',
@@ -68,7 +80,6 @@ add_action('after_setup_theme', function() {
         '.inc/filter-order-from-ctp-representants.php',
         '.inc/user-editor-remove-yoast-seo.php',
         '.inc/page-custom.php',
-        // '.inc/protect-htaccess.php',
         '.inc/ctp/representatives.php',
         '.inc/fields/page-front.php',
         '.inc/fields/the-company.php',
