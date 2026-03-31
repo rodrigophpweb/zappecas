@@ -63,8 +63,7 @@ add_action('authenticate', function($user, $username, $password) {
     $suspicious_users = [
         'admin', 'administrator', 'adminbackup',
         'root', 'test', 'backup', 'wp-admin',
-        'demo', 'user', 'guest', 'zpadmin',
-        
+        'demo', 'user', 'guest', 'zpadmin',  
     ];
 
     foreach ($suspicious_users as $sus) {
