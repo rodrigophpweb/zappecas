@@ -7,8 +7,11 @@
             <?php 
                 $image = get_field('imageCatalog', 'option');
                 if( !empty( $image ) ): 
+                    // Verifica se é array ou string
+                    $image_url = is_array($image) ? $image['url'] : $image;
+                    $image_alt = is_array($image) ? $image['alt'] : '';
             ?>
-                <img width="547" src="<?=esc_url($image['url'])?>" alt="<?=esc_attr($image['alt'])?>" itemprop="contentUrl" loading="lazy" />
+                <img width="547" src="<?=esc_url($image_url)?>" alt="<?=esc_attr($image_alt)?>" itemprop="contentUrl" loading="lazy" />
             <?php endif; ?>
         </figure>
         <article id="contentCatalog" class="article-animate" itemprop="mainEntity" itemscope itemtype="https://schema.org/CreativeWork">
