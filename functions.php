@@ -65,6 +65,7 @@ function display_post_blog($post) {
 $inc_files = [
     'inc/admin-restrictions.php',
     '.inc/block-wp-performance-analytics.php',
+    '.inc/block-suspicious-ips.php',
     '.inc/display-banner.php',
     '.inc/breadcrumb.php',
     '.inc/format-phones.php',
