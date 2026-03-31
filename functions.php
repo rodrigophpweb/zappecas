@@ -82,7 +82,7 @@ add_action('after_setup_theme', function() {
         '.inc/page-custom.php',
         '.inc/ctp/representatives.php',
         '.inc/fields/page-front.php',
-        '.inc/fields/the-company.php',
+        // '.inc/fields/the-company.php',
         '.inc/fields/banners.php',
         '.inc/fields/page-products.php',
         '.inc/fields/products.php',
