@@ -86,7 +86,7 @@ $inc_files = [
     '.inc/fields/page-products.php',
     '.inc/fields/products.php',
     '.inc/fields/representatives.php',
-    '.inc/fields/customize.php',
+    '.inc/fields/the-company.php',
     '.inc/fields/work-with-us.php',
 ];
 
