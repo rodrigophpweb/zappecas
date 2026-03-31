@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
 /**
  * Proteção do .htaccess
  * - Força permissão 444 (somente leitura)
