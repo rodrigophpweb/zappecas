@@ -62,7 +62,9 @@ add_action('init', function() use ($manual_blocked_ips) {
 add_action('authenticate', function($user, $username, $password) {
     $suspicious_users = [
         'admin', 'administrator', 'adminbackup',
-        'root', 'test', 'backup', 'wp-admin'
+        'root', 'test', 'backup', 'wp-admin',
+        'demo', 'user', 'guest', 'zpadmin',
+        
     ];
 
     foreach ($suspicious_users as $sus) {
