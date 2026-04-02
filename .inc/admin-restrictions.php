@@ -56,7 +56,6 @@ add_action('current_screen', function($screen) {
     // Rodrigo acessa tudo
     if ($login === 'rodrigo') return;
 
-    // Screens bloqueadas para outros usuários
     $blocked_screens_others = [
         'plugins', 'plugin-install', 'plugin-editor',
         'themes', 'theme-editor', 'widgets', 'nav-menus', 'customize',
@@ -64,7 +63,6 @@ add_action('current_screen', function($screen) {
         'whl_settings',
     ];
 
-    // Screens bloqueadas para Z@Padmin
     $blocked_screens_zadmin = [
         'sucuriscan', 'acf-field-group', 'wps-limit-login', 'wps-hide-login',
         'whl_settings',
@@ -79,15 +77,18 @@ add_action('current_screen', function($screen) {
     }
 });
 
-// Bloqueio extra por parâmetro GET na URL (garante bloqueio mesmo que screen_id falhe)
+// Bloqueio extra por parâmetro GET na URL
 add_action('admin_init', function() {
+
+    // Garante que o usuário está autenticado
+    if (!is_user_logged_in()) return;
+
     $current_user = wp_get_current_user();
     $login = $current_user->user_login;
 
     // Rodrigo acessa tudo
     if ($login === 'rodrigo') return;
 
-    // Páginas bloqueadas por parâmetro ?page=
     $blocked_pages_zadmin = [
         'sucuriscan',
         'whl_settings',
