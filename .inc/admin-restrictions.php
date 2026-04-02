@@ -8,6 +8,7 @@ $blocked_for_others = [
     'themes.php',
     'sucuriscan', 
     'wps-limit-login',
+    'wps-hide-login',
     'edit.php?post_type=acf-field-group',
 ];
 
@@ -15,6 +16,7 @@ $blocked_for_others = [
 $blocked_for_zadmin = [
     'sucuriscan',
     'wps-limit-login',
+    'wps-hide-login',
     'edit.php?post_type=acf-field-group',
 ];
 
@@ -26,7 +28,7 @@ add_action('admin_menu', function() use ($blocked_for_others, $blocked_for_zadmi
     // Rodrigo vê tudo
     if ($login === 'rodrigo') return;
 
-    // Z@Padmin — bloqueia apenas ACF, Sucuri e WPS
+    // Z@Padmin — bloqueia ACF, Sucuri, WPS Limit e WPS Hide Login
     if ($login === 'Z@Padmin') {
         foreach ($blocked_for_zadmin as $menu) {
             remove_menu_page($menu);
@@ -58,15 +60,15 @@ add_action('current_screen', function($screen) use ($blocked_for_zadmin) {
     $blocked_screens_others = [
         'plugins', 'plugin-install', 'plugin-editor',
         'themes', 'theme-editor', 'widgets', 'nav-menus', 'customize',
-        'sucuriscan', 'acf-field-group', 'wps-limit-login',
+        'sucuriscan', 'acf-field-group', 'wps-limit-login', 'wps-hide-login',
     ];
 
     // Screens bloqueadas para Z@Padmin
     $blocked_screens_zadmin = [
-        'sucuriscan', 'acf-field-group', 'wps-limit-login',
+        'sucuriscan', 'acf-field-group', 'wps-limit-login', 'wps-hide-login',
     ];
 
-    // Z@Padmin — bloqueia apenas as 3 ferramentas
+    // Z@Padmin — bloqueia ACF, Sucuri, WPS Limit e WPS Hide Login
     if ($login === 'Z@Padmin') {
         foreach ($blocked_screens_zadmin as $blocked) {
             if (strpos($screen->id, $blocked) !== false) {
