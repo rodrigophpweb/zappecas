@@ -314,40 +314,77 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (window.location.pathname.endsWith('representantes/') || window.location.pathname.endsWith('representantes')) {
 
-        function exibirRepresentantes(data) {
+        function criarCardRepresentante(representant) {
+            const frag = document.createDocumentFragment();
+
+            const titleLi = document.createElement('li');
+            titleLi.innerHTML = `<span class="titleRepresentantName">${representant.title}</span>`;
+
+            const nameLi = document.createElement('li');
+            nameLi.innerHTML = `<strong>Nome do Representante: </strong>${representant.acf.nameRepresentant}`;
+
+            const contactLi = document.createElement('li');
+            contactLi.innerHTML = `<strong>Contato do Representante: </strong>${representant.acf.contactRepresentant}`;
+
+            const emailLi = document.createElement('li');
+            emailLi.innerHTML = `<strong>E-mail do Representante: </strong>${representant.acf.mailRepresentant}`;
+
+            const separatorHr = document.createElement('li');
+            separatorHr.innerHTML = `<span class="separatorHr"></span>`;
+
+            frag.appendChild(titleLi);
+            frag.appendChild(nameLi);
+            frag.appendChild(contactLi);
+            frag.appendChild(emailLi);
+            frag.appendChild(separatorHr);
+
+            return frag;
+        }
+
+        function exibirRepresentantes(data, isSP = false) {
             const listRepresentants = document.getElementById('listRepresentants');
             listRepresentants.innerHTML = '';
-        
-            if (data.length > 0) {
-                data.forEach(representant => {
-                    const titleLi = document.createElement('li');
-                    titleLi.innerHTML = `<span class="titleRepresentantName">${representant.title}</span>`;
-                    
-                    const nameLi = document.createElement('li');
-                    nameLi.innerHTML = `<strong>Nome do Representante: </strong>${representant.acf.nameRepresentant}`;
-                    
-                    const contactLi = document.createElement('li');
-                    contactLi.innerHTML = `<strong>Contato do Representante: </strong>${representant.acf.contactRepresentant}`;
-                    
-                    const emailLi = document.createElement('li');
-                    emailLi.innerHTML = `<strong>E-mail do Representante: </strong>${representant.acf.mailRepresentant}`;
 
-                    const separatorHr = document.createElement('li');
-                    separatorHr.innerHTML = `<span class="separatorHr"></span>`;
-        
-                    listRepresentants.appendChild(titleLi);
-                    listRepresentants.appendChild(nameLi);
-                    listRepresentants.appendChild(contactLi);
-                    listRepresentants.appendChild(emailLi);
-                    listRepresentants.appendChild(separatorHr);
-                });
-        
+            if (data.length > 0) {
+
+                if (isSP) {
+                    // Agrupa representantes por região na ordem definida
+                    const ordemRegioes = ['Capital', 'Interior', 'Vale do Paraíba'];
+                    const grupos = {};
+
+                    ordemRegioes.forEach(r => { grupos[r] = []; });
+
+                    data.forEach(rep => {
+                        const regiao = rep.acf.regiaoRepresentant || 'Sem Região';
+                        if (!grupos[regiao]) grupos[regiao] = [];
+                        grupos[regiao].push(rep);
+                    });
+
+                    ordemRegioes.forEach(regiao => {
+                        if (grupos[regiao] && grupos[regiao].length > 0) {
+                            // Cabeçalho da região
+                            const regiaoHeader = document.createElement('li');
+                            regiaoHeader.innerHTML = `<h3 class="titleRegiao">${regiao}</h3>`;
+                            listRepresentants.appendChild(regiaoHeader);
+
+                            grupos[regiao].forEach(rep => {
+                                listRepresentants.appendChild(criarCardRepresentante(rep));
+                            });
+                        }
+                    });
+
+                } else {
+                    data.forEach(representant => {
+                        listRepresentants.appendChild(criarCardRepresentante(representant));
+                    });
+                }
+
                 const phraseRepresentant = document.querySelector('#phraseRepresentant');
                 phraseRepresentant.style.display = 'none';
-        
+
                 const titleRepresentant = document.querySelector('.titleRepresentant');
                 titleRepresentant.style.display = "block";
-        
+
             } else {
                 listRepresentants.innerHTML = '<p>Nenhum representante encontrado para este estado.</p>';
             }
@@ -359,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 .then(response => response.json())
                 .then(data => {
                     console.log('Representantes encontrados:', data);
-                    exibirRepresentantes(data); // Chama a função para exibir os representantes
+                    exibirRepresentantes(data, stateId === 'brSP');
                 })
                 .catch(error => console.error('Erro ao buscar representantes:', error));
         }

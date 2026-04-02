@@ -3,8 +3,6 @@
     <p class="subtitle">Compromisso em oferecer a mais completa linha de produtos automotivos do mercado.</p>
 
     <article class="catalogFull">
-        <a href="<?=esc_url(home_url('catalogo'))?>" class="btnCatalogo" title="Confira nosso catálogo completo" rel="noopener noreferrer">
-            Confira nosso catálogo completo
-        </a>
+        <a href="<?=esc_url(home_url('catalogo'))?>" class="btnCatalogo" title="Confira nosso catálogo completo" rel="noopener noreferrer">Confira nosso catálogo completo</a>
     </article>
 </section>

@@ -1,13 +1,9 @@
 .pageRepresentantMapBrasil {
     display: flex;
     justify-content: space-between;
+    
     @media only screen and (max-width: 1024px) {
-        
-    
-    
-    flex-direction: column;
-    
-    
+        flex-direction: column;
     }
 
     .map-brazil {
@@ -88,6 +84,17 @@
             }
 
         }
+
+        .titleRegiao {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 2rem 0 1rem;
+            padding-bottom: .5rem;
+            border-bottom: .2rem solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
         .separatorHr {
             margin: 1rem 0;
             width: 100%;
@@ -97,7 +104,3 @@
         }
     }
 }
-
-
-
-

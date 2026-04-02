@@ -35,4 +35,4 @@ get_template_part('partials/page', 'sub-header');
 <?php 
     get_template_part('partials/page', 'catalog-products');
     get_footer(); 
-?>
+

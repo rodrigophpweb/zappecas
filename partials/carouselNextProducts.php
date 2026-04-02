@@ -44,7 +44,7 @@
                     <?php
                 endwhile;
 
-                echo '</header>'; // .carouselContent
+                echo '</header>';
                 wp_reset_postdata();
             else :
                 echo '<p>Nenhum produto encontrado.</p>';
@@ -58,7 +58,6 @@
 
         <nav class="carouselNavigation" aria-label="Navegação do carrossel">
             <ul class="bullets" role="tablist">
-                <!-- Bullets serão preenchidos pelo JS -->
             </ul>
         </nav>
     </section>

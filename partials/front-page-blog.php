@@ -14,5 +14,5 @@
             }
         ?>
     </div>
-    <a href="<?=site_url()?>/blog" title="Veja todos os Posts" itemprop="url" class="allPosts">Veja todos os Posts</a>
+    <a href="<?php echo esc_url( site_url('/blog') ); ?>" title="Veja todos os Posts" itemprop="url" class="allPosts">Veja todos os Posts</a>
 </section>
