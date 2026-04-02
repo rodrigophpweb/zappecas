@@ -61,7 +61,7 @@ add_action('init', function() use ($manual_blocked_ips) {
 // Bloqueia usernames suspeitos antes de verificar a senha
 add_action('authenticate', function($user, $username, $password) {
     $suspicious_users = [
-        'admin', 'administrator', 'adminbackup',
+        'admin', 'administrator', 'adminbackup', 'adminbackup62ab34',
         'root', 'test', 'backup', 'wp-admin',
         'demo', 'user', 'guest', 'zpadmin',  
     ];
