@@ -47,7 +47,7 @@
                 <li><strong itemprop="email">E-mail:</strong> <a href="mailto:<?= esc_attr(get_field('wwu_hr_email')) ?>" target="_blank" rel="noopener noreferrer"><?= esc_html(get_field('wwu_hr_email')) ?></a></li>
                 <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php linkPhone()?>" target="_blank" rel="noopener noreferrer"><?=esc_html(get_field('phoneWebsite', 'option'))?></a></li>
                 <?php $wwu_hr_fone = get_field('wwu_hr_fone'); if ($wwu_hr_fone) : ?>
-                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?=esc_attr(preg_replace('/[^0-9+]/', '', $wwu_hr_fone))?>" target="_blank" rel="noopener noreferrer"><?=esc_html($wwu_hr_fone)?></a></li>
+                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php linkPhoneHR()?>" target="_blank" rel="noopener noreferrer"><?=esc_html($wwu_hr_fone)?></a></li>
                 <?php endif; ?>
             </ul>
         </article>

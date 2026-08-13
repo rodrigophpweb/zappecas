@@ -20,3 +20,14 @@ function cellPhone(){
     $phonelink = preg_replace('/[^0-9+]/', '', $phone);
     echo $phonelink;
 }
+
+/*
+    * Função para retornar o telefone do RH formatado para uso em link "tel:"
+    * @return string Telefone do RH formatado
+*/
+
+function linkPhoneHR(){
+    $phone = esc_html(get_field('wwu_hr_fone'));
+    $phonelink = preg_replace('/[^0-9+]/', '', $phone);
+    echo $phonelink;
+}
