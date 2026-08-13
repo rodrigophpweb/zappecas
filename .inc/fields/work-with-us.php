@@ -157,6 +157,25 @@ add_action( 'acf/include_fields', function() {
 			'prepend' => '',
 			'append' => '',
 		),
+		array(
+			'key' => 'field_wwu_hr_fone',
+			'label' => 'Telefone do RH',
+			'name' => 'wwu_hr_fone',
+			'type' => 'text',
+			'instructions' => 'Telefone de contato do setor de Recursos Humanos',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '50',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '(00) 00000-0000',
+			'prepend' => '',
+			'append' => '',
+		),
 		// Accordion: Endereço
 		array(
 			'key' => 'field_wwu_address_accordion',

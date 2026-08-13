@@ -46,8 +46,9 @@
             <ul>
                 <li><strong itemprop="email">E-mail:</strong> <a href="mailto:<?= esc_attr(get_field('wwu_hr_email')) ?>" target="_blank" rel="noopener noreferrer"><?= esc_html(get_field('wwu_hr_email')) ?></a></li>
                 <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php linkPhone()?>" target="_blank" rel="noopener noreferrer"><?=esc_html(get_field('phoneWebsite', 'option'))?></a></li>
-                <!-- <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?php cellPhone()?>" target="_blank" rel="noopener noreferrer"><?=esc_html(get_field('cellPhoneWebsite', 'option'))?></a></li> -->
-                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:+5511934966866" target="_blank" rel="noopener noreferrer">+55 (11) 93496-6866</a></li>
+                <?php $wwu_hr_fone = get_field('wwu_hr_fone'); if ($wwu_hr_fone) : ?>
+                <li><strong itemprop="telephone">Fones:</strong> <a href="tel:<?=esc_attr(preg_replace('/[^0-9+]/', '', $wwu_hr_fone))?>" target="_blank" rel="noopener noreferrer"><?=esc_html($wwu_hr_fone)?></a></li>
+                <?php endif; ?>
             </ul>
         </article>
 
